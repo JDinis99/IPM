@@ -6295,7 +6295,7 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Brands';
 }
 
-h1, h2, h3, h4, h5, h6, p, span {
+h1, h2, h3, h4, h5, h6, p, span, button {
   font-family: 'Roboto';
   color: #271f30;
 }
@@ -6305,15 +6305,16 @@ h1, h2, h3, h4, h5, h6, p, span {
   width: 350px;
 }
 
-button {
+button, a.btn {
   outline: none;
   border: none;
   background: none;
   cursor: pointer;
+  display: inline-block;
   color: #271f30;
 }
 
-button.btn-circle {
+.btn-circle {
   border-radius: 50%;
   height: 40px;
   width: 40px;
@@ -6341,11 +6342,17 @@ button.btn-circle {
   opacity: 0.37;
 }
 
+.btn-small-light {
+  font-size: 10px;
+  color: white;
+  opacity: 0.37;
+}
+
 .btn-grey {
   background: #f2eded;
 }
 
-.btn-red button {
+.btn-red button, .btn-red .btn {
   color: white;
   background: #dc493a;
   -webkit-box-shadow: 0 0 0 5px rgba(220, 73, 58, 0.25);
@@ -6356,7 +6363,7 @@ button.btn-circle {
   color: #dc493a;
 }
 
-.btn-blue button {
+.btn-blue button, .btn-blue .btn {
   color: white;
   background: #287cc2;
   -webkit-box-shadow: 0 0 0 5px rgba(40, 124, 194, 0.25);
@@ -6367,7 +6374,7 @@ button.btn-circle {
   color: #287cc2;
 }
 
-.btn-green button {
+.btn-green button, .btn-green .btn {
   color: white;
   background: #7bc950;
   -webkit-box-shadow: 0 0 0 5px rgba(123, 201, 80, 0.25);
@@ -6498,6 +6505,8 @@ main#menu section#widgets .widget-box {
 main#menu section#widgets .widget-box #widget-strip {
   width: 300%;
   position: relative;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
 main#menu section#widgets .widget-box #widget-strip .widget {
@@ -6528,5 +6537,117 @@ main#menu section#actions {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+main#health {
+  background: -webkit-gradient(linear, left top, left bottom, from(#c15b50), to(#dc493a));
+  background: linear-gradient(#c15b50, #dc493a);
+  width: 100%;
+  height: 100%;
+  padding: 12px 14px;
+}
+
+main#health section#header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main#health section#header .btn {
+  text-align: center;
+  color: white;
+}
+
+main#health section#header .clock {
+  text-align: right;
+}
+
+main#health section#header .clock h2 {
+  font-size: 20px;
+  margin: 0;
+  color: white;
+}
+
+main#health section#header .clock p {
+  margin: 0;
+  color: white;
+  font-size: 10px;
+}
+
+main#health section#widgets {
+  margin: 12px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main#health section#widgets .widget-box {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+main#health section#widgets .widget-box #widget-strip {
+  width: 300%;
+  position: relative;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+main#health section#widgets .widget-box #widget-strip .widget {
+  display: inline-block;
+  width: 32%;
+  text-align: center;
+}
+
+main#health section#widgets .widget-box #widget-strip .widget h1 {
+  color: white;
+  margin: 0;
+  font-size: 36px;
+}
+
+main#health section#widgets .widget-box #widget-strip .widget h3 {
+  color: white;
+  margin: 0;
+  font-size: 20px;
+}
+
+main#health section#widgets .widget-box #widget-strip .widget p {
+  color: white;
+  margin: 0;
+  font-size: 12px;
+}
+
+main#health section#sos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main#health section#sos button {
+  color: white;
+  margin: 5px auto;
+  height: 65px;
+  width: 65px;
+  background: #271f30;
+  -webkit-box-shadow: 0 0 0 5px rgba(39, 31, 48, 0.25);
+          box-shadow: 0 0 0 5px rgba(39, 31, 48, 0.25);
+}
+
+main#health section#sos button:active {
+  -webkit-box-shadow: 0 0 0 5px #ff7700;
+          box-shadow: 0 0 0 5px #ff7700;
 }
 /*# sourceMappingURL=main.css.map */

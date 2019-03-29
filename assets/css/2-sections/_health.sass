@@ -1,5 +1,5 @@
-main#menu
-    background: linear-gradient(#ffffff, #efefef)
+main#health
+    background: linear-gradient(#c15b50, #dc493a)
     width: 100%
     height: 100%
     padding: 12px 14px
@@ -8,13 +8,19 @@ main#menu
         display: flex
         justify-content: space-between
 
+        .btn
+            text-align: center
+            color: white
+
         .clock
             text-align: right
             h2
                 font-size: 20px
                 margin: 0
+                color: white
             p
                 margin: 0
+                color: white
                 font-size: 10px
     
     section#widgets
@@ -39,16 +45,29 @@ main#menu
                     text-align: center
 
                     h1
+                        color: white
                         margin: 0
                         font-size: 36px
                     h3
+                        color: white
                         margin: 0
                         font-size: 20px
                     p
+                        color: white
                         margin: 0
                         font-size: 12px
     
-    section#actions
+    section#sos
         display: flex
         justify-content: space-between
-    
+
+        button
+            color: white
+            margin: 5px auto
+            height: 65px
+            width: 65px
+            background: #271f30
+            box-shadow: 0 0 0 5px rgba(39, 31, 48, 0.25)
+
+            &:active
+                box-shadow: 0 0 0 5px #ff7700
