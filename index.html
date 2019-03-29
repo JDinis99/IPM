@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iGo Simulator</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <div class="container">
+        <h1>iGo Simulator</h1>
+
+        <div id="wrapper">
+            <div id="content">
+                <!-- PAGES -->
+
+                <main id="menu">
+                    <section id="header">
+                        <button class="btn-circle btn-grey"><i class="fas fa-user"></i></button>
+                        <div class="clock">
+                            <h2>13:37</h2>
+                            <p>Monday, 18 March</p>
+                        </div>
+                    </section>
+                    <section id="widgets">
+                        <button onclick="moveWidget(1)" class="btn-small-dark"><i class="fa fa-chevron-left"></i></button>
+                    
+                        <!-- WIDGETS -->
+                        <div class="widget-box">
+                            <div style="left: 0px" id="widget-strip">
+                                <div class="widget">
+                                    <h1><i class="fas fa-cloud-sun"></i></h1>
+                                    <h3>22ºC</h3>
+                                    <p>Lisbon</p>
+                                </div>
+                                <div class="widget">
+                                    <h1><i class="fas fa-shoe-prints"></i></h1>
+                                    <h3>3212</h3>
+                                    <p>Steps</p>
+                                </div>
+                                <div class="widget">
+                                    <h1><i class="fas fa-route"></i></h1>
+                                    <h3>23</h3>
+                                    <p>Travels</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- ./WIDGETS -->
+
+                        <button onclick="moveWidget(-1)" class="btn-small-dark"><i class="fa fa-chevron-right"></i></button>
+                    </section>
+                    <section id="actions">
+                        <div class="btn-group btn-red">
+                            <a href="health.html" class="btn btn-circle"><i class="fas fa-heart"></i></a>
+                            <p>Health Care</p>
+                        </div>
+                        <div class="btn-group btn-green">
+                            <button class="btn-circle"><i class="fas fa-route"></i></button>
+                            <p>Track Travels</p>
+                        </div>
+                        <div class="btn-group btn-blue">
+                            <button class="btn-circle"><i class="fas fa-search"></i></button>
+                            <p>Find Nearby</p>
+                        </div>
+                    </section>
+
+                    <div id="btn-notifications">
+                        <button class="btn-small-dark"><i class="fa fa-chevron-up"></i></button>
+                    </div>
+                </main>
+
+                <!-- ./PAGES -->
+                <!-- <img src="assets/img/home.png" width="200" alt="home"> -->
+            </div>
+            <div id="device">
+                <img id="device-frame" src="assets/img/frame.png" width="230" alt="frame">
+            </div>
+        </div>
+        <div id="button-strip">
+            <button class="btn-circle" id="btn-home">
+                <i class="fas fa-home"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
