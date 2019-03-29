@@ -6295,8 +6295,9 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Brands';
 }
 
-* {
+h1, h2, h3, h4, h5, h6, p, span {
   font-family: 'Roboto';
+  color: #271f30;
 }
 
 .container {
@@ -6309,6 +6310,7 @@ button {
   border: none;
   background: none;
   cursor: pointer;
+  color: #271f30;
 }
 
 button.btn-circle {
@@ -6465,17 +6467,17 @@ main#menu section#header .clock {
 }
 
 main#menu section#header .clock h2 {
-  font-size: 22px;
+  font-size: 20px;
   margin: 0;
 }
 
 main#menu section#header .clock p {
   margin: 0;
-  font-size: 11px;
+  font-size: 10px;
 }
 
 main#menu section#widgets {
-  margin: 14px 0;
+  margin: 12px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6493,27 +6495,28 @@ main#menu section#widgets .widget-box {
   position: relative;
 }
 
-main#menu section#widgets .widget-box .widget-strip {
+main#menu section#widgets .widget-box #widget-strip {
   width: 300%;
+  position: relative;
 }
 
-main#menu section#widgets .widget-box .widget-strip .widget {
+main#menu section#widgets .widget-box #widget-strip .widget {
   display: inline-block;
   width: 32%;
   text-align: center;
 }
 
-main#menu section#widgets .widget-box .widget-strip .widget h1 {
+main#menu section#widgets .widget-box #widget-strip .widget h1 {
   margin: 0;
   font-size: 36px;
 }
 
-main#menu section#widgets .widget-box .widget-strip .widget h3 {
+main#menu section#widgets .widget-box #widget-strip .widget h3 {
   margin: 0;
   font-size: 20px;
 }
 
-main#menu section#widgets .widget-box .widget-strip .widget p {
+main#menu section#widgets .widget-box #widget-strip .widget p {
   margin: 0;
   font-size: 12px;
 }
