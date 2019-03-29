@@ -6295,9 +6295,10 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Brands';
 }
 
-h1, h2, h3, h4, h5, h6, p, span, button {
+h1, h2, h3, h4, h5, h6, p, span, button, .btn, a {
   font-family: 'Roboto';
   color: #271f30;
+  text-transform: none;
 }
 
 .container {
@@ -6636,7 +6637,7 @@ main#health section#sos {
           justify-content: space-between;
 }
 
-main#health section#sos button {
+main#health section#sos .btn {
   color: white;
   margin: 5px auto;
   height: 65px;
@@ -6646,8 +6647,77 @@ main#health section#sos button {
           box-shadow: 0 0 0 5px rgba(39, 31, 48, 0.25);
 }
 
-main#health section#sos button:active {
+main#health section#sos .btn:active {
   -webkit-box-shadow: 0 0 0 5px #ff7700;
           box-shadow: 0 0 0 5px #ff7700;
+}
+
+main#sos {
+  background: -webkit-gradient(linear, left top, left bottom, from(#39445b), to(#283245));
+  background: linear-gradient(#39445b, #283245);
+  width: 100%;
+  height: 100%;
+  padding: 12px 14px;
+}
+
+main#sos section#header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main#sos section#header .btn {
+  text-align: center;
+  color: white;
+}
+
+main#sos section#header .clock {
+  text-align: right;
+}
+
+main#sos section#header .clock h2 {
+  font-size: 20px;
+  margin: 0;
+  color: white;
+}
+
+main#sos section#header .clock p {
+  margin: 0;
+  color: white;
+  font-size: 10px;
+}
+
+main#sos section#text {
+  margin: 12px 0;
+  text-align: center;
+}
+
+main#sos section#text h1 {
+  color: #dc493a;
+  margin: 0;
+  font-size: 36px;
+}
+
+main#sos section#text h3 {
+  color: white;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+main#sos section#icon {
+  color: #dc493a;
+  font-size: 50px;
+  text-shadow: 2px 2px white;
+  margin: 25px auto;
+  width: 102px;
+}
+
+main#sos section#icon span {
+  text-shadow: 2px 2px #dc493a;
+  color: white;
 }
 /*# sourceMappingURL=main.css.map */
