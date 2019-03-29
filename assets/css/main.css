@@ -6304,6 +6304,78 @@ readers do not read off random characters that represent icons */
   width: 350px;
 }
 
+button {
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+button.btn-circle {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  font-size: 18px;
+  line-height: 40px;
+}
+
+.btn-group {
+  text-align: center;
+}
+
+.btn-group p {
+  margin: 0;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+#btn-notifications {
+  text-align: center;
+}
+
+.btn-small-dark {
+  font-size: 10px;
+  color: #271f30;
+  opacity: 0.37;
+}
+
+.btn-grey {
+  background: #f2eded;
+}
+
+.btn-red button {
+  color: white;
+  background: #dc493a;
+  -webkit-box-shadow: 0 0 0 5px rgba(220, 73, 58, 0.25);
+          box-shadow: 0 0 0 5px rgba(220, 73, 58, 0.25);
+}
+
+.btn-red p {
+  color: #dc493a;
+}
+
+.btn-blue button {
+  color: white;
+  background: #287cc2;
+  -webkit-box-shadow: 0 0 0 5px rgba(40, 124, 194, 0.25);
+          box-shadow: 0 0 0 5px rgba(40, 124, 194, 0.25);
+}
+
+.btn-blue p {
+  color: #287cc2;
+}
+
+.btn-green button {
+  color: white;
+  background: #7bc950;
+  -webkit-box-shadow: 0 0 0 5px rgba(123, 201, 80, 0.25);
+          box-shadow: 0 0 0 5px rgba(123, 201, 80, 0.25);
+}
+
+.btn-green p {
+  color: #7bc950;
+}
+
 #wrapper {
   position: relative;
   margin-top: 50px;
@@ -6326,10 +6398,16 @@ readers do not read off random characters that represent icons */
 #wrapper #content {
   position: absolute;
   display: block;
+  border-radius: 10%;
+  overflow: hidden;
+  width: 200px;
+  height: 250px;
 }
 
 #wrapper #device {
+  margin-top: 2px;
   position: absolute;
+  pointer-events: none;
 }
 
 #button-strip {
@@ -6341,14 +6419,10 @@ readers do not read off random characters that represent icons */
 }
 
 #button-strip #btn-home {
-  font-size: 26px;
   color: rgba(250, 250, 250, 0.85);
   background: #333333;
-  border-radius: 50%;
-  padding: 12px;
   -webkit-transition: all .1s ease-in-out;
   transition: all .1s ease-in-out;
-  cursor: pointer;
   text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.3);
 }
 
@@ -6367,5 +6441,89 @@ readers do not read off random characters that represent icons */
   color: white;
   -webkit-transform: translateY(0) scale(1);
           transform: translateY(0) scale(1);
+}
+
+main#menu {
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#efefef));
+  background: linear-gradient(#ffffff, #efefef);
+  width: 100%;
+  height: 100%;
+  padding: 12px 14px;
+}
+
+main#menu section#header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main#menu section#header .clock {
+  text-align: right;
+}
+
+main#menu section#header .clock h2 {
+  font-size: 22px;
+  margin: 0;
+}
+
+main#menu section#header .clock p {
+  margin: 0;
+  font-size: 11px;
+}
+
+main#menu section#widgets {
+  margin: 14px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main#menu section#widgets .widget-box {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+main#menu section#widgets .widget-box .widget-strip {
+  width: 300%;
+}
+
+main#menu section#widgets .widget-box .widget-strip .widget {
+  display: inline-block;
+  width: 32%;
+  text-align: center;
+}
+
+main#menu section#widgets .widget-box .widget-strip .widget h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+main#menu section#widgets .widget-box .widget-strip .widget h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+main#menu section#widgets .widget-box .widget-strip .widget p {
+  margin: 0;
+  font-size: 12px;
+}
+
+main#menu section#actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 /*# sourceMappingURL=main.css.map */
