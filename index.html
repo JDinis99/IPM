@@ -7,7 +7,7 @@
     <title>iGo Simulator</title>
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body>
+<body onload="startClock()">
     <div class="container">
         <h1>iGo Simulator</h1>
 
@@ -19,8 +19,8 @@
                     <section id="header">
                         <button class="btn-circle btn-grey"><i class="fas fa-user"></i></button>
                         <div class="clock">
-                            <h2>13:37</h2>
-                            <p>Monday, 18 March</p>
+                            <h2 id="clock-time">13:37</h2>
+                            <p id="clock-date">Monday, 18 March</p>
                         </div>
                     </section>
                     <section id="widgets">
@@ -54,15 +54,15 @@
                     <section id="actions">
                         <div class="btn-group btn-red">
                             <a href="health.html" class="btn btn-circle"><i class="fas fa-heart"></i></a>
-                            <p>Health Care</p>
+                            <p>Health</p>
                         </div>
                         <div class="btn-group btn-green">
                             <button class="btn-circle"><i class="fas fa-route"></i></button>
-                            <p>Track Travels</p>
+                            <p>Travel</p>
                         </div>
                         <div class="btn-group btn-blue">
                             <button class="btn-circle"><i class="fas fa-search"></i></button>
-                            <p>Find Nearby</p>
+                            <p>Find</p>
                         </div>
                     </section>
 

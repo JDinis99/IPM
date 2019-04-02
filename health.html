@@ -30,7 +30,7 @@
                         <div class="widget-box">
                             <div style="left: 0px" id="widget-strip">
                                 <div class="widget">
-                                    <h1><i class="fas fa-heart"></i></h1>
+                                    <h1><i class="far fa-heart-rate"></i></h1>
                                     <h3>88</h3>
                                     <p>bpm</p>
                                 </div>
@@ -52,7 +52,7 @@
                         <button onclick="moveWidget(-1)" class="btn-small-light"><i class="fa fa-chevron-right"></i></button>
                     </section>
                     <section id="sos">
-                        <button onclick="window.location = 'sos.html'" class="btn btn-circle">SOS</button>
+                        <button onmousedown="startSOS(this)" onmouseup="stopSOS(this)" id="btn-sos" class="btn btn-circle">SOS</button>
                     </section>
 
                     <div id="btn-notifications">

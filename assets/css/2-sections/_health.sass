@@ -67,7 +67,24 @@ main#health
             height: 65px
             width: 65px
             background: #271f30
-            box-shadow: 0 0 0 5px rgba(39, 31, 48, 0.25)
+            position: relative
 
-            &:active
-                box-shadow: 0 0 0 5px #ff7700
+            &:before
+                content: ''
+                height: 100%
+                width: 100%
+                display: block
+                box-shadow: 0 0 0 7px rgba(39, 31, 48, 0.25)
+                position: absolute
+                top: 0
+                left: 0
+                border-radius: 50%
+        
+        .sos-pressed
+            animation: sos-pressed 3s infinite both
+
+@keyframes sos-pressed
+    0%
+        box-shadow: 0 0 0 0px #54C1F2
+    100%
+        box-shadow: 0 0 0 10px #54C1F2
