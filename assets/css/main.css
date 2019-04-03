@@ -11517,6 +11517,7 @@ button, a.btn {
   cursor: pointer;
   display: inline-block;
   color: #271f30;
+  text-decoration: none;
 }
 
 .btn-circle {
@@ -11754,6 +11755,11 @@ main#health {
   padding: 12px 14px;
 }
 
+main#health section {
+  z-index: 1;
+  position: relative;
+}
+
 main#health section#header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11834,6 +11840,74 @@ main#health section#widgets .widget-box #widget-strip .widget p {
   font-size: 12px;
 }
 
+main#health section#general {
+  text-align: center;
+  margin: 10px auto;
+}
+
+main#health section#general h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 400;
+  color: white;
+}
+
+main#health section#general i {
+  font-size: 34px;
+  color: #45DE86;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+main#health section#more {
+  text-align: center;
+  margin: 20px auto;
+}
+
+main#health section#more a {
+  background: #271f30;
+  color: white;
+  padding: 7px 15px;
+  border-radius: 2px;
+  -webkit-box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+main#health section#waves {
+  z-index: 0;
+  position: static;
+}
+
+main#health section#waves .wave {
+  top: 75%;
+  left: -200%;
+  width: 1000px;
+  height: 1025px;
+  background-color: #45DE86;
+  opacity: 0.8;
+  position: absolute;
+  border-radius: 40%;
+  z-index: 0;
+}
+
+main#health section#waves .wave.one {
+  opacity: 0.8;
+  -webkit-animation: wave 12s linear -1s infinite;
+          animation: wave 12s linear -1s infinite;
+}
+
+main#health section#waves .wave.two {
+  opacity: 0.6;
+  -webkit-animation: wave 14s linear -1s infinite;
+          animation: wave 14s linear -1s infinite;
+}
+
+main#health section#waves .wave.three {
+  opacity: 0.4;
+  -webkit-animation: wave 18s linear -1s infinite;
+          animation: wave 18s linear -1s infinite;
+}
+
 main#health section#sos {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11889,6 +11963,28 @@ main#health section#sos .sos-pressed {
   100% {
     -webkit-box-shadow: 0 0 0 10px #54C1F2;
             box-shadow: 0 0 0 10px #54C1F2;
+  }
+}
+
+@-webkit-keyframes wave {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes wave {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 

@@ -7,7 +7,7 @@
     <title>iGo Simulator</title>
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body>
+<body onload="startClock()">
     <div class="container">
         <h1>iGo Simulator</h1>
 
@@ -17,10 +17,10 @@
 
                 <main id="health">
                     <section id="header">
-                        <a href="index.html" class="btn btn-circle"><i class="fas fa-arrow-left"></i></a>
+                        <a href="health-splash.html" class="btn btn-circle"><i class="fas fa-arrow-left"></i></a>
                         <div class="clock">
-                            <h2>13:37</h2>
-                            <p>Monday, 18 March</p>
+                            <h2 id="clock-time"></h2>
+                            <p id="clock-date"></p>
                         </div>
                     </section>
                     <section id="widgets">
