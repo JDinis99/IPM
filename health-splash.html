@@ -7,7 +7,7 @@
     <title>iGo Simulator</title>
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body onload="startClock()">
+<body onload="startClock(); randomizeHealthInfo()">
     <div class="container">
         <h1>iGo Simulator</h1>
 
@@ -31,8 +31,8 @@
                     </section>
                     
                     <section id="general">
-                        <i class="fas fa-laugh-wink"></i>
-                        <h2>You're looking healthy!</h2>
+                        <i id="status-icon" class="fas"></i>
+                        <h2 id="status-info">You're looking healthy!</h2>
                     </section>
 
                     <section id="more">
