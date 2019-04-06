@@ -535,6 +535,41 @@ template {
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+.c-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.c-slider__container {
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.c-slider__container--mouse-drag-enabled > .c-slider__slide {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.c-slider__container--is-dragging > .c-slider__slide * {
+  cursor: move;
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.c-slider__slide {
+  float: left;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
 .fa,
 .fas,
 .far,
@@ -11715,36 +11750,28 @@ main#menu section#widgets {
 }
 
 main#menu section#widgets .widget-box {
-  overflow: hidden;
-  width: 136px;
-  position: relative;
-}
-
-main#menu section#widgets .widget-box #widget-strip {
-  width: 408px;
-  position: relative;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
+  width: 100%;
 }
 
 main#menu section#widgets .widget-box #widget-strip .widget {
   display: inline-block;
-  width: 132px;
+  width: 100%;
   text-align: center;
+  margin: 0 auto;
 }
 
 main#menu section#widgets .widget-box #widget-strip .widget h1 {
-  margin: 0;
+  margin: 0 auto;
   font-size: 36px;
 }
 
 main#menu section#widgets .widget-box #widget-strip .widget h3 {
-  margin: 0;
+  margin: 0 auto;
   font-size: 20px;
 }
 
 main#menu section#widgets .widget-box #widget-strip .widget p {
-  margin: 0;
+  margin: 0 auto;
   font-size: 12px;
 }
 
@@ -11815,39 +11842,31 @@ main#health section#widgets {
 }
 
 main#health section#widgets .widget-box {
-  overflow: hidden;
-  width: 136px;
-  position: relative;
-}
-
-main#health section#widgets .widget-box #widget-strip {
-  width: 408px;
-  position: relative;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
+  width: 100%;
 }
 
 main#health section#widgets .widget-box #widget-strip .widget {
   display: inline-block;
-  width: 132px;
+  width: 100%;
   text-align: center;
+  margin: 0 auto;
 }
 
 main#health section#widgets .widget-box #widget-strip .widget h1 {
   color: white;
-  margin: 0;
+  margin: 0 auto;
   font-size: 36px;
 }
 
 main#health section#widgets .widget-box #widget-strip .widget h3 {
   color: white;
-  margin: 0;
+  margin: 0 auto;
   font-size: 20px;
 }
 
 main#health section#widgets .widget-box #widget-strip .widget p {
   color: white;
-  margin: 0;
+  margin: 0 auto;
   font-size: 12px;
 }
 
@@ -11951,8 +11970,8 @@ main#health section#sos .btn:before {
 }
 
 main#health section#sos .sos-pressed {
-  -webkit-animation: sos-pressed 3s infinite both;
-          animation: sos-pressed 3s infinite both;
+  -webkit-animation: sos-pressed 3s ease-out infinite both;
+          animation: sos-pressed 3s ease-out infinite both;
 }
 
 @-webkit-keyframes sos-pressed {

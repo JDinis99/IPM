@@ -24,32 +24,31 @@
                         </div>
                     </section>
                     <section id="widgets">
-                        <button onclick="moveWidget(1)" class="btn-small-light"><i class="fa fa-chevron-left"></i></button>
+                        <button id="prev-btn" class="btn-small-light"><i class="fa fa-chevron-left"></i></button>
                     
                         <!-- WIDGETS -->
-                        <div class="widget-box">
-                            <div style="left: 0px" id="widget-strip">
-                                <div class="widget">
+                        <div class="c-slider widget-box" id="hammer-slider">
+                            <div class="c-slider__container" id="widget-strip">
+                                <div class="c-slider__slide widget">
                                     <h1><i class="far fa-heart-rate"></i></h1>
                                     <h3 id="bpm">88</h3>
                                     <p>bpm</p>
                                 </div>
-                                <div class="widget">
+                                <div class="c-slider__slide widget">
                                     <h1><i class="fas fa-water"></i></h1>
                                     <h3 id="oxygen">87%</h3>
                                     <p>Oxygen</p>
                                 </div>
-                                <div class="widget">
+                                <div class="c-slider__slide widget">
                                     <h1><i class="fas fa-beer"></i></h1>
                                     <h3 id="alcohol">0.10%</h3>
                                     <p>Alcohol</p>
                                 </div>
                             </div>
                         </div>
-                        
                         <!-- ./WIDGETS -->
 
-                        <button onclick="moveWidget(-1)" class="btn-small-light"><i class="fa fa-chevron-right"></i></button>
+                        <button id="next-btn" class="btn-small-light"><i class="fa fa-chevron-right"></i></button>
                     </section>
                     <section id="sos">
                         <button onmousedown="startSOS(this)" onmouseup="stopSOS(this)" id="btn-sos" class="btn btn-circle">SOS</button>
@@ -73,7 +72,8 @@
             </a>
         </div>
     </div>
-
+    
+    <script src="assets/js/hammerslider.min.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
 </html>

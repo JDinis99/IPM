@@ -34,31 +34,26 @@ main#health
         align-items: center
 
         .widget-box
-            overflow: hidden
-            width: 136px
-            position: relative
+            width: 100%
 
             #widget-strip
-                width: 408px
-                position: relative
-                transition: all .3s ease-in-out
-
                 .widget
                     display: inline-block
-                    width: 132px
+                    width: 100%
                     text-align: center
+                    margin: 0 auto
 
                     h1
                         color: white
-                        margin: 0
+                        margin: 0 auto
                         font-size: 36px
                     h3
                         color: white
-                        margin: 0
+                        margin: 0 auto
                         font-size: 20px
                     p
                         color: white
-                        margin: 0
+                        margin: 0 auto
                         font-size: 12px
     section#general
         text-align: center
@@ -135,7 +130,7 @@ main#health
                 border-radius: 50%
         
         .sos-pressed
-            animation: sos-pressed 3s infinite both
+            animation: sos-pressed 3s ease-out infinite both
 
 @keyframes sos-pressed
     0%
