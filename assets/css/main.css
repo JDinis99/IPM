@@ -11906,10 +11906,13 @@ main#health section#more a {
 main#health section#waves {
   z-index: 0;
   position: static;
+  opacity: 0;
+  -webkit-transition: all .7s ease-out;
+  transition: all .7s ease-out;
 }
 
 main#health section#waves .wave {
-  top: 75%;
+  top: 100%;
   left: -200%;
   width: 1000px;
   height: 1025px;
@@ -11918,6 +11921,8 @@ main#health section#waves .wave {
   position: absolute;
   border-radius: 40%;
   z-index: 0;
+  -webkit-transition: all .7s ease-out;
+  transition: all .7s ease-out;
 }
 
 main#health section#waves .wave.one {
@@ -11936,6 +11941,33 @@ main#health section#waves .wave.three {
   opacity: 0.4;
   -webkit-animation: wave 18s linear -1s infinite;
           animation: wave 18s linear -1s infinite;
+}
+
+main#health section#waves.waves-danger {
+  opacity: 1;
+}
+
+main#health section#waves.waves-danger .wave {
+  top: 25%;
+  background: #b90808;
+}
+
+main#health section#waves.waves-medium {
+  opacity: 1;
+}
+
+main#health section#waves.waves-medium .wave {
+  top: 45%;
+  background: #e8c34f;
+}
+
+main#health section#waves.waves-healthy {
+  opacity: 1;
+}
+
+main#health section#waves.waves-healthy .wave {
+  top: 80%;
+  background: #45DE86;
 }
 
 main#health section#sos {
