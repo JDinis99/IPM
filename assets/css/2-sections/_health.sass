@@ -82,8 +82,10 @@ main#health
     section#waves
         z-index: 0
         position: static
+        opacity: 0
+        transition: all .7s ease-out
         .wave
-            top: 75%
+            top: 100%
             left: -200%
             width: 1000px
             height: 1025px
@@ -92,6 +94,7 @@ main#health
             position: absolute
             border-radius: 40%
             z-index: 0
+            transition: all .7s ease-out
         
         .wave.one
             opacity: 0.8
@@ -104,6 +107,22 @@ main#health
         .wave.three
             opacity: 0.4
             animation: wave 18s linear -1s infinite
+    
+    section#waves.waves-danger
+        opacity: 1
+        .wave
+            top: 25%
+            background: #b90808
+    section#waves.waves-medium
+        opacity: 1
+        .wave
+            top: 45%
+            background: #e8c34f
+    section#waves.waves-healthy
+        opacity: 1
+        .wave
+            top: 80%
+            background: #45DE86
 
 
     section#sos

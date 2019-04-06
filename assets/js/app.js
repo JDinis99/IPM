@@ -2,32 +2,29 @@ const vals = [
     {
         icon: 'fa-laugh-wink',
         info: 'You\'re looking healthy to me!',
-        top: '80%',
-        color: '#45DE86',
         textcolor: '#45DE86',
         bpm: 72,
         alcohol: '0.02%',
-        oxygen: '87%'
+        oxygen: '87%',
+        className: 'waves-healthy'
     },
     {
         info: 'You should be more careful.',
         icon: 'fa-frown-open',
-        top: '45%',
-        color: '#e8c34f',
         textcolor: '#fcffae',
         bpm: 90,
         alcohol: '1.30%',
-        oxygen: '70%'
+        oxygen: '70%',
+        className: 'waves-medium'
     },
     {
         info: 'You\'re not fine! Calling help!',
         icon: 'fa-ambulance',
-        top: '25%',
-        color: '#b90808',
         textcolor: '#f78b75',
         bpm: 130,
         alcohol: '3.20%',
-        oxygen: '50%'
+        oxygen: '50%',
+        className: 'waves-danger'
     }
 ]
 
@@ -80,7 +77,7 @@ function randomizeHealthInfo() {
     let val = JSON.parse(localStorage.getItem('current-state'))
     let icon = document.getElementById('status-icon')
     let info = document.getElementById('status-info')
-    let waves = document.getElementsByClassName('wave')
+    let waves = document.getElementById('waves')
     let bpm = document.getElementById('bpm')
     let oxygen = document.getElementById('oxygen')
     let alcohol = document.getElementById('alcohol')
@@ -106,10 +103,9 @@ function randomizeHealthInfo() {
         alcohol.innerHTML = val.alcohol
     }
     
-    Array.from(waves).forEach(wave => {
-        wave.style.top = val.top
-        wave.style.background = val.color
-    })
+    if(waves) {
+        waves.classList.add(val.className)
+    }
 }
 
 
