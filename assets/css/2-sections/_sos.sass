@@ -1,0 +1,81 @@
+main#sos
+    background: linear-gradient(#39445b, #283245)
+    width: 100%
+    height: 100%
+    padding: 12px 14px
+
+    section#header
+        display: flex
+        justify-content: space-between
+
+        .btn
+            text-align: center
+            color: white
+
+        .clock
+            text-align: right
+            h2
+                font-size: 20px
+                margin: 0
+                color: white
+            p
+                margin: 0
+                color: white
+                font-size: 10px
+    
+    section#text
+        margin: 12px 0
+        text-align: center
+
+        h1
+            color: #dc493a
+            margin: 0
+            font-size: 36px
+        h3
+            color: white
+            margin: 0
+            font-size: 14px
+            font-weight: 400
+
+    section#icon
+        color: #dc493a
+        font-size: 50px
+        text-shadow: 2px 2px white
+        margin: 25px auto
+        width: 102px
+        span
+            text-shadow: 2px 2px #dc493a
+            color: white
+            i
+                display: inline-block
+            i#smoke-1
+                animation: dot-smoke 0.8s ease-in-out infinite both
+                animation-delay: .3s
+            i#smoke-2
+                animation: dot-smoke 0.8s ease-in-out infinite both
+                animation-delay: .2s
+            i#smoke-3
+                animation: dot-smoke 0.8s ease-in-out infinite both
+                animation-delay: .1s
+
+        i
+	        animation: car-bounce 1.2s ease-in-out infinite both
+
+@keyframes car-bounce
+    0%
+        transform: translateY(0px)
+    50%
+        transform: translateY(-5px)
+    100%
+        transform: translateY(0px)
+
+@keyframes dot-smoke
+    0%
+        transform: scale(0) translateY(1px)
+        opacity: 0
+    50%
+        transform: scale(1) translateY(0px)
+        opacity: 1
+    100%
+        transform: scale(1.5) translateY(-1px)
+        opacity: 0
