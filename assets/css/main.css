@@ -11541,12 +11541,19 @@ button, a.btn {
 
 #btn-notifications {
   text-align: center;
+  position: absolute;
+  bottom: 2px;
+  margin: 0 auto;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 .btn-small-dark {
   font-size: 10px;
   color: #271f30;
   opacity: 0.37;
+  padding: 1px 6px;
 }
 
 .btn-small-light {
@@ -11618,6 +11625,10 @@ button, a.btn {
   overflow: hidden;
   width: 200px;
   height: 250px;
+}
+
+#wrapper #content main {
+  position: relative;
 }
 
 #wrapper #device {
@@ -11705,12 +11716,12 @@ main#menu section#widgets {
 
 main#menu section#widgets .widget-box {
   overflow: hidden;
-  width: 100%;
+  width: 136px;
   position: relative;
 }
 
 main#menu section#widgets .widget-box #widget-strip {
-  width: 300%;
+  width: 408px;
   position: relative;
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
@@ -11718,7 +11729,7 @@ main#menu section#widgets .widget-box #widget-strip {
 
 main#menu section#widgets .widget-box #widget-strip .widget {
   display: inline-block;
-  width: 32.6%;
+  width: 132px;
   text-align: center;
 }
 
@@ -11805,12 +11816,12 @@ main#health section#widgets {
 
 main#health section#widgets .widget-box {
   overflow: hidden;
-  width: 100%;
+  width: 136px;
   position: relative;
 }
 
 main#health section#widgets .widget-box #widget-strip {
-  width: 300%;
+  width: 408px;
   position: relative;
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
@@ -11818,7 +11829,7 @@ main#health section#widgets .widget-box #widget-strip {
 
 main#health section#widgets .widget-box #widget-strip .widget {
   display: inline-block;
-  width: 32.6%;
+  width: 132px;
   text-align: center;
 }
 
@@ -11842,12 +11853,12 @@ main#health section#widgets .widget-box #widget-strip .widget p {
 
 main#health section#general {
   text-align: center;
-  margin: 10px auto;
+  margin: 15px auto;
 }
 
 main#health section#general h2 {
   margin: 0;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 400;
   color: white;
 }
@@ -11855,7 +11866,7 @@ main#health section#general h2 {
 main#health section#general i {
   font-size: 34px;
   color: #45DE86;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
 }
 

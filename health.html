@@ -7,7 +7,7 @@
     <title>iGo Simulator</title>
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body onload="startClock()">
+<body onload="startClock(); randomizeHealthInfo()">
     <div class="container">
         <h1>iGo Simulator</h1>
 
@@ -31,17 +31,17 @@
                             <div style="left: 0px" id="widget-strip">
                                 <div class="widget">
                                     <h1><i class="far fa-heart-rate"></i></h1>
-                                    <h3>88</h3>
+                                    <h3 id="bpm">88</h3>
                                     <p>bpm</p>
                                 </div>
                                 <div class="widget">
                                     <h1><i class="fas fa-water"></i></h1>
-                                    <h3>87%</h3>
-                                    <p>Oxigen</p>
+                                    <h3 id="oxygen">87%</h3>
+                                    <p>Oxygen</p>
                                 </div>
                                 <div class="widget">
                                     <h1><i class="fas fa-beer"></i></h1>
-                                    <h3>0.10%</h3>
+                                    <h3 id="alcohol">0.10%</h3>
                                     <p>Alcohol</p>
                                 </div>
                             </div>
