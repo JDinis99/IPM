@@ -11812,6 +11812,12 @@ main#health section#header .btn {
   color: white;
 }
 
+main#health section#header i {
+  text-align: center;
+  color: white;
+  margin: auto;
+}
+
 main#health section#header .clock {
   text-align: right;
 }
@@ -12118,6 +12124,12 @@ main#sos section#header {
 main#sos section#header .btn {
   text-align: center;
   color: white;
+}
+
+main#sos section#header i {
+  text-align: center;
+  color: white;
+  margin: auto;
 }
 
 main#sos section#header .clock {
