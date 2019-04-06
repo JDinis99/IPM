@@ -11737,7 +11737,7 @@ main#menu section#header .clock p {
 }
 
 main#menu section#widgets {
-  margin: 12px 0;
+  margin: 7px 0 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11829,7 +11829,7 @@ main#health section#header .clock p {
 }
 
 main#health section#widgets {
-  margin: 12px 0;
+  margin: 7px 0 12px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11945,15 +11945,22 @@ main#health section#sos {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 main#health section#sos .btn {
   color: white;
-  margin: 5px auto;
-  height: 65px;
-  width: 65px;
+  margin: 2px auto;
+  height: 60px;
+  width: 60px;
   background: #271f30;
   position: relative;
+  -webkit-animation: bouncing 1s ease-in-out infinite both;
+          animation: bouncing 1s ease-in-out infinite both;
+  font-size: 16px;
 }
 
 main#health section#sos .btn:before {
@@ -11969,15 +11976,26 @@ main#health section#sos .btn:before {
   border-radius: 50%;
 }
 
-main#health section#sos .sos-pressed {
+main#health section#sos .btn:active {
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
   -webkit-animation: sos-pressed 3s ease-out infinite both;
           animation: sos-pressed 3s ease-out infinite both;
 }
 
+main#health section#sos .help-block {
+  font-size: 12px;
+  margin: 7px 0;
+  text-transform: lowercase;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+
 @-webkit-keyframes sos-pressed {
   0% {
-    -webkit-box-shadow: 0 0 0 0px #54C1F2;
-            box-shadow: 0 0 0 0px #54C1F2;
+    -webkit-box-shadow: 0 0 0 1px #54C1F2;
+            box-shadow: 0 0 0 1px #54C1F2;
   }
   100% {
     -webkit-box-shadow: 0 0 0 10px #54C1F2;
@@ -11987,12 +12005,42 @@ main#health section#sos .sos-pressed {
 
 @keyframes sos-pressed {
   0% {
-    -webkit-box-shadow: 0 0 0 0px #54C1F2;
-            box-shadow: 0 0 0 0px #54C1F2;
+    -webkit-box-shadow: 0 0 0 1px #54C1F2;
+            box-shadow: 0 0 0 1px #54C1F2;
   }
   100% {
     -webkit-box-shadow: 0 0 0 10px #54C1F2;
             box-shadow: 0 0 0 10px #54C1F2;
+  }
+}
+
+@-webkit-keyframes bouncing {
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  50% {
+    -webkit-transform: translateY(-2px);
+            transform: translateY(-2px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+@keyframes bouncing {
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  50% {
+    -webkit-transform: translateY(-2px);
+            transform: translateY(-2px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
   }
 }
 
