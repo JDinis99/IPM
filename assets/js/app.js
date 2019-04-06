@@ -73,7 +73,7 @@ function startClock() {
     setTimeout(startClock, 1000)
 }
 
-function randomizeHealthInfo() {
+function updateHealthInfo() {
     let val = JSON.parse(localStorage.getItem('current-state'))
     let icon = document.getElementById('status-icon')
     let info = document.getElementById('status-info')
@@ -83,6 +83,8 @@ function randomizeHealthInfo() {
     let alcohol = document.getElementById('alcohol')
 
     if(icon) {
+        icon.classList.remove(...icon.classList)
+        icon.classList.add('fas')
         icon.classList.add(val.icon)
         icon.style.color = val.textcolor
     }
@@ -104,10 +106,16 @@ function randomizeHealthInfo() {
     }
     
     if(waves) {
+        waves.classList.remove(...waves.classList)
         waves.classList.add(val.className)
     }
 }
 
+function resetLocalStorage() {
+    let i = Math.floor(Math.random() * 3)
+    localStorage.setItem('current-state', JSON.stringify(vals[i]))
+    updateHealthInfo()
+}
 
 if(document.getElementById('hammer-slider')) {
     const slider = HammerSlider(document.getElementById('hammer-slider'), {
@@ -121,6 +129,5 @@ if(document.getElementById('hammer-slider')) {
 }
 
 if(localStorage.getItem('current-state') == undefined) {
-    let i = Math.floor(Math.random() * 3)
-    localStorage.setItem('current-state', JSON.stringify(vals[i]))
+    resetLocalStorage()
 }
