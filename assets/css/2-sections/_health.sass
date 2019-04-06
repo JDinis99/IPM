@@ -28,7 +28,7 @@ main#health
                 font-size: 10px
     
     section#widgets
-        margin: 12px 0
+        margin: 7px 0 12px
         display: flex
         justify-content: space-between
         align-items: center
@@ -109,14 +109,17 @@ main#health
     section#sos
         display: flex
         justify-content: space-between
+        flex-direction: column
 
         .btn
             color: white
-            margin: 5px auto
-            height: 65px
-            width: 65px
+            margin: 2px auto
+            height: 60px
+            width: 60px
             background: #271f30
             position: relative
+            animation: bouncing 1s ease-in-out infinite both
+            font-size: 16px
 
             &:before
                 content: ''
@@ -128,15 +131,34 @@ main#health
                 top: 0
                 left: 0
                 border-radius: 50%
+            
+            &:active
+                transform: translateY(2px)
+                animation: sos-pressed 3s ease-out infinite both
+
+        .help-block
+            font-size: 12px
+            margin: 7px 0
+            text-transform: lowercase
+            padding: 0
+            color: rgba(255, 255, 255, 0.5)
+            text-align: center
         
-        .sos-pressed
-            animation: sos-pressed 3s ease-out infinite both
 
 @keyframes sos-pressed
     0%
-        box-shadow: 0 0 0 0px #54C1F2
+        box-shadow: 0 0 0 1px #54C1F2
     100%
         box-shadow: 0 0 0 10px #54C1F2
+
+@keyframes bouncing
+    0%
+        transform: translateY(0px)
+    50%
+        transform: translateY(-2px)
+    100%
+        transform: translateY(0px)
+
 
 @keyframes wave
     0%

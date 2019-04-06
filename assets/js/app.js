@@ -31,17 +31,27 @@ const vals = [
     }
 ]
 
+let sospressed = false
+let soscounter = 0
+
 function startSOS(btn) {
-    btn.classList.add('sos-pressed')
-    setTimeout(() => {
-        if(btn.classList.contains('sos-pressed')) {
+    sospressed = true
+    setTimeout(checkSOS, 100)
+}
+
+function checkSOS() {
+    if(sospressed) {
+        soscounter += 0.15
+        if(sospressed == true && soscounter > 2.7) {
             window.location = 'sos.html'
         }
-    }, 2500)
+        setTimeout(checkSOS, 100)
+    }
 }
 
 function stopSOS(btn) {
-    btn.classList.remove('sos-pressed')
+    sospressed = false
+    soscounter = 0
 }
 
 function startClock() {
