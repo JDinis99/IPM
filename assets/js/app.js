@@ -77,8 +77,7 @@ function startClock() {
 }
 
 function randomizeHealthInfo() {
-    let i = Math.floor(Math.random() * 3)
-    let val = vals[i]
+    let val = JSON.parse(localStorage.getItem('current-state'))
     let icon = document.getElementById('status-icon')
     let info = document.getElementById('status-info')
     let waves = document.getElementsByClassName('wave')
@@ -114,11 +113,18 @@ function randomizeHealthInfo() {
 }
 
 
-const slider = HammerSlider(document.getElementById('hammer-slider'), {
-    mouseDrag: true,
-    slideShow: true,
-    stopAfterInteraction: false
-})
+if(document.getElementById('hammer-slider')) {
+    const slider = HammerSlider(document.getElementById('hammer-slider'), {
+        mouseDrag: true,
+        slideShow: true,
+        stopAfterInteraction: false
+    })
+    
+    document.getElementById('next-btn').addEventListener('click', slider.next, false)
+    document.getElementById('prev-btn').addEventListener('click', slider.prev, false)
+}
 
-document.getElementById('next-btn').addEventListener('click', slider.next, false)
-document.getElementById('prev-btn').addEventListener('click', slider.prev, false)
+if(localStorage.getItem('current-state') == undefined) {
+    let i = Math.floor(Math.random() * 3)
+    localStorage.setItem('current-state', JSON.stringify(vals[i]))
+}
