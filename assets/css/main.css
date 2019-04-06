@@ -11680,7 +11680,7 @@ button, a.btn {
   padding: 5px;
 }
 
-#button-strip #btn-home {
+#button-strip .btn {
   color: rgba(250, 250, 250, 0.85);
   background: #333333;
   -webkit-transition: all .1s ease-in-out;
@@ -11688,18 +11688,18 @@ button, a.btn {
   text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.3);
 }
 
-#button-strip #btn-home:hover {
+#button-strip .btn:hover {
   color: rgba(255, 255, 255, 0.9);
   -webkit-transform: translateY(-2px) scale(1.05);
           transform: translateY(-2px) scale(1.05);
   text-shadow: 6px 6px 3px rgba(0, 0, 0, 0.5);
 }
 
-#button-strip #btn-home:focus {
+#button-strip .btn:focus {
   outline: none;
 }
 
-#button-strip #btn-home:active {
+#button-strip .btn:active {
   color: white;
   -webkit-transform: translateY(0) scale(1);
           transform: translateY(0) scale(1);
