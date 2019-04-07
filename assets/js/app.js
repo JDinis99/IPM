@@ -6,7 +6,12 @@ const vals = [
         bpm: 72,
         alcohol: '0.02%',
         oxygen: '87%',
-        className: 'waves-healthy'
+        className: 'waves-healthy',
+        sos: {
+            pressed: false,
+            eta: 0
+        },
+        notifications: 0
     },
     {
         info: 'You should be more careful.',
@@ -15,7 +20,12 @@ const vals = [
         bpm: 90,
         alcohol: '1.30%',
         oxygen: '70%',
-        className: 'waves-medium'
+        className: 'waves-medium',
+        sos: {
+            pressed: false,
+            eta: 0
+        },
+        notifications: 0
     },
     {
         info: 'You\'re not fine! Calling help!',
@@ -24,7 +34,12 @@ const vals = [
         bpm: 130,
         alcohol: '3.20%',
         oxygen: '50%',
-        className: 'waves-danger'
+        className: 'waves-danger',
+        sos: {
+            pressed: true,
+            eta: 120 // seconds
+        },
+        notifications: 1
     }
 ]
 
@@ -40,6 +55,15 @@ function checkSOS() {
     if(sospressed) {
         soscounter += 0.15
         if(sospressed == true && soscounter > 2.7) {
+            let val = JSON.parse(localStorage.getItem('current-state'))
+            if(val.sos.pressed == false) {
+                val.sos.pressed = true
+                val.sos.eta = 120
+                val.notifications++
+                updateNotifications()
+                localStorage.setItem('current-state', JSON.stringify(val))
+            }
+
             window.location = 'sos.html'
         }
         setTimeout(checkSOS, 100)
@@ -115,6 +139,7 @@ function resetLocalStorage() {
     let i = Math.floor(Math.random() * 3)
     localStorage.setItem('current-state', JSON.stringify(vals[i]))
     updateHealthInfo()
+    updateSOS()
 }
 
 if(document.getElementById('hammer-slider')) {
@@ -130,4 +155,69 @@ if(document.getElementById('hammer-slider')) {
 
 if(localStorage.getItem('current-state') == undefined) {
     resetLocalStorage()
+} else {
+    updateSOS()
+}
+
+function updateSOS() {
+    let val = JSON.parse(localStorage.getItem('current-state'))
+    let notification = document.getElementById('sos-notification')
+    let eta = document.getElementById('sos-notification-eta-desc')
+    let notification_eta = document.getElementsByClassName('sos-notification-eta')
+
+    if(val.sos.pressed && val.sos.eta > 0) {
+        if(eta)
+            eta.innerHTML = 'Arriving in'
+        notification.style.display = 'flex'
+        val.sos.eta--
+
+        Array.from(notification_eta).forEach((el) => {
+            el.innerHTML = fmtMSS(val.sos.eta)
+        })
+
+        localStorage.setItem('current-state', JSON.stringify(val))
+        setTimeout(updateSOS, 1000)
+    } else if(val.sos.pressed) {
+        if(eta)
+            eta.innerHTML = ''
+        Array.from(notification_eta).forEach((el) => {
+            el.innerHTML = 'Arrived'
+        })
+
+        notification.style.display = 'none'
+        val.sos.pressed = false
+        val.sos.eta = 0
+        val.notifications--
+        localStorage.setItem('current-state', JSON.stringify(val))
+    }
+    updateNotifications()
+}
+
+function fmtMSS(s){return(s-(s%=60))/60+(9<s?':':':0')+s}
+
+function showNotifications() {
+    let main = document.getElementsByTagName('main')[0]
+    main.classList.add('blurred')
+
+    let notifications = document.getElementById('notifications')
+    notifications.style.top = '0%'
+    notifications.style.opacity = '1'
+}
+
+function hideNotifications() {
+    let main = document.getElementsByTagName('main')[0]
+    main.classList.remove('blurred')
+
+    let notifications = document.getElementById('notifications')
+    notifications.style.top = '100%'
+    notifications.style.opacity = '0'
+}
+
+function updateNotifications() {
+    let val = JSON.parse(localStorage.getItem('current-state'))
+    let notification_empty = document.getElementById('notifications-empty')
+    if(val.notifications > 0)
+        notification_empty.style.display = 'none'
+    else
+        notification_empty.style.display = 'block'
 }

@@ -23,7 +23,7 @@
                         <div class="wave three"></div>
                     </section>
 
-                    <section id="header">
+                    <section id="header" class="header-light">
                         <a href="index.html" class="btn btn-circle"><i class="fas fa-arrow-left"></i></a>
                         <i class="fa fa-heart"></i>
                         <div class="clock">
@@ -42,10 +42,31 @@
                     </section>
 
 
-                    <div id="btn-notifications">
-                        <button class="btn-small-light"><i class="fa fa-chevron-up"></i></button>
+                    <div id="btn-notifications-open">
+                        <button onclick="showNotifications()" class="btn-small-dark"><i class="fa fa-chevron-up"></i></button>
                     </div>
                 </main>
+
+                <section id="notifications">
+                    <div id="btn-notifications-close">
+                        <button onclick="hideNotifications()" class="btn-small-dark"><i class="fa fa-chevron-down"></i></button>
+                    </div>
+                    <h2>Notifications</h2>
+                    <div class="notification" id="sos-notification" style="display: none">
+                        <div class="main-info">
+                            <i class="fas fa-ambulance"></i>
+                            <div class="sub-info">
+                                <h3>SOS</h3>
+                                <p>Arriving in <span class="sos-notification-eta"></span></p>
+                            </div>
+                        </div>
+                        <div class="icons">
+                            <button onclick="window.location = 'sos.html'" class="btn-small-dark"><i class="fa fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+
+                    <p id="notifications-empty">This is a bit empty mate</p>
+                </section>
 
                 <!-- ./PAGES -->
                 <!-- <img src="assets/img/home.png" width="200" alt="home"> -->
