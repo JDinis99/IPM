@@ -11768,6 +11768,38 @@ button, a.btn {
   }
 }
 
+@-webkit-keyframes notification-bounce {
+  0% {
+    -webkit-transform: translateY(2px) scale(1);
+            transform: translateY(2px) scale(1);
+  }
+  50% {
+    -webkit-transform: translateY(-2px) scale(1.2);
+            transform: translateY(-2px) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(2px) scale(1);
+            transform: translateY(2px) scale(1);
+  }
+}
+
+@keyframes notification-bounce {
+  0% {
+    -webkit-transform: translateY(2px) scale(1);
+            transform: translateY(2px) scale(1);
+  }
+  50% {
+    -webkit-transform: translateY(-2px) scale(1.2);
+            transform: translateY(-2px) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(2px) scale(1);
+            transform: translateY(2px) scale(1);
+  }
+}
+
 @-webkit-keyframes wave {
   0% {
     -webkit-transform: rotate(0deg);
@@ -12232,6 +12264,11 @@ main.blurred {
           filter: blur(10px);
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
+}
+
+.notification-bounce {
+  -webkit-animation: notification-bounce 1.6s ease-in-out infinite both;
+          animation: notification-bounce 1.6s ease-in-out infinite both;
 }
 
 section#notifications {

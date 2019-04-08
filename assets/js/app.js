@@ -216,8 +216,14 @@ function hideNotifications() {
 function updateNotifications() {
     let val = JSON.parse(localStorage.getItem('current-state'))
     let notification_empty = document.getElementById('notifications-empty')
-    if(val.notifications > 0)
+    let notification_btn = document.getElementById('notification-btn')
+
+    if(val.notifications > 0) {
         notification_empty.style.display = 'none'
-    else
+        notification_btn.classList.add('notification-bounce')
+    }
+    else {
         notification_empty.style.display = 'block'
+        notification_btn.classList.remove('notification-bounce')
+    }
 }
