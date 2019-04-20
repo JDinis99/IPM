@@ -125,6 +125,7 @@ Array.from(document.getElementsByClassName('rangeSlider')).forEach((el) => {
         startEvent: ['mousedown', 'touchstart', 'pointerdown'],
         moveEvent: ['mousemove', 'touchmove', 'pointermove'],
         endEvent: ['mouseup', 'touchend', 'pointerup'],
+        max: 150,
         vertical: true,    // Boolean, if true slider will be displayed in vertical orientation
         step: 0.01,         // Number, 1
         onInit: function () {
