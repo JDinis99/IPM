@@ -1,10 +1,8 @@
 const DEFAULT_ETA = 120 // in seconds
 
-let average_bpm = 70
-let average_oxygen = 80
-let max_alcohol = 5
-
 let current_state = JSON.parse(localStorage.getItem('current-state'))
+
+let settings = JSON.parse(localStorage.getItem('settings'))
 
 const STYLES = {
     healthy: {
@@ -43,8 +41,8 @@ function get_health_style() {
 function get_health_level() {
     let accumulator = 0
 
-    let bpm_rate = Math.abs((current_state.bpm - average_bpm) / average_bpm)
-    let oxygen_rate = Math.abs((current_state.oxygen - average_oxygen) / average_oxygen)
+    let bpm_rate = Math.abs((current_state.bpm - settings.average_bpm) / settings.average_bpm)
+    let oxygen_rate = Math.abs((current_state.oxygen - settings.average_oxygen) / settings.average_oxygen)
 
     if(bpm_rate < 30 / 100)
         accumulator += 10
@@ -60,9 +58,9 @@ function get_health_level() {
     else
         accumulator += 20
     
-    if(current_state.alcohol < max_alcohol / 2)
+    if(current_state.alcohol < settings.max_alcohol / 2)
         accumulator += 5
-    else if(current_state.alcohol < max_alcohol)
+    else if(current_state.alcohol < settings.max_alcohol)
         accumulator += 15
     else
         accumulator += 35
@@ -90,6 +88,98 @@ function update_state(current_bpm, current_oxygen, current_alcohol) {
     current_state.sos.eta = sos ? DEFAULT_ETA : 0
     current_state.notifications = sos ? 1 : 0
     
+    refresh_state()
+}
+
+function refresh_state() {
     current_state.style = get_health_style()
     localStorage.setItem('current-state', JSON.stringify(current_state))
 }
+
+function showSettings() {
+    let main = document.getElementsByTagName('main')[0]
+    main.classList.add('blurred')
+
+    let settings = document.getElementById('settings')
+    settings.style.top = '0%'
+    settings.style.opacity = '1'
+}
+
+function hideSettings() {
+    let main = document.getElementsByTagName('main')[0]
+    main.classList.remove('blurred')
+
+    let settings = document.getElementById('settings')
+    settings.style.top = '100%'
+    settings.style.opacity = '0'
+}
+
+Array.from(document.getElementsByClassName('rangeSlider')).forEach((el) => {
+    rangeSlider.create(el, {
+        polyfill: true,     // Boolean, if true, custom markup will be created
+        rangeClass: 'rangeSlider',
+        disabledClass: 'rangeSlider--disabled',
+        fillClass: 'rangeSlider__fill',
+        bufferClass: 'rangeSlider__buffer',
+        handleClass: 'rangeSlider__handle',
+        startEvent: ['mousedown', 'touchstart', 'pointerdown'],
+        moveEvent: ['mousemove', 'touchmove', 'pointermove'],
+        endEvent: ['mouseup', 'touchend', 'pointerup'],
+        vertical: true,    // Boolean, if true slider will be displayed in vertical orientation
+        step: 0.01,         // Number, 1
+        onInit: function () {
+            if(el.id == 'settings-bpm-slider'){
+                this.value = settings.average_bpm
+                this.min = 40
+                this.max = 150
+                this.step = 1
+                document.getElementById('settings-bpm-value').innerHTML = this.value
+            }
+            else if(el.id == 'settings-oxygen-slider') {
+                this.value = settings.average_oxygen
+                this.min = 40
+                this.max = 100
+                this.step = 1
+                document.getElementById('settings-oxygen-value').innerHTML = this.value
+            }
+            else if(el.id == 'settings-alcohol-slider') {
+                this.value = settings.max_alcohol
+                this.min = 0.00
+                this.max = 17.00
+                this.step = 0.01
+                document.getElementById('settings-alcohol-value').innerHTML = this.value
+            }
+        },
+        onSlide: function (position, value) {
+            if(el.id == 'settings-bpm-slider'){
+                document.getElementById('settings-bpm-value').innerHTML = position
+                settings.average_bpm = position
+            }
+            else if(el.id == 'settings-oxygen-slider') {
+                document.getElementById('settings-oxygen-value').innerHTML = position
+                settings.average_oxygen = position
+            }
+            else if(el.id == 'settings-alcohol-slider') {
+                document.getElementById('settings-alcohol-value').innerHTML = position
+                settings.max_alcohol = position
+            }
+        },
+        onSlideEnd: function (position, value) {
+            if(el.id == 'settings-bpm-slider'){
+                document.getElementById('settings-bpm-value').innerHTML = position
+                settings.average_bpm = position
+            }
+            else if(el.id == 'settings-oxygen-slider') {
+                document.getElementById('settings-oxygen-value').innerHTML = position
+                settings.average_oxygen = position
+            }
+            else if(el.id == 'settings-alcohol-slider') {
+                document.getElementById('settings-alcohol-value').innerHTML = position
+                settings.max_alcohol = position
+            }
+
+            localStorage.setItem('settings', JSON.stringify(settings))
+            refresh_state()
+        }
+    });
+})

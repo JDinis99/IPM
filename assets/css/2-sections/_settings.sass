@@ -1,0 +1,44 @@
+main
+    transition: all .3s ease-in-out
+    
+main.blurred
+    filter: blur(10px)
+    transform: scale(1.2)
+
+section#settings
+    transition: all .3s ease-in-out
+    background: rgba(230, 230, 230, 0.6)
+    position: absolute
+    top: 100%
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 2
+    padding: 16px
+    opacity: 0
+
+    h2
+        margin: 1px 0 5px
+        padding: 0
+        font-size: 14px
+    
+    .sliders
+        display: flex
+        justify-content: space-around
+
+        .slider
+            display: flex
+            flex-direction: column
+            align-items: center
+            height: 210px
+            width: 33%
+
+            h3
+                font-size: 12px
+                text-align: center
+                font-weight: normal
+                margin: 7px 0 15px
+                span
+                    display: block
+                    font-size: 16px
+                    font-weight: bold

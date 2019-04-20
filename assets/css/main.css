@@ -570,6 +570,99 @@ template {
   -webkit-tap-highlight-color: transparent;
 }
 
+.rangeSlider, .rangeSlider__fill {
+  display: block;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+          box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+
+.rangeSlider {
+  position: relative;
+  background: #7f8c8d;
+}
+
+.rangeSlider__horizontal {
+  height: 10px;
+  width: 100%;
+}
+
+.rangeSlider__vertical {
+  height: 100%;
+  width: 10px;
+}
+
+.rangeSlider--disabled {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  opacity: 0.4;
+}
+
+.rangeSlider__fill {
+  background: #d15220;
+  position: absolute;
+}
+
+.rangeSlider__fill__horizontal {
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.rangeSlider__fill__vertical {
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.rangeSlider__handle {
+  border: 1px solid #ccc;
+  cursor: pointer;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background: white -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(rgba(0, 0, 0, 0.1)));
+  background: white linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1));
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+}
+
+.rangeSlider__handle__horizontal {
+  top: -5px;
+}
+
+.rangeSlider__handle__vertical {
+  left: -5px;
+  bottom: 0;
+}
+
+.rangeSlider__handle:after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.13)), to(rgba(255, 255, 255, 0)));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.13), rgba(255, 255, 255, 0));
+  border-radius: 50%;
+}
+
+.rangeSlider__handle:active {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.12)));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.12));
+}
+
+input[type="range"]:focus + .rangeSlider .rangeSlider__handle {
+  -webkit-box-shadow: 0 0 8px rgba(142, 68, 173, 0.9);
+          box-shadow: 0 0 8px rgba(142, 68, 173, 0.9);
+}
+
 .fa,
 .fas,
 .far,
@@ -11594,10 +11687,10 @@ button, a.btn {
           transform: translateX(-50%);
 }
 
-#btn-notifications-close {
+#btn-notifications-close, #btn-settings-close {
   text-align: center;
   position: absolute;
-  top: 0px;
+  top: 2px;
   margin: 0 auto;
   left: 50%;
   -webkit-transform: translateX(-50%);
@@ -12400,5 +12493,73 @@ section#notifications .notification .main-info .sub-info p {
 section#notifications .notification .icons {
   text-align: right;
   font-size: 10px;
+}
+
+main {
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+main.blurred {
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+section#settings {
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  background: rgba(230, 230, 230, 0.6);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 16px;
+  opacity: 0;
+}
+
+section#settings h2 {
+  margin: 1px 0 5px;
+  padding: 0;
+  font-size: 14px;
+}
+
+section#settings .sliders {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+section#settings .sliders .slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 210px;
+  width: 33%;
+}
+
+section#settings .sliders .slider h3 {
+  font-size: 12px;
+  text-align: center;
+  font-weight: normal;
+  margin: 7px 0 15px;
+}
+
+section#settings .sliders .slider h3 span {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
 }
 /*# sourceMappingURL=main.css.map */

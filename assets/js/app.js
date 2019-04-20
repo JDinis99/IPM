@@ -38,8 +38,24 @@ if(localStorage.getItem('current-state') == undefined) {
     updateSOS()
 }
 
+if(localStorage.getItem('settings') == undefined) {
+    initSettings()
+} else {
+    updateHealthInfo()
+    updateSOS()
+}
+
+
 function fmtMSS(s){return(s-(s%=60))/60+(9<s?':':':0')+s}
 
+function initSettings() {
+    settings = {
+        average_bpm: 70,
+        average_oxygen: 75,
+        max_alcohol: 6.00
+    }
+    localStorage.setItem('settings', JSON.stringify(settings))
+}
 
 function resetLocalStorage() {
     let current_bpm = Math.floor((Math.random() * 4/5 + 1) * average_bpm) // random between average_bpm and average_bpm + 2/3 * average_bpm
