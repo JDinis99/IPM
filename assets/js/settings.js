@@ -108,26 +108,29 @@ function showSettings() {
 }
 
 function saveSettings() {
-    swal({
-        title: 'Save settings?',
-        text: "Do you want to save new settings?",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Save',
-        cancelButtonText: 'Discard'
-    }).then((result) => {
-        swal(
-            'Saved!',
-            'New settings saved.',
-            'success'
-        ).then((result) => {
-            if(result)
-                updateSettings()
-            hideSettings()
-        })
-    }).catch(() => hideSettings())
+    if(JSON.stringify(settings) === JSON.stringify(temp_settings))
+        hideSettings()
+    else
+        swal({
+            title: 'Save settings?',
+            text: "Do you want to save new settings?",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Save',
+            cancelButtonText: 'Discard'
+        }).then((result) => {
+            swal(
+                'Saved!',
+                'New settings saved.',
+                'success'
+            ).then((result) => {
+                if(result)
+                    updateSettings()
+                hideSettings()
+            })
+        }).catch(() => hideSettings())
 }
 
 function updateSettings() {
