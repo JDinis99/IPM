@@ -12216,29 +12216,25 @@ main#sos {
   padding: 12px 14px;
 }
 
-main#sos section#text {
-  margin: 5px 0 0;
+main#sos section#cancel {
+  margin: 25px 0 0;
   text-align: center;
 }
 
-main#sos section#text h1 {
-  color: #dc493a;
-  margin: 0;
-  font-size: 36px;
-}
-
-main#sos section#text h3 {
+main#sos section#cancel button {
+  background: #271f30;
   color: white;
-  margin: 0;
-  font-size: 14px;
-  font-weight: 400;
+  padding: 7px 15px;
+  border-radius: 2px;
+  -webkit-box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 main#sos section#icon {
   color: #dc493a;
   font-size: 50px;
   text-shadow: 2px 2px white;
-  margin: 20px auto 12px;
+  margin: 12px auto;
   width: 102px;
 }
 
