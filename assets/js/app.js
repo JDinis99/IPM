@@ -60,7 +60,7 @@ function initSettings() {
 function resetLocalStorage() {
     let current_bpm = Math.floor((Math.random() * 4/5 + 1) * settings.average_bpm) // random between average_bpm and average_bpm + 2/3 * average_bpm
     let current_oxygen = Math.floor((1 - Math.random() * 1/3) * settings.average_oxygen) // random between average_bpm and average_bpm + 2/3 * average_bpm
-    let current_alcohol = parseFloat((Math.random() * max_alcohol).toFixed(2)) // random between average_bpm and average_bpm + 2/3 * average_bpm
+    let current_alcohol = parseFloat((Math.random() * settings.max_alcohol).toFixed(2)) // random between average_bpm and average_bpm + 2/3 * average_bpm
     
     update_state(current_bpm, current_oxygen, current_alcohol)
     updateHealthInfo()
