@@ -20,13 +20,6 @@ function startClock() {
     setTimeout(startClock, 1000)
 }
 
-function resetLocalStorage() {
-    let i = Math.floor(Math.random() * 3)
-    localStorage.setItem('current-state', JSON.stringify(vals[i]))
-    updateHealthInfo()
-    updateSOS()
-}
-
 if(document.getElementById('hammer-slider')) {
     const slider = HammerSlider(document.getElementById('hammer-slider'), {
         mouseDrag: true,
@@ -41,7 +34,20 @@ if(document.getElementById('hammer-slider')) {
 if(localStorage.getItem('current-state') == undefined) {
     resetLocalStorage()
 } else {
+    updateHealthInfo()
     updateSOS()
 }
 
 function fmtMSS(s){return(s-(s%=60))/60+(9<s?':':':0')+s}
+
+
+function resetLocalStorage() {
+    let current_bpm = Math.floor((Math.random() * 4/5 + 1) * average_bpm) // random between average_bpm and average_bpm + 2/3 * average_bpm
+    let current_oxygen = Math.floor((1 - Math.random() * 1/3) * average_oxygen) // random between average_bpm and average_bpm + 2/3 * average_bpm
+    let current_alcohol = parseFloat((Math.random() * max_alcohol).toFixed(2)) // random between average_bpm and average_bpm + 2/3 * average_bpm
+    
+    update_state(current_bpm, current_oxygen, current_alcohol)
+    updateHealthInfo()
+    updateSOS()
+    return current_state
+}

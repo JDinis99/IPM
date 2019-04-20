@@ -1,50 +1,5 @@
-const vals = [
-    {
-        icon: 'fa-laugh-wink',
-        info: 'You\'re looking healthy to me!',
-        textcolor: '#45DE86',
-        bpm: 72,
-        alcohol: '0.02%',
-        oxygen: '87%',
-        className: 'waves-healthy',
-        sos: {
-            pressed: false,
-            eta: 0
-        },
-        notifications: 0
-    },
-    {
-        info: 'You should be more careful.',
-        icon: 'fa-frown-open',
-        textcolor: '#fcffae',
-        bpm: 90,
-        alcohol: '1.30%',
-        oxygen: '70%',
-        className: 'waves-medium',
-        sos: {
-            pressed: false,
-            eta: 0
-        },
-        notifications: 0
-    },
-    {
-        info: 'You\'re not fine! Calling help!',
-        icon: 'fa-ambulance',
-        textcolor: '#f78b75',
-        bpm: 130,
-        alcohol: '3.20%',
-        oxygen: '50%',
-        className: 'waves-danger',
-        sos: {
-            pressed: true,
-            eta: 120 // seconds
-        },
-        notifications: 1
-    }
-]
-
-let sospressed = false
 let soscounter = 0
+let sospressed = false
 
 function startSOS(btn) {
     sospressed = true
@@ -54,14 +9,14 @@ function startSOS(btn) {
 function checkSOS() {
     if(sospressed) {
         soscounter += 0.15
-        if(sospressed == true && soscounter > 2.7) {
-            let val = JSON.parse(localStorage.getItem('current-state'))
-            if(val.sos.pressed == false) {
-                val.sos.pressed = true
-                val.sos.eta = 120
-                val.notifications++
-                updateNotifications()
-                localStorage.setItem('current-state', JSON.stringify(val))
+        if(sospressed == true && soscounter > 2.5) {
+            if(current_state.sos.pressed == false) {
+                current_state.sos.pressed = true
+                current_state.sos.eta = DEFAULT_ETA
+                current_state.notifications++
+                console.log(current_state)
+                updateSOS()
+                localStorage.setItem('current-state', JSON.stringify(current_state))
             }
 
             window.location = 'sos.html'
@@ -70,19 +25,22 @@ function checkSOS() {
     }
 }
 
+function stopSOS() {
+    sospressed = false
+    soscounter = 0
+}
+
 function cancelSOS() {
     sospressed = false
     soscounter = -1
-    let val = JSON.parse(localStorage.getItem('current-state'))
-    val.sos.pressed = true
-    val.sos.eta = -1
-    localStorage.setItem('current-state', JSON.stringify(val))
+    current_state.sos.pressed = true
+    current_state.sos.eta = -1
+    localStorage.setItem('current-state', JSON.stringify(current_state))
     updateSOS()
 }
 
-
 function updateHealthInfo() {
-    let val = JSON.parse(localStorage.getItem('current-state'))
+    let val = current_state
     let icon = document.getElementById('status-icon')
     let info = document.getElementById('status-info')
     let waves = document.getElementById('waves')
@@ -93,12 +51,12 @@ function updateHealthInfo() {
     if(icon) {
         icon.classList.remove(...icon.classList)
         icon.classList.add('fas')
-        icon.classList.add(val.icon)
-        icon.style.color = val.textcolor
+        icon.classList.add(val.style.icon)
+        icon.style.color = val.style.textcolor
     }
 
     if(info) {
-        info.innerHTML = val.info
+        info.innerHTML = val.style.info
     }
 
     if(bpm) {
@@ -106,21 +64,21 @@ function updateHealthInfo() {
     }
 
     if(oxygen) {
-        oxygen.innerHTML = val.oxygen
+        oxygen.innerHTML = val.oxygen + '%'
     }
 
     if(alcohol) {
-        alcohol.innerHTML = val.alcohol
+        alcohol.innerHTML = val.alcohol + '%'
     }
     
     if(waves) {
         waves.classList.remove(...waves.classList)
-        waves.classList.add(val.className)
+        waves.classList.add(val.style.className)
     }
 }
 
 function updateSOS() {
-    let val = JSON.parse(localStorage.getItem('current-state'))
+    let val = current_state
     let notification = document.getElementById('sos-notification')
     let eta = document.getElementById('sos-notification-eta-desc')
     let notification_eta = document.getElementsByClassName('sos-notification-eta')
@@ -149,7 +107,7 @@ function updateSOS() {
         val.sos.eta = 0
         val.notifications--
         localStorage.setItem('current-state', JSON.stringify(val))
-    } else {
+    } else if (val.sos.pressed && val.sos.eta < 0) {
         if(eta)
             eta.innerHTML = ''
         Array.from(notification_eta).forEach((el) => {
@@ -159,7 +117,7 @@ function updateSOS() {
         notification.style.display = 'none'
         val.sos.pressed = false
         val.sos.eta = 0
-        val.notifications--
+        val.notifications = val.notifications > 0 ? val.notifications - 1: 0
         localStorage.setItem('current-state', JSON.stringify(val))
     }
     updateNotifications()
