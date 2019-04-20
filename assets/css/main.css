@@ -12018,6 +12018,19 @@ main#menu {
   padding: 12px 14px;
 }
 
+main#menu section#widgets h3 {
+  padding-top: 5px;
+}
+
+main#menu section#widgets h3.no-padding {
+  padding-top: 0px;
+}
+
+main#menu section#widgets canvas {
+  display: block;
+  margin: 0 auto;
+}
+
 main#menu section#actions {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12191,7 +12204,7 @@ main#health section#sos .help-block {
   margin: 7px 0;
   text-transform: lowercase;
   padding: 0;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.7);
   text-align: center;
 }
 

@@ -36,8 +36,9 @@
                         <div class="c-slider widget-box" id="hammer-slider">
                             <div class="c-slider__container" id="widget-strip">
                                 <div class="c-slider__slide widget">
-                                    <h1><i class="fas fa-cloud-sun"></i></h1>
-                                    <h3>22ºC</h3>
+                                    <!-- <h1><i class="fas fa-cloud-sun"></i></h1> -->
+                                    <h1><canvas id="weather-icon" width="45" height="45"></canvas></h1>
+                                    <h3 class="no-padding"><span id="weather-temp"></span>ºC</h3>
                                     <p>Lisbon</p>
                                 </div>
                                 <div class="c-slider__slide widget">
@@ -116,6 +117,7 @@
 
     
     <script src="assets/js/hammerslider.min.js"></script>
+    <script src="assets/js/skyicons.min.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
 </html>
