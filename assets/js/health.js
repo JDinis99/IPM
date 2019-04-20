@@ -14,8 +14,6 @@ function checkSOS() {
                 current_state.sos.pressed = true
                 current_state.sos.eta = DEFAULT_ETA
                 current_state.notifications++
-                console.log(current_state)
-                updateSOS()
                 localStorage.setItem('current-state', JSON.stringify(current_state))
             }
 
@@ -31,6 +29,27 @@ function stopSOS() {
 }
 
 function cancelSOS() {
+    swal({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No'
+    }).then((result) => {
+            if (result) {
+            swal(
+                'Canceled!',
+                'SOS request canceled.',
+                'success'
+            ).then(() => cancelSOSconfirm())
+        }
+    }).catch(swal.noop)
+}
+
+function cancelSOSconfirm() {
     sospressed = false
     soscounter = -1
     current_state.sos.pressed = true

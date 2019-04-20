@@ -42,7 +42,6 @@ if(localStorage.getItem('settings') == undefined) {
     initSettings()
 } else {
     updateHealthInfo()
-    updateSOS()
 }
 
 
