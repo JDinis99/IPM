@@ -40,39 +40,18 @@ if(document.getElementById('hammer-slider')) {
     document.getElementById('prev-btn').addEventListener('click', slider.prev, false)
 }
 
-if(localStorage.getItem('current-state') == undefined) {
+if(current_state == undefined) {
     resetLocalStorage()
-} else {
-    updateHealthInfo()
-    updateSOS()
 }
-
-if(localStorage.getItem('settings') == undefined) {
-    initSettings()
-} else {
-    updateHealthInfo()
-}
-
+updateHealthInfo()
+updateSOS()
 
 function fmtMSS(s){return(s-(s%=60))/60+(9<s?':':':0')+s}
-
-function initSettings() {
-    settings = {
-        average_bpm: calcBpm(0),
-        average_oxygen: calcOxygen(0),
-        max_alcohol: calcAlcohol(0),
-        age: 18,
-        weight: 4,
-        gender: 0
-    }
-    localStorage.setItem('settings', JSON.stringify(settings))
-}
 
 function resetLocalStorage() {
     let current_bpm = Math.floor((Math.random() * 4/5 + 1) * settings.average_bpm) // random between average_bpm and average_bpm + 2/3 * average_bpm
     let current_oxygen = Math.floor((1 - Math.random() * 1/3) * settings.average_oxygen) // random between average_bpm and average_bpm + 2/3 * average_bpm
     let current_alcohol = parseFloat((Math.random() * settings.max_alcohol).toFixed(2)) // random between average_bpm and average_bpm + 2/3 * average_bpm
-    
 
     current_state = {
         bpm: current_bpm,
@@ -82,8 +61,9 @@ function resetLocalStorage() {
             pressed: false,
             eta: 0
         },
-        notifications: 0
+        notifications: 0,
     }
+    current_state.style = get_health_style()
     localStorage.setItem('current-state', JSON.stringify(current_state))
 
     update_state(current_bpm, current_oxygen, current_alcohol)

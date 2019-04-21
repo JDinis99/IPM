@@ -7,6 +7,25 @@ let temp_settings = JSON.parse(localStorage.getItem('settings'))
 
 let advanced_settings = false
 
+if(settings == undefined) {
+    initSettings()
+}
+function initSettings() {
+    settings = {
+        age: 18,
+        weight: 4,
+        gender: 0
+    }
+    localStorage.setItem('settings', JSON.stringify(settings))
+    temp_settings = JSON.parse(localStorage.getItem('settings'))
+    
+    settings.average_bpm = calcBpm(0)
+    settings.average_oxygen = calcOxygen(0)
+    settings.max_alcohol = calcAlcohol(0)
+    localStorage.setItem('settings', JSON.stringify(settings))
+    temp_settings = JSON.parse(localStorage.getItem('settings'))
+}
+
 const STYLES = {
     healthy: {
         className: 'waves-healthy',
@@ -283,9 +302,10 @@ function createSliders() {
     });
 }
 
-document.getElementById('settings-gender-value').addEventListener('change', (event) => {
-    temp_settings.gender = event.target.checked
-})
+if(document.getElementById('settings-gender-value'))
+    document.getElementById('settings-gender-value').addEventListener('change', (event) => {
+        temp_settings.gender = event.target.checked
+    })
 
 function calculateAdvancedSettings() {
     if(temp_settings.weight != settings.weight || temp_settings.age != settings.age || temp_settings.gender != settings.gender) {
