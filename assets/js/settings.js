@@ -5,6 +5,8 @@ let current_state = JSON.parse(localStorage.getItem('current-state'))
 let settings = JSON.parse(localStorage.getItem('settings'))
 let temp_settings = JSON.parse(localStorage.getItem('settings'))
 
+let advanced_settings = false
+
 const STYLES = {
     healthy: {
         className: 'waves-healthy',
@@ -99,6 +101,7 @@ function refresh_state() {
 
 function showSettings() {
     createSliders()
+    updateSettingsView()
     let main = document.getElementsByTagName('main')[0]
     main.classList.add('blurred')
 
@@ -125,7 +128,7 @@ function saveSettings() {
                 'Saved!',
                 'New settings saved.',
                 'success'
-            ).then((result) => {
+            ).then(() => {
                 if(result)
                     updateSettings()
                 hideSettings()
@@ -134,9 +137,29 @@ function saveSettings() {
 }
 
 function updateSettings() {
+    calculateAdvancedSettings()
     localStorage.setItem('settings', JSON.stringify(temp_settings))
     settings = JSON.parse(localStorage.getItem('settings'))
     refresh_state()
+}
+
+function updateSettingsView() {
+    let title = document.getElementById("settings-type")
+    title.innerHTML = advanced_settings ? 'Advanced' : 'Basic'
+
+    let strip = document.getElementById("settings-strip")
+
+    if(advanced_settings)
+        strip.classList.add('settings-advanced')
+    else
+        strip.classList.remove('settings-advanced')
+
+}
+
+function toggleSettingsType(btn) {
+    btn.innerHTML = advanced_settings ? 'Show Advanced' : 'Show Basic'
+    advanced_settings = !advanced_settings
+    updateSettingsView()
 }
 
 function hideSettings() {
@@ -147,6 +170,7 @@ function hideSettings() {
     settings.style.top = '100%'
     settings.style.opacity = '0'
     destroySliders()
+    temp_settings = JSON.parse(localStorage.getItem('settings'))
 }
 
 function destroySliders() {
@@ -157,7 +181,11 @@ function destroySliders() {
 }
 
 function createSliders() {
-    Array.from(document.getElementsByClassName('rangeSlider')).forEach((el) => {
+    setSelect(document.getElementsByClassName('sel__box--weight')[0].children[settings.weight])
+    
+    document.getElementById('settings-gender-value').checked = settings.gender
+
+    Array.from(document.getElementsByClassName('rangeSlider-advanced')).forEach((el) => {
         rangeSlider.create(el, {
             polyfill: true,     // Boolean, if true, custom markup will be created
             rangeClass: 'rangeSlider',
@@ -224,4 +252,67 @@ function createSliders() {
             }
         });
     })
+
+    let age_slider = document.getElementById('settings-age-slider')
+    rangeSlider.create(age_slider, {
+        polyfill: true,     // Boolean, if true, custom markup will be created
+        rangeClass: 'rangeSlider',
+        disabledClass: 'rangeSlider--disabled',
+        fillClass: 'rangeSlider__fill',
+        bufferClass: 'rangeSlider__buffer',
+        handleClass: 'rangeSlider__handle',
+        startEvent: ['mousedown', 'touchstart', 'pointerdown'],
+        moveEvent: ['mousemove', 'touchmove', 'pointermove'],
+        endEvent: ['mouseup', 'touchend', 'pointerup'],
+        max: 70,
+        min: 16,
+        vertical: false,    // Boolean, if true slider will be displayed in vertical orientation
+        step: 1,         // Number, 1
+        onInit: function () {
+            this.value = settings.age
+            document.getElementById('settings-age-value').innerHTML = this.value
+        },
+        onSlide: function (position, value) {
+            document.getElementById('settings-age-value').innerHTML = position
+            temp_settings.age = position
+        },
+        onSlideEnd: function (position, value) {
+            document.getElementById('settings-age-value').innerHTML = position
+            temp_settings.age = position
+        }
+    });
+}
+
+document.getElementById('settings-gender-value').addEventListener('change', (event) => {
+    temp_settings.gender = event.target.checked
+})
+
+function calculateAdvancedSettings() {
+    if(temp_settings.weight != settings.weight || temp_settings.age != settings.age || temp_settings.gender != settings.gender) {
+        if(temp_settings.average_bpm == settings.average_bpm)
+            temp_settings.average_bpm = calcBpm(temp_settings.gender)
+        if(temp_settings.average_oxygen == settings.average_oxygen)
+            temp_settings.average_oxygen = calcOxygen(temp_settings.gender)
+        if(temp_settings.max_alchohol == settings.max_alchohol)
+            temp_settings.max_alchohol = calcAlcohol(temp_settings.gender)
+    }
+}
+
+function calcBpm(gender) {
+    let nbpm = 100
+    nbpm -= temp_settings.age / 3
+    nbpm -= temp_settings.weight * 1.3
+    return Math.round(!gender ? nbpm : nbpm * 0.9) // male : female
+}
+
+function calcOxygen(gender) {
+    let noxygen = 100
+    noxygen -= (temp_settings.age - temp_settings.weight * 1.5) * 0.4
+    return Math.round(!gender ? noxygen : noxygen * 1.1) // male : female
+}
+
+function calcAlcohol(gender) {
+    let nalcohol = 0.2
+    nalcohol += (temp_settings.weight * 10 / temp_settings.age) * 2.3
+    return parseFloat((!gender ? nalcohol : nalcohol * 0.9).toFixed(2)) // male : female
 }

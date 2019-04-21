@@ -1,3 +1,12 @@
+const CURRENT_VERSION = "1.0.0"
+
+if(localStorage.getItem('version') != CURRENT_VERSION) {
+    localStorage.setItem('version', CURRENT_VERSION)
+    initSettings()
+    resetLocalStorage()
+    console.log('Updating to version ' + CURRENT_VERSION)
+}
+
 function startClock() {
     var today = new Date()
     var h = today.getHours()
@@ -49,9 +58,12 @@ function fmtMSS(s){return(s-(s%=60))/60+(9<s?':':':0')+s}
 
 function initSettings() {
     settings = {
-        average_bpm: 70,
-        average_oxygen: 75,
-        max_alcohol: 6.00
+        average_bpm: calcBpm(0),
+        average_oxygen: calcOxygen(0),
+        max_alcohol: calcAlcohol(0),
+        age: 18,
+        weight: 4,
+        gender: 0
     }
     localStorage.setItem('settings', JSON.stringify(settings))
 }
@@ -61,6 +73,19 @@ function resetLocalStorage() {
     let current_oxygen = Math.floor((1 - Math.random() * 1/3) * settings.average_oxygen) // random between average_bpm and average_bpm + 2/3 * average_bpm
     let current_alcohol = parseFloat((Math.random() * settings.max_alcohol).toFixed(2)) // random between average_bpm and average_bpm + 2/3 * average_bpm
     
+
+    current_state = {
+        bpm: current_bpm,
+        oxygen: current_oxygen,
+        alcohol: current_alcohol,
+        sos: {
+            pressed: false,
+            eta: 0
+        },
+        notifications: 0
+    }
+    localStorage.setItem('current-state', JSON.stringify(current_state))
+
     update_state(current_bpm, current_oxygen, current_alcohol)
     updateHealthInfo()
     updateSOS()

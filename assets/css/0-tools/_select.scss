@@ -1,0 +1,160 @@
+/* ===== Select Box ===== */
+.sel {
+  font-size: 12px;
+  display: inline-block;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  position: relative;
+  cursor: pointer;
+  z-index: 3;
+  border-bottom: 2px solid rgba(39, 31, 48, 0.3);
+  border-radius: 3px;
+}
+
+.sel::before {
+  position: absolute;
+  content: '\f063';
+  font-family: 'Font Awesome 5 Pro';
+  font-size: 12px;
+  color: #271f30;
+  right: 10px;
+  top: calc(50% - 6px);
+}
+
+.sel.active::before {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+}
+
+.sel__placeholder {
+  display: block;
+  font-family: 'Roboto';
+  font-size: 14px;
+  color: #271f30;
+  padding: 0.2em 0.5em;
+  text-align: left;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  visibility: visible;
+  padding: 5px 7px;
+}
+
+.sel.active .sel__placeholder {
+  visibility: hidden;
+}
+
+.sel__placeholder::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.2em 0.5em;
+  content: attr(data-placeholder);
+  visibility: hidden;
+  padding: 5px 7px;
+}
+
+.sel.active .sel__placeholder::before {
+  visibility: visible;
+}
+
+.sel__box {
+  position: absolute;
+  top: calc(100% + 2px);
+  display: none;
+  list-style-type: none;
+  text-align: left;
+  font-size: 12px;
+  background-color: #FFF;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 3px;
+  box-shadow: 0 7px 3px -4px rgba(0, 0, 0, 0.15);
+}
+
+.sel.active .sel__box {
+  display: block;
+  -webkit-animation: fadeInUp 500ms;
+          animation: fadeInUp 500ms;
+}
+
+.sel__box__options {
+  display: list-item;
+  font-family: 'Roboto';
+  font-size: 12px;
+  color: #838e95;
+  padding: 0.5em 1em;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  padding: 5px 7px;
+}
+
+.sel__box__options::after {
+  content: '\f00c';
+  font-family: 'Font Awesome 5 Pro';
+  font-size: 12px;
+  margin-left: 5px;
+  display: none;
+}
+
+.sel__box__options.selected::after {
+  display: inline;
+}
+
+.sel__box__options:hover {
+  background-color: #ebedef;
+}
+
+/* ===== Keyframes ===== */
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 20px, 0);
+            transform: translate3d(0, 20px, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 20px, 0);
+            transform: translate3d(0, 20px, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

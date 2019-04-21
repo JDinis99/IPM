@@ -81,21 +81,51 @@
                     <div id="btn-settings-close">
                         <button onclick="saveSettings()" class="btn-small-dark"><i class="fa fa-close"></i></button>
                     </div>
-                    <h2>Settings - Average</h2>
-                    <div class="sliders">
-                        <div class="slider">
-                            <input type="range" id="settings-bpm-slider" data-rangeSlider class="rangeSlider">
-                            <h3><span id="settings-bpm-value">20</span>Average BPM</h3>
+                    <h2>Settings - <span id="settings-type">Advanced</span></h2>
+                    <div id="settings-strip">
+                        <div class="settings-viewbox" id="settings-basic">
+                            <p id="settings-weight" class="sel sel--weight">
+                                <select id="settings-weight-value">
+                                    <option disabled selected>Weight</option>
+                                    <option value="1">&lt; 30kg</option>
+                                    <option value="2">30kg - 45kg</option>
+                                    <option value="3">45kg - 60kg</option>
+                                    <option value="4">60kg - 75kg</option>
+                                    <option value="5">75kg - 90kg</option>
+                                    <option value="6">90kg - 115kg</option>
+                                    <option value="7">&gt; 115kg</option>
+                                </select>
+                            </p>
+                            <p id="settings-age" class="slider">
+                                <span>Age:</span>
+                                <input type="range" id="settings-age-slider" class="rangeSlider" data-rangeSlider>
+                                <span id="settings-age-value">20</span>
+                            </p>
+                            <p id="settings-gender">
+                                <i class="fas fa-male"></i>
+                                <label class="el-switch">
+                                    <input type="checkbox" name="switch" id="settings-gender-value">
+                                    <span class="el-switch-style"></span>
+                                </label>
+                                <i class="fas fa-female"></i>
+                            </p>
                         </div>
-                        <div class="slider">
-                            <input type="range" id="settings-oxygen-slider" data-rangeSlider class="rangeSlider">
-                            <h3><span id="settings-oxygen-value">20</span>Average Oxygen</h3>
-                        </div>
-                        <div class="slider">
-                            <input type="range" id="settings-alcohol-slider" data-rangeSlider class="rangeSlider">
-                            <h3><span id="settings-alcohol-value">20</span>Maximum Alcohol</h3>
+                        <div class="settings-viewbox" id="settings-advanced">
+                            <div class="slider">
+                                <input type="range" id="settings-bpm-slider" data-rangeSlider class="rangeSlider rangeSlider-advanced">
+                                <h3><span id="settings-bpm-value">20</span>Average BPM</h3>
+                            </div>
+                            <div class="slider">
+                                <input type="range" id="settings-oxygen-slider" data-rangeSlider class="rangeSlider rangeSlider-advanced">
+                                <h3><span id="settings-oxygen-value">20</span>Average Oxygen</h3>
+                            </div>
+                            <div class="slider">
+                                <input type="range" id="settings-alcohol-slider" data-rangeSlider class="rangeSlider rangeSlider-advanced">
+                                <h3><span id="settings-alcohol-value">20</span>Maximum Alcohol</h3>
+                            </div>
                         </div>
                     </div>
+                    <button onclick="toggleSettingsType(this)" class="btn" id="settings-type-btn">Show Advanced</button>
                 </section>
 
                 <section id="notifications">
@@ -134,12 +164,13 @@
             </button>
         </div>
     </div>
-
     
+    <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/hammerslider.min.js"></script>
     <script src="assets/js/skyicons.min.js"></script>
     <script src="assets/js/range-slider.min.js"></script>
     <script src="assets/js/sweetalert2.min.js"></script>
+    <script src="assets/js/select.js"></script>
 
     <script src="assets/js/settings.js"></script>
     <script src="assets/js/weather.js"></script>
