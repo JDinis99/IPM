@@ -78,8 +78,9 @@
                 </main>
 
                 <section id="settings">
-                    <div id="btn-settings-close">
-                        <button onclick="saveSettings()" class="btn-small-dark"><i class="fa fa-close"></i></button>
+                    <div class="btn-section">
+                        <button onclick="saveSettings(false)" id="settings-save-btn" class="btn-small-dark disabled"><i class="fa fa-save"></i></button>
+                        <button onclick="saveSettings(true)" class="btn-small-dark"><i class="fa fa-close"></i></button>
                     </div>
                     <h2>Settings - <span id="settings-type">Advanced</span></h2>
                     <div id="settings-strip">
@@ -156,7 +157,7 @@
             </div>
         </div>
         <div id="button-strip">
-            <button class="btn btn-circle" id="btn-home">
+            <button onclick="window.location = 'index.html'" class="btn btn-circle" id="btn-home">
                 <i class="fas fa-home"></i>
             </button>
             <button onclick="resetLocalStorage()" class="btn btn-circle" id="btn-reset">

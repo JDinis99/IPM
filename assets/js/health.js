@@ -125,7 +125,8 @@ function updateSOS() {
         val.sos.eta = 0
         val.notifications--
         localStorage.setItem('current-state', JSON.stringify(val))
-        document.getElementById('sos-cancel-btn').classList.add('disabled')
+        if(document.getElementById('sos-cancel-btn'))
+            document.getElementById('sos-cancel-btn').classList.add('disabled')
     } else if (val.sos.pressed && val.sos.eta < 0) {
         if(eta)
             eta.innerHTML = ''

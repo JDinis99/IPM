@@ -48,4 +48,6 @@ function setSelect(el) {
   var $currentSel = $(el).closest('.sel');
   $currentSel.children('.sel__placeholder').text(txt);
   $currentSel.children('select').prop('selectedIndex', index + 1);
+  document.getElementById('settings-save-btn').classList.remove('disabled')
+
 }

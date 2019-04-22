@@ -1,4 +1,4 @@
-const DEFAULT_ETA = 5 // in seconds
+const DEFAULT_ETA = 120 // in seconds
 
 let current_state = JSON.parse(localStorage.getItem('current-state'))
 
@@ -129,7 +129,7 @@ function showSettings() {
     settings.style.opacity = '1'
 }
 
-function saveSettings() {
+function saveSettings(should_exit) {
     if(JSON.stringify(settings) === JSON.stringify(temp_settings))
         hideSettings()
     else
@@ -150,9 +150,13 @@ function saveSettings() {
             ).then(() => {
                 if(result)
                     updateSettings()
-                hideSettings()
+                if(should_exit)
+                    hideSettings()
             })
-        }).catch(() => hideSettings())
+        }).catch(() => {
+            if(should_exit)
+                hideSettings()
+        })
 }
 
 function updateSettings() {
@@ -160,6 +164,7 @@ function updateSettings() {
     localStorage.setItem('settings', JSON.stringify(temp_settings))
     settings = JSON.parse(localStorage.getItem('settings'))
     refresh_state()
+    document.getElementById('settings-save-btn').classList.add('disabled')
 }
 
 function updateSettingsView() {
@@ -201,6 +206,7 @@ function destroySliders() {
 
 function createSliders() {
     setSelect(document.getElementsByClassName('sel__box--weight')[0].children[settings.weight])
+    document.getElementById('settings-save-btn').classList.add('disabled')
     
     document.getElementById('settings-gender-value').checked = settings.gender
 
@@ -242,6 +248,7 @@ function createSliders() {
                 }
             },
             onSlide: function (position, value) {
+                document.getElementById('settings-save-btn').classList.remove('disabled')
                 if(el.id == 'settings-bpm-slider'){
                     document.getElementById('settings-bpm-value').innerHTML = position
                     temp_settings.average_bpm = position
@@ -292,6 +299,7 @@ function createSliders() {
             document.getElementById('settings-age-value').innerHTML = this.value
         },
         onSlide: function (position, value) {
+            document.getElementById('settings-save-btn').classList.remove('disabled')
             document.getElementById('settings-age-value').innerHTML = position
             temp_settings.age = position
         },
@@ -305,6 +313,7 @@ function createSliders() {
 if(document.getElementById('settings-gender-value'))
     document.getElementById('settings-gender-value').addEventListener('change', (event) => {
         temp_settings.gender = event.target.checked
+        document.getElementById('settings-save-btn').classList.remove('disabled')
     })
 
 function calculateAdvancedSettings() {

@@ -13134,6 +13134,7 @@ button, a.btn {
 
 button.disabled, button:disabled, a.btn.disabled, a.btn:disabled {
   cursor: not-allowed;
+  pointer-events: none;
   opacity: 0.3;
 }
 
@@ -14007,6 +14008,33 @@ section#settings {
   padding: 16px;
   opacity: 0;
   text-align: center;
+}
+
+section#settings .btn-section {
+  position: absolute;
+  top: 14px;
+  right: 10px;
+}
+
+section#settings .btn-section button {
+  margin: 0;
+  padding: 1px 3px;
+}
+
+section#settings .btn-section button i {
+  font-size: 16px;
+}
+
+section#settings .btn-section button i.fa-close {
+  color: red;
+}
+
+section#settings .btn-section button i.fa-save {
+  color: black;
+}
+
+section#settings .btn-section button.disabled {
+  opacity: 0.1;
 }
 
 section#settings h2 {
