@@ -14335,6 +14335,7 @@ main#find .list-group .list-item {
   padding-bottom: 0;
   -webkit-box-shadow: 0px 6px 2px -3px rgba(0, 0, 0, 0.15);
           box-shadow: 0px 6px 2px -3px rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
 }
 
 main#find .list-group .list-item .row {
