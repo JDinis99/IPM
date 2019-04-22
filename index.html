@@ -59,15 +59,15 @@
                     </section>
                     <section id="actions">
                         <div class="btn-group btn-red">
-                            <a href="health" class="btn btn-circle"><i class="fas fa-heart"></i></a>
+                            <a href="health/" class="btn btn-circle"><i class="fas fa-heart"></i></a>
                             <p>Health</p>
                         </div>
                         <div class="btn-group btn-green">
-                            <a href="travel" class="btn btn-circle"><i class="fas fa-route"></i></a>
+                            <a href="travel/" class="btn btn-circle"><i class="fas fa-route"></i></a>
                             <p>Travel</p>
                         </div>
                         <div class="btn-group btn-blue">
-                            <a href="find" class="btn btn-circle"><i class="fas fa-search"></i></a>
+                            <a href="find/" class="btn btn-circle"><i class="fas fa-search"></i></a>
                             <p>Find</p>
                         </div>
                     </section>
@@ -78,8 +78,9 @@
                 </main>
 
                 <section id="settings">
-                    <div id="btn-settings-close">
-                        <button onclick="saveSettings()" class="btn-small-dark"><i class="fa fa-close"></i></button>
+                    <div class="btn-section">
+                        <button onclick="saveSettings(false)" id="settings-save-btn" class="btn-small-dark disabled"><i class="fa fa-save"></i></button>
+                        <button onclick="saveSettings(true)" class="btn-small-dark"><i class="fa fa-close"></i></button>
                     </div>
                     <h2>Settings - <span id="settings-type">Advanced</span></h2>
                     <div id="settings-strip">
@@ -142,7 +143,7 @@
                             </div>
                         </div>
                         <div class="icons">
-                            <button onclick="window.location = 'health/sos.html'" class="btn-small-dark"><i class="fa fa-chevron-right"></i></button>
+                            <button onclick="window.location = 'sos.html'" class="btn-small-dark"><i class="fa fa-chevron-right"></i></button>
                         </div>
                     </div>
 
@@ -156,7 +157,7 @@
             </div>
         </div>
         <div id="button-strip">
-            <button class="btn btn-circle" id="btn-home">
+            <button onclick="window.location = 'index.html'" class="btn btn-circle" id="btn-home">
                 <i class="fas fa-home"></i>
             </button>
             <button onclick="resetLocalStorage()" class="btn btn-circle" id="btn-reset">

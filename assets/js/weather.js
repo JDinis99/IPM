@@ -48,4 +48,5 @@ skycons.add("weather-icon", weather_vals[i].icon);
 skycons.play();
 
 let temp = document.getElementById('weather-temp')
-temp.innerHTML = weather_vals[i].temp
+if(temp)
+    temp.innerHTML = weather_vals[i].temp

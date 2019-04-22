@@ -13101,6 +13101,30 @@ readers do not read off random characters that represent icons */
   font-weight: 400;
 }
 
+.red-alt {
+  color: #e86948;
+}
+
+.blue-alt {
+  color: #43b1f1;
+}
+
+.grey-alt {
+  color: #95a5a6;
+}
+
+.green-alt {
+  color: #3bce79;
+}
+
+.yellow-alt {
+  color: #f1c40f;
+}
+
+.purple-alt {
+  color: #b665d6;
+}
+
 h1, h2, h3, h4, h5, h6, p, span, button, .btn, a {
   font-family: 'Roboto';
   color: #271f30;
@@ -13134,6 +13158,7 @@ button, a.btn {
 
 button.disabled, button:disabled, a.btn.disabled, a.btn:disabled {
   cursor: not-allowed;
+  pointer-events: none;
   opacity: 0.3;
 }
 
@@ -13224,6 +13249,72 @@ button.disabled, button:disabled, a.btn.disabled, a.btn:disabled {
 
 .btn-green p {
   color: #4AC852;
+}
+
+.btn-blue-alt button, .btn-blue-alt .btn {
+  color: white;
+  background: #43b1f1;
+  -webkit-box-shadow: 0 0 0 5px rgba(67, 177, 241, 0.25);
+          box-shadow: 0 0 0 5px rgba(67, 177, 241, 0.25);
+}
+
+.btn-blue-alt p {
+  color: #43b1f1;
+}
+
+.btn-grey-alt button, .btn-grey-alt .btn {
+  color: white;
+  background: #95a5a6;
+  -webkit-box-shadow: 0 0 0 5px rgba(149, 165, 166, 0.25);
+          box-shadow: 0 0 0 5px rgba(149, 165, 166, 0.25);
+}
+
+.btn-grey-alt p {
+  color: #95a5a6;
+}
+
+.btn-green-alt button, .btn-green-alt .btn {
+  color: white;
+  background: #3bce79;
+  -webkit-box-shadow: 0 0 0 5px rgba(59, 206, 121, 0.25);
+          box-shadow: 0 0 0 5px rgba(59, 206, 121, 0.25);
+}
+
+.btn-green-alt p {
+  color: #3bce79;
+}
+
+.btn-red-alt button, .btn-red-alt .btn {
+  color: white;
+  background: #e86948;
+  -webkit-box-shadow: 0 0 0 5px rgba(232, 105, 72, 0.25);
+          box-shadow: 0 0 0 5px rgba(232, 105, 72, 0.25);
+}
+
+.btn-red-alt p {
+  color: #e86948;
+}
+
+.btn-purple-alt button, .btn-purple-alt .btn {
+  color: white;
+  background: #b665d6;
+  -webkit-box-shadow: 0 0 0 5px rgba(182, 101, 214, 0.25);
+          box-shadow: 0 0 0 5px rgba(182, 101, 214, 0.25);
+}
+
+.btn-purple-alt p {
+  color: #b665d6;
+}
+
+.btn-yellow-alt button, .btn-yellow-alt .btn {
+  color: white;
+  background: #f1c40f;
+  -webkit-box-shadow: 0 0 0 5px rgba(241, 196, 15, 0.25);
+          box-shadow: 0 0 0 5px rgba(241, 196, 15, 0.25);
+}
+
+.btn-yellow-alt p {
+  color: #f1c40f;
 }
 
 video {
@@ -13748,6 +13839,33 @@ section#settings {
   text-align: center;
 }
 
+section#settings .btn-section {
+  position: absolute;
+  top: 14px;
+  right: 10px;
+}
+
+section#settings .btn-section button {
+  margin: 0;
+  padding: 1px 3px;
+}
+
+section#settings .btn-section button i {
+  font-size: 16px;
+}
+
+section#settings .btn-section button i.fa-close {
+  color: red;
+}
+
+section#settings .btn-section button i.fa-save {
+  color: black;
+}
+
+section#settings .btn-section button.disabled {
+  opacity: 0.1;
+}
+
 section#settings h2 {
   text-align: left;
   margin: 1px 0 5px;
@@ -14167,6 +14285,27 @@ main#find section#widgets canvas {
   margin: 0 auto;
 }
 
+main#find section#controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+}
+
+main#find section#controls h3, main#find section#controls p, main#find section#controls span {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  font-weight: bold;
+}
+
 main#find section#actions {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -14174,6 +14313,69 @@ main#find section#actions {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 8px 5px;
+  padding: 8px 0;
+}
+
+main#find section#actions .btn-group {
+  width: 33%;
+}
+
+main#find .list-group {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+main#find .list-group .list-item {
+  padding: 0;
+  margin: 0;
+  background: white;
+  margin: 10px 0;
+  padding: 5px;
+  padding-bottom: 0;
+  -webkit-box-shadow: 0px 6px 2px -3px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 6px 2px -3px rgba(0, 0, 0, 0.15);
+}
+
+main#find .list-group .list-item .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main#find .list-group .list-item .row h1, main#find .list-group .list-item .row h2, main#find .list-group .list-item .row .stars {
+  margin: 0 0 5px;
+  font-size: 12px;
+}
+
+main#find .list-group .list-item .row h1 i, main#find .list-group .list-item .row h2 i, main#find .list-group .list-item .row .stars i {
+  margin-right: 3px;
+}
+
+main#find .list-group .list-item .row h1 {
+  font-weight: normal;
+  max-width: 107px;
+}
+
+main#find .list-group .list-item .row h2 {
+  font-size: 10px;
+}
+
+main#find .list-group .list-item .row h2 i {
+  margin-left: 3px;
+}
+
+main#find .list-group .list-item .row .stars {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 0.8;
 }
 /*# sourceMappingURL=main.css.map */
