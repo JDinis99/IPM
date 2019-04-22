@@ -13590,6 +13590,106 @@ section#widgets.widgets-light h1, section#widgets.widgets-light h3, section#widg
   background-color: #fd92a5;
 }
 
+main {
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+main.blurred {
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.notification-bounce {
+  -webkit-animation: notification-bounce 1.6s ease-in-out infinite both;
+          animation: notification-bounce 1.6s ease-in-out infinite both;
+}
+
+section#notifications {
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  background: rgba(214, 219, 226, 0.6);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 16px;
+  opacity: 0;
+}
+
+section#notifications #notifications-empty {
+  font-size: 12px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+section#notifications h2 {
+  margin: 1px 0 5px;
+  padding: 0;
+  font-size: 14px;
+}
+
+section#notifications .notification {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15);
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+section#notifications .notification .main-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+section#notifications .notification .main-info i {
+  font-size: 20px;
+  color: #271f30;
+}
+
+section#notifications .notification .main-info .sub-info {
+  margin-left: 10px;
+}
+
+section#notifications .notification .main-info .sub-info h3 {
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 2px;
+}
+
+section#notifications .notification .main-info .sub-info p {
+  font-size: 10px;
+  margin: 0;
+  padding: 0;
+  color: #7d728a;
+}
+
+section#notifications .notification .icons {
+  text-align: right;
+  font-size: 10px;
+}
+
 main#menu {
   background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#efefef));
   background: linear-gradient(#ffffff, #efefef);
@@ -13619,6 +13719,170 @@ main#menu section#actions {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 8px 5px;
+}
+
+main {
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+main.blurred {
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+section#settings {
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  background: rgba(230, 230, 230, 0.6);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 16px;
+  opacity: 0;
+  text-align: center;
+}
+
+section#settings h2 {
+  text-align: left;
+  margin: 1px 0 5px;
+  padding: 0;
+  font-size: 14px;
+}
+
+section#settings #settings-strip {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  left: 0;
+  width: 360px;
+  position: relative;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+section#settings #settings-strip.settings-advanced {
+  left: -190px;
+}
+
+section#settings #settings-strip .settings-viewbox {
+  width: 170px;
+  padding: 5px 0;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 170px;
+}
+
+section#settings #settings-strip .settings-viewbox#settings-basic {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding-top: 0;
+}
+
+section#settings #settings-strip .settings-viewbox#settings-basic p {
+  margin: 0;
+}
+
+section#settings #settings-strip .settings-viewbox #settings-gender {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+section#settings #settings-strip .settings-viewbox #settings-gender i {
+  font-size: 34px;
+}
+
+section#settings #settings-strip .settings-viewbox #settings-gender i.fa-male {
+  color: #82caff;
+}
+
+section#settings #settings-strip .settings-viewbox #settings-gender i.fa-female {
+  color: #fd92a5;
+}
+
+section#settings #settings-strip .settings-viewbox #settings-age {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+}
+
+section#settings #settings-strip .settings-viewbox #settings-age span:first-child {
+  margin-right: 7px;
+}
+
+section#settings #settings-strip .settings-viewbox #settings-age span:last-child {
+  margin-left: 7px;
+  font-weight: bold;
+}
+
+section#settings #settings-strip .settings-viewbox#settings-advanced .slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 160px;
+  width: 32%;
+}
+
+section#settings #settings-strip .settings-viewbox#settings-advanced .slider h3 {
+  font-size: 12px;
+  text-align: center;
+  font-weight: normal;
+  margin: 7px 0 0;
+}
+
+section#settings #settings-strip .settings-viewbox#settings-advanced .slider h3 span {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+section#settings .btn {
+  margin: 5px auto;
+  background: #271f30;
+  color: white;
+  padding: 7px 15px;
+  border-radius: 2px;
+  font-size: 14px;
+  -webkit-box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 main#health {
@@ -13882,267 +14146,34 @@ main#sos section#eta span {
   margin-left: 3px;
 }
 
-main {
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-}
-
-main.blurred {
-  -webkit-filter: blur(10px);
-          filter: blur(10px);
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-}
-
-.notification-bounce {
-  -webkit-animation: notification-bounce 1.6s ease-in-out infinite both;
-          animation: notification-bounce 1.6s ease-in-out infinite both;
-}
-
-section#notifications {
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-  background: rgba(214, 219, 226, 0.6);
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 2;
-  padding: 16px;
-  opacity: 0;
-}
-
-section#notifications #notifications-empty {
-  font-size: 12px;
-  margin: 5px 0;
-  padding: 0;
-}
-
-section#notifications h2 {
-  margin: 1px 0 5px;
-  padding: 0;
-  font-size: 14px;
-}
-
-section#notifications .notification {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 5px;
-  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15);
-          box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15);
-  cursor: -webkit-grab;
-  cursor: grab;
-}
-
-section#notifications .notification .main-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  text-align: left;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-section#notifications .notification .main-info i {
-  font-size: 20px;
-  color: #271f30;
-}
-
-section#notifications .notification .main-info .sub-info {
-  margin-left: 10px;
-}
-
-section#notifications .notification .main-info .sub-info h3 {
-  font-size: 14px;
-  margin: 0;
-  padding: 0;
-  margin-bottom: 2px;
-}
-
-section#notifications .notification .main-info .sub-info p {
-  font-size: 10px;
-  margin: 0;
-  padding: 0;
-  color: #7d728a;
-}
-
-section#notifications .notification .icons {
-  text-align: right;
-  font-size: 10px;
-}
-
-main {
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-}
-
-main.blurred {
-  -webkit-filter: blur(10px);
-          filter: blur(10px);
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-}
-
-section#settings {
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-  background: rgba(230, 230, 230, 0.6);
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 2;
-  padding: 16px;
-  opacity: 0;
-  text-align: center;
-}
-
-section#settings h2 {
-  text-align: left;
-  margin: 1px 0 5px;
-  padding: 0;
-  font-size: 14px;
-}
-
-section#settings #settings-strip {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  left: 0;
-  width: 360px;
-  position: relative;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-}
-
-section#settings #settings-strip.settings-advanced {
-  left: -190px;
-}
-
-section#settings #settings-strip .settings-viewbox {
-  width: 170px;
-  padding: 5px 0;
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  height: 170px;
-}
-
-section#settings #settings-strip .settings-viewbox#settings-basic {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  padding-top: 0;
-}
-
-section#settings #settings-strip .settings-viewbox#settings-basic p {
-  margin: 0;
-}
-
-section#settings #settings-strip .settings-viewbox #settings-gender {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+main#find {
+  background: -webkit-gradient(linear, left top, left bottom, from(#287cc2), to(#0c5490));
+  background: linear-gradient(#287cc2, #0c5490);
   width: 100%;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  height: 100%;
+  padding: 12px 14px;
 }
 
-section#settings #settings-strip .settings-viewbox #settings-gender i {
-  font-size: 34px;
+main#find section#widgets h3 {
+  padding-top: 5px;
 }
 
-section#settings #settings-strip .settings-viewbox #settings-gender i.fa-male {
-  color: #82caff;
+main#find section#widgets h3.no-padding {
+  padding-top: 0px;
 }
 
-section#settings #settings-strip .settings-viewbox #settings-gender i.fa-female {
-  color: #fd92a5;
+main#find section#widgets canvas {
+  display: block;
+  margin: 0 auto;
 }
 
-section#settings #settings-strip .settings-viewbox #settings-age {
+main#find section#actions {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 14px;
-}
-
-section#settings #settings-strip .settings-viewbox #settings-age span:first-child {
-  margin-right: 7px;
-}
-
-section#settings #settings-strip .settings-viewbox #settings-age span:last-child {
-  margin-left: 7px;
-  font-weight: bold;
-}
-
-section#settings #settings-strip .settings-viewbox#settings-advanced .slider {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 160px;
-  width: 32%;
-}
-
-section#settings #settings-strip .settings-viewbox#settings-advanced .slider h3 {
-  font-size: 12px;
-  text-align: center;
-  font-weight: normal;
-  margin: 7px 0 0;
-}
-
-section#settings #settings-strip .settings-viewbox#settings-advanced .slider h3 span {
-  display: block;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-section#settings .btn {
-  margin: 5px auto;
-  background: #271f30;
-  color: white;
-  padding: 7px 15px;
-  border-radius: 2px;
-  font-size: 14px;
-  -webkit-box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
-          box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
+  padding: 8px 5px;
 }
 /*# sourceMappingURL=main.css.map */

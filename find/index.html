@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>iGo Simulator</title>
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
 </head>
 <body onload="startClock()">
     <video autoplay muted loop>
-        <source src="assets/img/movie.mp4" type="video/mp4">
+        <source src="../assets/img/movie.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
     <div class="overlay"></div>
@@ -21,59 +21,47 @@
             <div id="content">
                 <!-- PAGES -->
 
-                <main id="menu">
-                    <section id="header">
-                        <button onclick="showSettings()" class="btn-circle btn-grey"><i class="fas fa-user"></i></button>
+                <main id="find">
+                    <section id="header" class="header-light">
+                        <a href="../" class="btn btn-circle"><i class="fas fa-arrow-left"></i></a>
+                        <i class="fa fa-search"></i>
                         <div class="clock">
                             <h2 id="clock-time"></h2>
                             <p id="clock-date"></p>
                         </div>
                     </section>
-                    <section id="widgets">
-                        <button id="prev-btn" class="btn-small-dark"><i class="fa fa-chevron-left"></i></button>
-                
-                        <!-- WIDGETS -->
-                        <div class="c-slider widget-box" id="hammer-slider">
-                            <div class="c-slider__container" id="widget-strip">
-                                <div class="c-slider__slide widget">
-                                    <!-- <h1><i class="fas fa-cloud-sun"></i></h1> -->
-                                    <h1><canvas id="weather-icon" width="45" height="45"></canvas></h1>
-                                    <h3 class="no-padding"><span id="weather-temp"></span>ºC</h3>
-                                    <p>Lisbon</p>
-                                </div>
-                                <div class="c-slider__slide widget">
-                                    <h1><i class="fas fa-shoe-prints"></i></h1>
-                                    <h3>3212</h3>
-                                    <p>Steps</p>
-                                </div>
-                                <div class="c-slider__slide widget">
-                                    <h1><i class="fas fa-route"></i></h1>
-                                    <h3>23</h3>
-                                    <p>Travels</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ./WIDGETS -->
 
-                        <button id="next-btn" class="btn-small-dark"><i class="fa fa-chevron-right"></i></button>
+                    <section id="actions">
+                        <div class="btn-group btn-green">
+                            <a href="health" class="btn btn-circle"><i class="fas fa-store"></i></a>
+                            <p>Shops</p>
+                        </div>
+                        <div class="btn-group btn-green">
+                            <button class="btn-circle"><i class="fas fa-utensils"></i></button>
+                            <p>Food</p>
+                        </div>
+                        <div class="btn-group btn-blue">
+                            <button class="btn-circle"><i class="fas fa-bus"></i></button>
+                            <p>Transports</p>
+                        </div>
                     </section>
                     <section id="actions">
                         <div class="btn-group btn-red">
-                            <a href="health" class="btn btn-circle"><i class="fas fa-heart"></i></a>
-                            <p>Health</p>
+                            <a href="health" class="btn btn-circle"><i class="fas fa-tree"></i></a>
+                            <p>Places</p>
                         </div>
-                        <div class="btn-group btn-green">
-                            <a href="travel" class="btn btn-circle"><i class="fas fa-route"></i></a>
-                            <p>Travel</p>
+                        <div class="btn-group btn-red">
+                            <button class="btn-circle"><i class="fas fa-university"></i></button>
+                            <p>Utils</p>
                         </div>
                         <div class="btn-group btn-blue">
-                            <a href="find" class="btn btn-circle"><i class="fas fa-search"></i></a>
-                            <p>Find</p>
+                            <button class="btn-circle"><i class="fas fa-map-marker-alt"></i></button>
+                            <p>Nearby</p>
                         </div>
                     </section>
 
                     <div id="btn-notifications-open">
-                        <button id="notification-btn" onclick="showNotifications()" class="btn-small-dark"><i class="fa fa-chevron-up"></i></button>
+                        <button id="notification-btn" onclick="showNotifications()" class="btn-small-light"><i class="fa fa-chevron-up"></i></button>
                     </div>
                 </main>
 
@@ -152,7 +140,7 @@
                 <!-- ./PAGES -->
             </div>
             <div id="device">
-                <img id="device-frame" src="assets/img/frame.png" width="230" alt="frame">
+                <img id="device-frame" src="../assets/img/frame.png" width="230" alt="frame">
             </div>
         </div>
         <div id="button-strip">
@@ -165,17 +153,17 @@
         </div>
     </div>
     
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/hammerslider.min.js"></script>
-    <script src="assets/js/skyicons.min.js"></script>
-    <script src="assets/js/range-slider.min.js"></script>
-    <script src="assets/js/sweetalert2.min.js"></script>
-    <script src="assets/js/select.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/hammerslider.min.js"></script>
+    <script src="../assets/js/skyicons.min.js"></script>
+    <script src="../assets/js/range-slider.min.js"></script>
+    <script src="../assets/js/sweetalert2.min.js"></script>
+    <script src="../assets/js/select.js"></script>
 
-    <script src="assets/js/settings.js"></script>
-    <script src="assets/js/weather.js"></script>
-    <script src="assets/js/health.js"></script>
-    <script src="assets/js/notifications.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="../assets/js/settings.js"></script>
+    <script src="../assets/js/weather.js"></script>
+    <script src="../assets/js/health.js"></script>
+    <script src="../assets/js/notifications.js"></script>
+    <script src="../assets/js/app.js"></script>
 </body>
 </html>
