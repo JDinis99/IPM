@@ -1,4 +1,4 @@
-const DEFAULT_ETA = 120 // in seconds
+const DEFAULT_ETA = 5 // in seconds
 
 let current_state = JSON.parse(localStorage.getItem('current-state'))
 

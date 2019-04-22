@@ -13132,6 +13132,11 @@ button, a.btn {
   text-decoration: none;
 }
 
+button.disabled, button:disabled, a.btn.disabled, a.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
 .btn-circle {
   border-radius: 50%;
   height: 40px;
@@ -14016,7 +14021,7 @@ section#settings #settings-strip {
   display: -ms-flexbox;
   display: flex;
   left: 0;
-  width: 350px;
+  width: 360px;
   position: relative;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -14026,7 +14031,7 @@ section#settings #settings-strip {
 }
 
 section#settings #settings-strip.settings-advanced {
-  left: -180px;
+  left: -190px;
 }
 
 section#settings #settings-strip .settings-viewbox {

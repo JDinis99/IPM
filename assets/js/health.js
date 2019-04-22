@@ -10,7 +10,7 @@ function checkSOS() {
     if(sospressed) {
         soscounter += 0.15
         if(sospressed == true && soscounter > 2.5) {
-            if(current_state.sos.pressed == false) {
+            if(current_state.sos.eta <= 0) {
                 current_state.sos.pressed = true
                 current_state.sos.eta = DEFAULT_ETA
                 current_state.notifications++
@@ -122,22 +122,22 @@ function updateSOS() {
         })
 
         notification.style.display = 'none'
-        val.sos.pressed = false
         val.sos.eta = 0
         val.notifications--
         localStorage.setItem('current-state', JSON.stringify(val))
+        document.getElementById('sos-cancel-btn').classList.add('disabled')
     } else if (val.sos.pressed && val.sos.eta < 0) {
         if(eta)
             eta.innerHTML = ''
         Array.from(notification_eta).forEach((el) => {
-            el.innerHTML = 'Canceled'
+            el.innerHTML = 'Cancelled'
         })
 
         notification.style.display = 'none'
-        val.sos.pressed = false
-        val.sos.eta = 0
+        val.sos.eta = -1
         val.notifications = val.notifications > 0 ? val.notifications - 1: 0
         localStorage.setItem('current-state', JSON.stringify(val))
+        document.getElementById('sos-cancel-btn').classList.add('disabled')
     }
     updateNotifications()
 }
