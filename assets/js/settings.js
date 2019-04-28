@@ -10,6 +10,7 @@ let advanced_settings = false
 if(settings == undefined) {
     initSettings()
 }
+
 function initSettings() {
     settings = {
         age: 18,
@@ -24,6 +25,19 @@ function initSettings() {
     settings.max_alcohol = calcAlcohol(0)
     localStorage.setItem('settings', JSON.stringify(settings))
     temp_settings = JSON.parse(localStorage.getItem('settings'))
+}
+
+function findGetParameter(parameterName) {
+    var result = null,
+        tmp = []
+    location.search
+        .substr(1)
+        .split("&")
+        .forEach(function (item) {
+            tmp = item.split("=")
+            if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1])
+        })
+    return result
 }
 
 const STYLES = {

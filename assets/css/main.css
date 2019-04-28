@@ -14269,7 +14269,7 @@ main#find {
   background: linear-gradient(#287cc2, #0c5490);
   width: 100%;
   height: 100%;
-  padding: 12px 14px;
+  padding: 12px 12px;
 }
 
 main#find section#widgets h3 {
@@ -14295,7 +14295,17 @@ main#find section#controls {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0;
+  margin: 5px 0;
+}
+
+main#find section#controls h3 {
+  cursor: pointer;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+main#find section#controls h3:hover {
+  color: white;
 }
 
 main#find section#controls h3, main#find section#controls p, main#find section#controls span {
@@ -14304,6 +14314,30 @@ main#find section#controls h3, main#find section#controls p, main#find section#c
   padding: 0;
   font-size: 12px;
   font-weight: bold;
+}
+
+main#find section#controls h3 i, main#find section#controls p i, main#find section#controls span i {
+  cursor: pointer;
+}
+
+main#find section#controls h3 i#left-btn, main#find section#controls p i#left-btn, main#find section#controls span i#left-btn {
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  margin-right: 5px;
+}
+
+main#find section#controls h3 i#left-btn:hover, main#find section#controls p i#left-btn:hover, main#find section#controls span i#left-btn:hover {
+  color: white;
+}
+
+main#find section#controls h3 i#right-btn, main#find section#controls p i#right-btn, main#find section#controls span i#right-btn {
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  margin-left: 5px;
+}
+
+main#find section#controls h3 i#right-btn:hover, main#find section#controls p i#right-btn:hover, main#find section#controls span i#right-btn:hover {
+  color: white;
 }
 
 main#find section#actions {
@@ -14324,13 +14358,39 @@ main#find .list-group {
   list-style: none;
   padding: 0;
   margin: 0;
+  height: 165px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  left: -20px;
+  position: relative;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
-main#find .list-group .list-item {
+main#find .list-group a {
+  text-decoration: none;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 33%;
+          flex: 1 0 33%;
+  width: 100%;
+  max-height: 40px;
+  margin: 6px 20px;
+}
+
+main#find .list-group a .list-item {
   padding: 0;
   margin: 0;
   background: white;
-  margin: 10px 0;
   padding: 5px;
   padding-bottom: 0;
   -webkit-box-shadow: 0px 6px 2px -3px rgba(0, 0, 0, 0.15);
@@ -14338,7 +14398,7 @@ main#find .list-group .list-item {
   border-radius: 2px;
 }
 
-main#find .list-group .list-item .row {
+main#find .list-group a .list-item .row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14350,33 +14410,329 @@ main#find .list-group .list-item .row {
           align-items: center;
 }
 
-main#find .list-group .list-item .row h1, main#find .list-group .list-item .row h2, main#find .list-group .list-item .row .stars {
+main#find .list-group a .list-item .row h1, main#find .list-group a .list-item .row h2, main#find .list-group a .list-item .row .stars {
   margin: 0 0 5px;
   font-size: 12px;
 }
 
-main#find .list-group .list-item .row h1 i, main#find .list-group .list-item .row h2 i, main#find .list-group .list-item .row .stars i {
+main#find .list-group a .list-item .row h1 i, main#find .list-group a .list-item .row h2 i, main#find .list-group a .list-item .row .stars i {
   margin-right: 3px;
 }
 
-main#find .list-group .list-item .row h1 {
+main#find .list-group a .list-item .row h1 {
   font-weight: normal;
   max-width: 107px;
 }
 
-main#find .list-group .list-item .row h2 {
+main#find .list-group a .list-item .row h2 {
   font-size: 10px;
 }
 
-main#find .list-group .list-item .row h2 i {
+main#find .list-group a .list-item .row h2 i {
   margin-left: 3px;
 }
 
-main#find .list-group .list-item .row .stars {
+main#find .list-group a .list-item .row .stars {
   list-style: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   opacity: 0.8;
+}
+
+main#find section#details .card {
+  border-radius: 3px;
+  background: white;
+  width: 100%;
+}
+
+main#find section#details .card .card-header {
+  position: relative;
+  overflow: hidden;
+}
+
+main#find section#details .card .card-header .img-bg {
+  display: block;
+  height: 110%;
+  width: 110%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-filter: blur(5px) grayscale(60%);
+          filter: blur(5px) grayscale(60%);
+}
+
+main#find section#details .card .card-header .img-overlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  opacity: 0.35;
+  display: block;
+  position: absolute;
+}
+
+main#find section#details .card .card-header .content {
+  padding: 8px 10px 5px;
+  position: relative;
+  z-index: 1;
+}
+
+main#find section#details .card .card-header .content h1, main#find section#details .card .card-header .content h2, main#find section#details .card .card-header .content h3 {
+  margin: 0;
+  font-size: 10px;
+}
+
+main#find section#details .card .card-header .content h1 {
+  font-weight: normal;
+  font-size: 13px;
+  color: white;
+}
+
+main#find section#details .card .card-header .content h3 i {
+  font-size: 10px;
+  margin-right: 2px;
+}
+
+main#find section#details .card .card-header .content h3 span {
+  font-size: 8px;
+  text-transform: uppercase;
+}
+
+main#find section#details .card .card-header .content .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main#find section#details .card .card-header .content .rating {
+  margin-top: 1px;
+}
+
+main#find section#details .card .card-header .content .description {
+  margin: 3px 0;
+  color: white;
+  font-size: 10px;
+}
+
+main#find section#details .card .card-header .content .info h2 {
+  margin-right: 5px;
+  display: inline-block;
+  color: white;
+}
+
+main#find section#details .card .card-header .content .info h2 span {
+  color: white;
+}
+
+main#find section#details .card .card-header .content .info h2:last-child {
+  margin-right: 0;
+  margin-left: 5px;
+}
+
+main#find section#details .card .card-action {
+  position: relative;
+}
+
+main#find section#details .card .card-action button {
+  position: absolute;
+  top: -65%;
+  right: 10px;
+  -webkit-transform: translateY(-65%);
+          transform: translateY(-65%);
+  z-index: 3;
+  background: #7bc950;
+  color: white;
+  padding: 7px 12px;
+  display: block;
+  font-size: 12px;
+  -webkit-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.15);
+}
+
+main#find section#details .card .card-action button i {
+  margin-left: 5px;
+}
+
+main#find section#details .card .card-body section#widgets .row {
+  height: 75px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 140px;
+}
+
+main#find section#details .card .card-body section#widgets .row .left {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+main#find section#details .card .card-body section#widgets .row .left .avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+main#find section#details .card .card-body section#widgets .row .right {
+  text-align: left;
+  margin: 7px 0;
+  margin-left: 10px;
+  width: 90px;
+}
+
+main#find section#details .card .card-body section#widgets .row .right .name {
+  font-size: 11px;
+  margin: 0;
+}
+
+main#find section#details .card .card-body section#widgets .row .right .quote {
+  margin: 3px 0;
+  font-size: 10px;
+}
+
+main#find section#details .card .card-body section#widgets .row .right .quote:before, main#find section#details .card .card-body section#widgets .row .right .quote:after {
+  content: '"';
+}
+
+main#find section#details .card .card-body section#widgets .row .right .stars {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 0.8;
+  font-size: 10px;
+}
+
+main#find section#details .card .card-body section#widgets .row .right .stars li {
+  margin: 0 3px;
+}
+
+main#find section#details .card .card-body section#widgets .row .right .stars li:first-child {
+  margin-left: 0;
+}
+
+main#find section#details .card .card-body section#widgets .row .right .stars li:last-child {
+  margin-right: 0;
+}
+
+main#find section#sort-menu {
+  display: none;
+  position: absolute;
+  top: 55px;
+  left: 10px;
+  right: 10px;
+  bottom: 18px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#287cc2), to(#0c5490));
+  background: linear-gradient(#287cc2, #0c5490);
+  -webkit-box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  -webkit-transform: translate(-50px, -50px) scale(0.5);
+          transform: translate(-50px, -50px) scale(0.5);
+  opacity: 0;
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+main#find section#sort-menu.active {
+  top: 55px;
+  -webkit-transform: translate(0px, 0px) scale(1);
+          transform: translate(0px, 0px) scale(1);
+  opacity: 1;
+  pointer-events: all;
+}
+
+main#find section#sort-menu button {
+  color: white;
+  opacity: 0.7;
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  font-size: 12px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+main#find section#sort-menu button:hover {
+  opacity: 1;
+}
+
+main#find section#sort-menu .sort, main#find section#sort-menu .order {
+  margin-bottom: 5px;
+}
+
+main#find section#sort-menu .sort p, main#find section#sort-menu .order p {
+  color: white;
+  margin: 10px 0 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+main#find section#sort-menu .sort ul, main#find section#sort-menu .order ul {
+  margin: 5px 0 10px;
+  list-style: none;
+  font-size: 12px;
+  padding: 0;
+  color: white;
+}
+
+main#find section#sort-menu .sort ul li, main#find section#sort-menu .order ul li {
+  margin: 0 5px;
+  display: inline;
+  opacity: 0.5;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+main#find section#sort-menu .sort ul li:first-child, main#find section#sort-menu .order ul li:first-child {
+  margin-left: 0;
+}
+
+main#find section#sort-menu .sort ul li:hover, main#find section#sort-menu .order ul li:hover {
+  opacity: 0.8;
+}
+
+main#find section#sort-menu .sort ul li.active, main#find section#sort-menu .order ul li.active {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+main#find section#sort-menu .sort ul li a, main#find section#sort-menu .order ul li a {
+  text-decoration: none;
+  color: white;
 }
 /*# sourceMappingURL=main.css.map */

@@ -23,7 +23,7 @@
 
                 <main id="find">
                     <section id="header" class="header-light">
-                        <a href="../find/" class="btn btn-circle"><i class="fas fa-arrow-left"></i></a>
+                        <a href="#" onclick="window.history.back()" class="btn btn-circle"><i class="fas fa-arrow-left"></i></a>
                         <i class="fa fa-search"></i>
                         <div class="clock">
                             <h2 id="clock-time"></h2>
@@ -31,32 +31,44 @@
                         </div>
                     </section>
 
-                    <section id="controls">
-                        <h3 class="sort-btn"><i class="fas fa-sort-amount-down"></i> Sort</h3>
-                        <p>
-                            <i style="display: none;" id="left-btn" class="fa fa-chevron-left"></i>
-                            <span id="current-page">0</span> / <span id="total-pages">0</span>
-                            <i style="display: none;" id="right-btn" class="fa fa-chevron-right"></i>
-                        </p>
-                    </section>
-
-                    <section id="list">
-                        <ul id="places-list" class="list-group"></ul>
-                    </section>
-
-                    <section id="sort-menu">
-                        <button class="btn sort-btn"><i class="fa fa-close"></i></button>
-                        <div class="sort">
-                            <p>Sort by</p>
-                            <ul id="sort-options">
-                                <li class="active"><a href="#" data-sort-type="distance">Distance</a></li>/<li><a href="#" data-sort-type="rating">Rating</a></li>/<li><a href="#" data-sort-type="friends">Friends</a></li>
-                            </ul>
-                        </div>
-                        <div class="order">
-                            <p>Order by</p>
-                            <ul id="order-options">
-                                <li class="active"><a href="#" data-sort-order="ascending">Ascending</a></li>/<li><a href="#" data-sort-order="descending">Descending</a></li>
-                            </ul>
+                    <section id="details">
+                        <div class="card">
+                            <div class="card-header">
+                                <img id="place-image" class="img-bg" src="" alt="bg">
+                                <div class="img-overlay"></div>
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="left">
+                                            <h1 id="place-name"></h1>
+                                            <h3><i id="place-type-icon" class="fas"></i> <span id="place-type-name">Restaurant</span></h3>
+                                        </div>
+                                        <div class="right">
+                                            <h2 class="rating yellow-alt"><span class="yellow-alt" id="place-rating"></span> <i class="fas fa-star"></i></h2>
+                                        </div>
+                                    </div>
+                                    <p id="place-description" class="description"></p>
+                                    <div class="info">
+                                        <h2><span id="place-friends"></span> <i class="fas fa-user-friends"></i></h2>
+                                        <h2><i class="fas fa-walking"></i> <span id="place-distance"></span></h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-action">
+                                <button>Go <i class="fas fa-location-arrow"></i></button>
+                            </div>
+                            <div class="card-body">
+                                <section id="widgets" class="widgets-dark">
+                                    <button id="prev-btn" class="btn-small-dark"><i class="fa fa-chevron-left"></i></button>
+                                
+                                    <!-- WIDGETS -->
+                                    <div class="c-slider widget-box" id="review-slider">
+                                        <div class="c-slider__container" id="widget-strip"></div>
+                                    </div>
+                                    <!-- ./WIDGETS -->
+                                
+                                    <button id="next-btn" class="btn-small-dark"><i class="fa fa-chevron-right"></i></button>
+                                </section>
+                            </div>
                         </div>
                     </section>
 
@@ -164,7 +176,7 @@
     <script src="../assets/js/weather.js"></script>
     <script src="../assets/js/health.js"></script>
     <script src="../assets/js/notifications.js"></script>
-    <script type="module" src="../assets/js/find/list.js"></script>
+    <script type="module" src="../assets/js/find/view.js"></script>
     <script src="../assets/js/app.js"></script>
 </body>
 </html>
