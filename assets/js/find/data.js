@@ -284,6 +284,9 @@ export default {
     },
 
     getPlacesByCategory(category) {
+        if (category == 'nearby')
+            return places
+        
         let type = getCategoryId(category)
         return places.filter((p) => p.type == type)
     },
