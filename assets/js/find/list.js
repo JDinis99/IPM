@@ -75,6 +75,7 @@ function updateList() {
 
 $('.sort-btn').click(() => {
     $('#sort-menu').toggleClass('active')
+    $('#sort-close').addClass('fa-close').removeClass('fa-check')
 })
 
 let active_sort = $('#sort-options li.active')
@@ -91,9 +92,13 @@ $('#sort-options li').click(function() {
 
     active_sort.toggleClass('active')
     active_sort = $(this)
+    
+    if(sort.type == null)
+        $('#sort-close').addClass('fa-check').removeClass('fa-close')
 
     sort.type = active_sort.find('a').data('sort-type')
     active_sort.toggleClass('active')
+
 
     updateList()
 })
@@ -104,6 +109,9 @@ $('#order-options li').click(function () {
 
     active_order.toggleClass('active')
     active_order = $(this)
+
+    if (sort.order == null)
+        $('#sort-close').addClass('fa-check').removeClass('fa-close')
 
     sort.order = active_order.find('a').data('sort-order')
     active_order.toggleClass('active')
