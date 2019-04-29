@@ -31,6 +31,7 @@ section#notifications
         font-size: 14px
 
     .notification
+        margin-bottom: 7px
         display: flex
         justify-content: space-between
         align-items: center
@@ -44,21 +45,29 @@ section#notifications
             display: flex
             text-align: left
             align-items: center
+            color: #271f30
             i
+                width: 23px
+                text-align: center
                 font-size: 20px
-                color: #271f30
+                &.reserve-icon
+                    text-shadow: 0px 0px 2px black
             .sub-info
                 margin-left: 10px
                 h3
-                    font-size: 14px
+                    font-size: 12px
                     margin: 0
                     padding: 0
                     margin-bottom: 2px
-                p
+                p, span, i
                     font-size: 10px
                     margin: 0
                     padding: 0
-                    color: #7d728a
+                    color: #635771
+                
+                p
+                    i
+                        margin: 0 1px
         
         .icons
             text-align: right

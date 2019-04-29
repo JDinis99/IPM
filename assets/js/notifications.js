@@ -31,3 +31,4 @@ function updateNotifications() {
         notification_btn.classList.remove('notification-bounce')
     }
 }
+

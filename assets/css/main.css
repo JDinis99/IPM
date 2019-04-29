@@ -13725,6 +13725,7 @@ section#notifications h2 {
 }
 
 section#notifications .notification {
+  margin-bottom: 7px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13751,11 +13752,17 @@ section#notifications .notification .main-info {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  color: #271f30;
 }
 
 section#notifications .notification .main-info i {
+  width: 23px;
+  text-align: center;
   font-size: 20px;
-  color: #271f30;
+}
+
+section#notifications .notification .main-info i.reserve-icon {
+  text-shadow: 0px 0px 2px black;
 }
 
 section#notifications .notification .main-info .sub-info {
@@ -13763,17 +13770,21 @@ section#notifications .notification .main-info .sub-info {
 }
 
 section#notifications .notification .main-info .sub-info h3 {
-  font-size: 14px;
+  font-size: 12px;
   margin: 0;
   padding: 0;
   margin-bottom: 2px;
 }
 
-section#notifications .notification .main-info .sub-info p {
+section#notifications .notification .main-info .sub-info p, section#notifications .notification .main-info .sub-info span, section#notifications .notification .main-info .sub-info i {
   font-size: 10px;
   margin: 0;
   padding: 0;
-  color: #7d728a;
+  color: #635771;
+}
+
+section#notifications .notification .main-info .sub-info p i {
+  margin: 0 1px;
 }
 
 section#notifications .notification .icons {
