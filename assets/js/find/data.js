@@ -36,8 +36,8 @@ const places = [
         name: 'Arco do Cego',
         description: 'Um lugar para conviver com os amigos e passar a tarde.',
         type: 3,
-        rating: 4.5,
-        distance: 305,
+        rating: 5,
+        distance: 69,
         friends: 17,
         image: 'restaurant-bg.jpg',
         reviews: [
@@ -57,32 +57,32 @@ const places = [
     },
     {
         id: 2,
-        name: 'O Cantinho do Zé',
-        description: 'Somos um restaurante familiar dedicado à comida mediterrânea.',
+        name: 'Boa-Bao',
+        description: 'O Boa-Bao – uma porta de embarque para Oriente. ',
         type: 1,
-        rating: 0.5,
-        distance: 20,
+        rating: 4.9,
+        distance: 50,
         friends: 0,
         image: 'restaurant-bg.jpg',
         reviews: [
             {
                 name: 'Pinguim Meistre',
-                quote: 'Oferece o melhor peixe que há no bairro.',
+                quote: 'Muito Saboroso.',
                 rating: 5,
                 avatar: 'avatar.jpg'
             },
             {
-                name: 'José Pires',
-                quote: 'Não gostei.',
-                rating: 2,
+                name: 'Tiago Fonseca',
+                quote: 'Bom mas muito caro.',
+                rating: 3,
                 avatar: 'avatar.jpg'
             }
         ]
     },
     {
         id: 3,
-        name: 'O Cantinho do Zé',
-        description: 'Somos um restaurante familiar dedicado à comida mediterrânea.',
+        name: 'Jamie\'s Italian',
+        description: 'Peritos em comida italiana.',
         type: 1,
         rating: 3,
         distance: 123,
@@ -91,22 +91,22 @@ const places = [
         reviews: [
             {
                 name: 'Pinguim Meistre',
-                quote: 'Oferece o melhor peixe que há no bairro.',
+                quote: 'Até apanhei sotaque.',
                 rating: 5,
                 avatar: 'avatar.jpg'
             },
             {
-                name: 'José Pires',
-                quote: 'Não gostei.',
-                rating: 2,
+                name: 'João Dinis',
+                quote: 'Zona muito bonita e boa comida.',
+                rating: 4,
                 avatar: 'avatar.jpg'
             }
         ]
     },
     {
         id: 4,
-        name: 'O Cantinho do Zé',
-        description: 'Somos um restaurante familiar dedicado à comida mediterrânea.',
+        name: 'Ground Burger',
+        description: 'Hamburgueria Americana.',
         type: 1,
         rating: 4,
         distance: 703,
@@ -115,22 +115,22 @@ const places = [
         reviews: [
             {
                 name: 'Pinguim Meistre',
-                quote: 'Oferece o melhor peixe que há no bairro.',
+                quote: 'Melhores hamburgers que já comi.',
                 rating: 5,
                 avatar: 'avatar.jpg'
             },
             {
-                name: 'José Pires',
-                quote: 'Não gostei.',
-                rating: 2,
+                name: 'João Soares',
+                quote: 'Ganhei diabetes.',
+                rating: 1,
                 avatar: 'avatar.jpg'
             }
         ]
     },
     {
         id: 5,
-        name: 'O Cantinho do Zé',
-        description: 'Somos um restaurante familiar dedicado à comida mediterrânea.',
+        name: 'Cantina social do IST',
+        description: 'O mais barato possivél.',
         type: 1,
         rating: 2.5,
         distance: 403,
@@ -139,71 +139,59 @@ const places = [
         reviews: [
             {
                 name: 'Pinguim Meistre',
-                quote: 'Oferece o melhor peixe que há no bairro.',
+                quote: 'Muito boa opção para estudantes.',
                 rating: 5,
                 avatar: 'avatar.jpg'
             },
             {
                 name: 'José Pires',
-                quote: 'Não gostei.',
-                rating: 2,
+                quote: 'Não sei o que comi, mas era barato.',
+                rating: 3,
                 avatar: 'avatar.jpg'
             }
         ]
     },
     {
         id: 6,
-        name: 'O Cantinho do Zé',
-        description: 'Somos um restaurante familiar dedicado à comida mediterrânea.',
-        type: 1,
-        rating: 1.5,
+        name: 'Estação de metro de Odivelas',
+        description: 'Fim da linha amarela.',
+        type: 2,
+        rating: 2.5,
         distance: 54,
         friends: 123,
         image: 'restaurant-bg.jpg',
         reviews: [
             {
                 name: 'Pinguim Meistre',
-                quote: 'Oferece o melhor peixe que há no bairro.',
+                quote: 'Foi muito rápido.',
                 rating: 5,
-                avatar: 'avatar.jpg'
-            },
-            {
-                name: 'José Pires',
-                quote: 'Não gostei.',
-                rating: 2,
                 avatar: 'avatar.jpg'
             }
         ]
     },
     {
         id: 7,
-        name: 'O Cantinho do Zé',
-        description: 'Somos um restaurante familiar dedicado à comida mediterrânea.',
-        type: 1,
-        rating: 5,
+        name: 'Estação de metro do saldanha',
+        description: 'Convergência da linha amarela e vermelha.',
+        type: 2,
+        rating: 3.5,
         distance: 1234,
         friends: 5,
         image: 'restaurant-bg.jpg',
         reviews: [
             {
                 name: 'Pinguim Meistre',
-                quote: 'Oferece o melhor peixe que há no bairro.',
-                rating: 5,
-                avatar: 'avatar.jpg'
-            },
-            {
-                name: 'José Pires',
-                quote: 'Não gostei.',
-                rating: 2,
+                quote: 'Escadas rolantes nunca funcionam ao mesmo tempo.',
+                rating: 0.5,
                 avatar: 'avatar.jpg'
             }
         ]
     },
     {
         id: 8,
-        name: 'O Canth Zé',
-        description: 'Somos um restaurante familiar dedicado à comida mediterrânea.',
-        type: 1,
+        name: 'Aeroporto de Lisboa',
+        description: 'Aeroporto da capital de Portugal.',
+        type: 2,
         rating: 3.5,
         distance: 1003,
         friends: 0,
@@ -211,23 +199,197 @@ const places = [
         reviews: [
             {
                 name: 'Pinguim Meistre',
-                quote: 'Oferece o melhor peixe que há no bairro.',
+                quote: 'Grande e seguro.',
                 rating: 5,
-                avatar: 'avatar.jpg'
-            },
-            {
-                name: 'José Pires',
-                quote: 'Não gostei.',
-                rating: 2,
                 avatar: 'avatar.jpg'
             }
         ]
     },
     {
         id: 9,
-        name: 'O Cantdo do Zé',
+        name: 'Igreja de São Roque',
+        description: 'Igreja do sec XV.',
+        type: 3,
+        rating: 3,
+        distance: 232,
+        friends: 5,
+        image: 'restaurant-bg.jpg',
+        reviews: [
+            {
+                name: 'Pinguim Meistre',
+                quote: 'Bonita e com um ar antigo.',
+                rating: 5,
+                avatar: 'avatar.jpg'
+            }
+        ]
+    },
+    {
+        id: 10,
+        name: 'Museu do Coche',
+        description: 'Museu nacional dos coches',
+        type: 3,
+        rating: 4,
+        distance: 452,
+        friends: 5,
+        image: 'restaurant-bg.jpg',
+        reviews: [
+            {
+                name: 'Pinguim Meistre',
+                quote: 'Adorei, cheio de coches lindos.',
+                rating: 5,
+                avatar: 'avatar.jpg'
+            },
+            {
+                name: 'José Pires',
+                quote: 'Museu pequeno e sem grande variedade.',
+                rating: 2,
+                avatar: 'avatar.jpg'
+            }
+        ]
+    },
+    {
+        id: 11,
+        name: 'Panteão Nacional',
         description: 'Somos um restaurante familiar dedicado à comida mediterrânea.',
         type: 3,
+        rating: 4.5,
+        distance: 412,
+        friends: 5,
+        image: 'restaurant-bg.jpg',
+        reviews: [
+            {
+                name: 'Pinguim Meistre',
+                quote: 'Visita imperdível!',
+                rating: 5,
+                avatar: 'avatar.jpg'
+            },
+            {
+                name: 'José Pires',
+                quote: 'OS HERÓIS MORAM LÁ.',
+                rating: 4,
+                avatar: 'avatar.jpg'
+            }
+        ]
+    },
+    {
+        id: 12,
+        name: 'Centro Colombo',
+        description: 'Centro comercial Colombo.',
+        type: 4,
+        rating: 5,
+        distance: 325,
+        friends: 5,
+        image: 'restaurant-bg.jpg',
+        reviews: [
+            {
+                name: 'Pinguim Meistre',
+                quote: 'O melhor de Lisboa.',
+                rating: 5,
+                avatar: 'avatar.jpg'
+            },
+            {
+                name: 'José Pires',
+                quote: 'Muita confusão.',
+                rating: 2,
+                avatar: 'avatar.jpg'
+            }
+        ]
+    },
+    {
+        id: 13,
+        name: 'Mercado de Campo de Ourique',
+        description: 'Mercado tradicional de Campo de Ourique',
+        type: 4,
+        rating: 2.5,
+        distance: 60,
+        friends: 5,
+        image: 'restaurant-bg.jpg',
+        reviews: [
+            {
+                name: 'Pinguim Meistre',
+                quote: 'Delicioso!!!!.',
+                rating: 5,
+                avatar: 'avatar.jpg'
+            },
+            {
+                name: 'José Pires',
+                quote: 'Cheio de variedade.',
+                rating: 4,
+                avatar: 'avatar.jpg'
+            }
+        ]
+    },
+    {
+        id: 14,
+        name: 'Mercado da Ribeira',
+        description: 'Mercado tradicional da Ribeira.',
+        type: 4,
+        rating: 4,
+        distance: 45,
+        friends: 5,
+        image: 'restaurant-bg.jpg',
+        reviews: [
+            {
+                name: 'Pinguim Meistre',
+                quote: 'O mundo num mercado.',
+                rating: 5,
+                avatar: 'avatar.jpg'
+            },
+            {
+                name: 'José Pires',
+                quote: 'Um bom sitio para comer e beber.',
+                rating: 3,
+                avatar: 'avatar.jpg'
+            }
+        ]
+    },
+    {
+        id: 15,
+        name: 'Bertrand',
+        description: 'Livraria mais antiga do país.',
+        type: 0,
+        rating: 3,
+        distance: 77,
+        friends: 5,
+        image: 'restaurant-bg.jpg',
+        reviews: [
+            {
+                name: 'Pinguim Meistre',
+                quote: 'Livraria histórica.',
+                rating: 5,
+                avatar: 'avatar.jpg'
+            }
+        ]
+    },
+    {
+        id: 16,
+        name: 'O Mundo Fantástico da Sardinha Portuguesa',
+        description: 'O Mundo Fantástico da Sardinha Portuguesa.',
+        type: 0,
+        rating: 3,
+        distance: 666,
+        friends: 5,
+        image: 'restaurant-bg.jpg',
+        reviews: [
+            {
+                name: 'Pinguim Meistre',
+                quote: 'Muito interessante.',
+                rating: 5,
+                avatar: 'avatar.jpg'
+            },
+            {
+                name: 'António Marques',
+                quote: 'Não sei a razão de isto existir.',
+                rating: 1,
+                avatar: 'avatar.jpg'
+            }
+        ]
+    },
+    {
+        id: 17,
+        name: 'Cerâmicas na Linha',
+        description: 'Lógica tradicional de cerâmica.',
+        type: 0,
         rating: 3,
         distance: 132,
         friends: 5,
@@ -235,18 +397,13 @@ const places = [
         reviews: [
             {
                 name: 'Pinguim Meistre',
-                quote: 'Oferece o melhor peixe que há no bairro.',
+                quote: 'Fazem peças à medida.',
                 rating: 5,
-                avatar: 'avatar.jpg'
-            },
-            {
-                name: 'José Pires',
-                quote: 'Não gostei.',
-                rating: 2,
                 avatar: 'avatar.jpg'
             }
         ]
     }
+
 ]
 
 function createRatingHtml(rating) {
