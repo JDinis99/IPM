@@ -14837,4 +14837,89 @@ main#find section#gps .map .gps-directions p i {
   color: white;
   margin-left: 10px;
 }
+
+main#find section#reserve .row {
+  margin: 5px 0;
+  padding: 0;
+}
+
+main#find section#reserve .row h2 {
+  margin: 0;
+  font-size: 12px;
+  color: white;
+}
+
+main#find section#reserve .row h2 i {
+  width: 15px;
+  text-align: center;
+  margin-right: 5px;
+}
+
+main#find section#reserve .row h1, main#find section#reserve .row h3, main#find section#reserve .row span {
+  text-align: center;
+  margin: 0;
+  color: white;
+}
+
+main#find section#reserve .row h1 {
+  font-size: 24px;
+}
+
+main#find section#reserve .row h1 i {
+  color: white;
+  opacity: 0.7;
+  font-size: 16px;
+}
+
+main#find section#reserve .row h1 i:hover {
+  opacity: 1;
+}
+
+main#find section#reserve .row .cols {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main#find section#reserve .row .cols h3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  color: white;
+}
+
+main#find section#reserve .row .cols h3 i {
+  color: white;
+  opacity: 0.7;
+  font-size: 12px;
+  margin: 5px;
+}
+
+main#find section#reserve .row .cols h3 i:hover {
+  opacity: 1;
+}
+
+main#find section#reserve button.confirm {
+  padding: 7px 12px;
+  background: #7bc950;
+  color: white;
+  margin: 0 auto;
+  display: block;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.15);
+}
 /*# sourceMappingURL=main.css.map */
