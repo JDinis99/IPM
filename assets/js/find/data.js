@@ -1,10 +1,10 @@
 const TYPE_NAMES  = ['Shop', 'Restaurant', 'Transport', 'Place', 'Util']
+const RESERVES    = [false, true, false, false, false]
 const TYPE_COLORS = ['green-alt', 'yellow-alt', 'blue-alt', 'purple-alt', 'red-alt']
 const TYPE_ICONS  = ['fa-store', 'fa-utensils', 'fa-bus', 'fa-tree', 'fa-university']
 const CATEGORIES  = ['shops', 'food', 'transports', 'places', 'utils', 'nearby']
 
 const GPS_IMAGES = ['gps_1', 'gps_2', 'gps_3', 'gps_4', 'gps_5', 'gps_6', 'gps_7', 'gps_8']
-
 
 const places = [
     {
@@ -298,6 +298,41 @@ function getDistanceText(distance) {
         return Math.floor(distance / 1000) + 'km'
 }
 
+function createReserve(id, reserves) {
+    let reserve = findReserve(id, reserves)
+    console.log(reserve)
+    if(reserve == undefined) {
+        let today = new Date()
+        let h = today.getHours()
+        let m = today.getMinutes()
+        reserve = {
+            id: id,
+            people: 1,
+            hour: h,
+            minutes: m
+        }
+        reserves.push(reserve)
+        localStorage.setItem('reserves', JSON.stringify(reserves))
+    }
+
+    return reserve
+}
+
+function findReserve(id, reserves) {
+    return reserves.find((r) => r.id == id)
+}
+
+function createReserves() {
+    let reserves = []
+
+    localStorage.setItem('reserves', JSON.stringify(reserves))
+    return reserves
+}
+
+function updateReserves(reserves) {
+    localStorage.setItem('reserves', JSON.stringify(reserves))
+}
+
 export default {
     getPlace(id) {
         if(id < places.length && id >= 0)
@@ -307,12 +342,64 @@ export default {
 
     gps: localStorage.getItem('gps') != undefined ? JSON.parse(localStorage.getItem('gps')) : createGPS(),
 
+    reserves: localStorage.getItem('reserves') != undefined ? JSON.parse(localStorage.getItem('reserves')) : createReserves(),
+
     getGPSImage(gps) {
         return GPS_IMAGES[gps.image]
+    },
+    
+    getReserve(id, reserves) {
+        return createReserve(id, reserves)
     },
 
     resetGPS() {
         return createGPS()
+    },
+
+    hasReserve(place) {
+        return RESERVES[place.type]
+    },
+
+    addPeopleReserve(reserve) {
+        reserve.people++
+    },
+
+    subPeopleReserve(reserve) {
+        reserve.people--
+    },
+
+    addHourReserve(reserve) {
+        reserve.hour++
+        reserve.hour = reserve.hour % 24
+    },
+
+    subHourReserve(reserve) {
+        reserve.hour--
+        if(reserve.hour < 0)
+            reserve.hour = 23
+        reserve.hour = reserve.hour % 24
+    },
+
+    addMinutesReserve(reserve) {
+        reserve.minutes++
+        reserve.minutes = reserve.minutes % 60
+    },
+
+    subMinutesReserve(reserve) {
+        reserve.minutes--
+        if(reserve.minutes < 0)
+            reserve.minutes = 59
+        reserve.minutes = reserve.minutes % 60
+    },
+
+    getReserveMinutes(reserve) {
+        let m = reserve.minutes
+        return m < 10 ? "0" + m : m
+    },
+
+    getReserveHour(reserve) {
+        let h = reserve.hour
+        return h < 10 ? "0" + h : h
     },
 
     getGPSDistance(gps) {
@@ -326,6 +413,10 @@ export default {
         if (gps.image < 7)
             gps.image++
         localStorage.setItem('gps', JSON.stringify(gps))
+    },
+
+    saveReserves() {
+        updateReserves(this.reserves)
     },
 
     hasGPSArrived(gps) {

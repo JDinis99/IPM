@@ -14838,15 +14838,27 @@ main#find section#gps .map .gps-directions p i {
   margin-left: 10px;
 }
 
+main#find section#reserve h2 {
+  margin: 0;
+  font-size: 14px;
+  color: white;
+  font-weight: normal;
+}
+
+main#find section#reserve hr {
+  color: white;
+  margin: 0 0 10px;
+  opacity: 0.2;
+}
+
 main#find section#reserve .row {
-  margin: 5px 0;
+  margin: 2px 0;
   padding: 0;
 }
 
 main#find section#reserve .row h2 {
-  margin: 0;
   font-size: 12px;
-  color: white;
+  font-weight: bold;
 }
 
 main#find section#reserve .row h2 i {
@@ -14862,13 +14874,13 @@ main#find section#reserve .row h1, main#find section#reserve .row h3, main#find 
 }
 
 main#find section#reserve .row h1 {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 main#find section#reserve .row h1 i {
   color: white;
   opacity: 0.7;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 main#find section#reserve .row h1 i:hover {
@@ -14897,7 +14909,7 @@ main#find section#reserve .row .cols h3 {
           flex-direction: column;
   margin: 0;
   padding: 0;
-  font-size: 18px;
+  font-size: 14px;
   color: white;
 }
 

@@ -29,6 +29,9 @@ reviews.forEach((review) => {
     $('#widget-strip').append(data.createReviewHtml(review))
 })
 
+$('#map-btn').click(() => {
+    window.location = `map.html?id=${id}`
+})
 
 const slider = HammerSlider(document.getElementById('review-slider'), {
     mouseDrag: true,
