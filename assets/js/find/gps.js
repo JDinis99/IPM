@@ -11,8 +11,23 @@ function gpsMove() {
     $('#gps-distance').text(data.getGPSDistance(gps))
     if(!data.hasGPSArrived(gps))
         setTimeout(gpsMove, 2000)
-    console.log(gps)
+    else
+        swal(
+            'Arrived!',
+            'Arrived at destination.',
+            'success'
+        ).then(() => {
+            window.location = '../find'
+        })
 }
 
 if (!data.hasGPSArrived(gps))
     setTimeout(gpsMove, 2000)
+else
+    swal(
+        'Arrived!',
+        'Arrived at destination.',
+        'success'
+    ).then(() => {
+        window.location = '../find'
+    })

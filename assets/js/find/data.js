@@ -1,5 +1,5 @@
 const TYPE_NAMES  = ['Shop', 'Restaurant', 'Transport', 'Place', 'Util']
-const RESERVES    = [false, true, false, false, false]
+const RESERVES    = [false, true, true, false, false]
 const TYPE_COLORS = ['green-alt', 'yellow-alt', 'blue-alt', 'purple-alt', 'red-alt']
 const TYPE_ICONS  = ['fa-store', 'fa-utensils', 'fa-bus', 'fa-tree', 'fa-university']
 const CATEGORIES  = ['shops', 'food', 'transports', 'places', 'utils', 'nearby']
