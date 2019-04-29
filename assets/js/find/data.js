@@ -3,6 +3,9 @@ const TYPE_COLORS = ['green-alt', 'yellow-alt', 'blue-alt', 'purple-alt', 'red-a
 const TYPE_ICONS  = ['fa-store', 'fa-utensils', 'fa-bus', 'fa-tree', 'fa-university']
 const CATEGORIES  = ['shops', 'food', 'transports', 'places', 'utils', 'nearby']
 
+const GPS_IMAGES = ['gps_1', 'gps_2', 'gps_3', 'gps_4', 'gps_5', 'gps_6', 'gps_7', 'gps_8']
+
+
 const places = [
     {
         id: 0,
@@ -271,11 +274,62 @@ function getCategoryId(category) {
     return CATEGORIES.indexOf(category)
 }
 
+function createGPS() {
+    let distance = 0
+    while (distance < 50)
+        distance = Math.floor(Math.floor(Math.random() * 40) * (Math.random() + 100))
+    
+    let gps = {
+        distance: distance,
+        image: 0,
+        sub: distance / 8
+    }
+
+    localStorage.setItem('gps', JSON.stringify(gps))
+    return gps
+}
+
+
+
+function getDistanceText(distance) {
+    if (distance < 10000)
+        return Math.floor(distance) + 'm'
+    else
+        return Math.floor(distance / 1000) + 'km'
+}
+
 export default {
     getPlace(id) {
         if(id < places.length && id >= 0)
             return places[id]
         return null
+    },
+
+    gps: localStorage.getItem('gps') != undefined ? JSON.parse(localStorage.getItem('gps')) : createGPS(),
+
+    getGPSImage(gps) {
+        return GPS_IMAGES[gps.image]
+    },
+
+    resetGPS() {
+        return createGPS()
+    },
+
+    getGPSDistance(gps) {
+        let text = getDistanceText(gps.distance)
+        return gps.distance == 0 ? 'Arrived' : text
+    },
+
+    subGPSDistance(gps) {
+        gps.distance -= gps.sub
+        gps.distance = gps.distance < 0 ? 0 : gps.distance
+        if (gps.image < 7)
+            gps.image++
+        localStorage.setItem('gps', JSON.stringify(gps))
+    },
+
+    hasGPSArrived(gps) {
+        return gps.image == 7 && gps.distance == 0
     },
 
     getTotalPages(places) {
@@ -326,12 +380,9 @@ export default {
     },
 
     getDistance(place) {
-        let distance = place.distance
-        if(distance < 1000)
-            return distance + 'm'
-        else
-            return (distance / 1000) + 'km'
+        return getDistanceText(place.distance)
     },
+
     getReviews(place) {
         return place.reviews
     },

@@ -31,43 +31,12 @@
                         </div>
                     </section>
 
-                    <section id="details">
-                        <div class="card">
-                            <div class="card-header">
-                                <img id="place-image" class="img-bg" src="" alt="bg">
-                                <div class="img-overlay"></div>
-                                <div class="content">
-                                    <div class="row">
-                                        <div class="left">
-                                            <h1 id="place-name"></h1>
-                                            <h3><i id="place-type-icon" class="fas"></i> <span id="place-type-name">Restaurant</span></h3>
-                                        </div>
-                                        <div class="right">
-                                            <h2 class="rating yellow-alt"><span class="yellow-alt" id="place-rating"></span> <i class="fas fa-star"></i></h2>
-                                        </div>
-                                    </div>
-                                    <p id="place-description" class="description"></p>
-                                    <div class="info">
-                                        <h2><span id="place-friends"></span> <i class="fas fa-user-friends"></i></h2>
-                                        <h2><i class="fas fa-walking"></i> <span id="place-distance"></span></h2>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-action">
-                                <a href="map.html">Map <i class="fas fa-map"></i></a>
-                            </div>
-                            <div class="card-body">
-                                <section id="widgets" class="widgets-dark">
-                                    <button id="prev-btn" class="btn-small-dark"><i class="fa fa-chevron-left"></i></button>
-                                
-                                    <!-- WIDGETS -->
-                                    <div class="c-slider widget-box" id="review-slider">
-                                        <div class="c-slider__container" id="widget-strip"></div>
-                                    </div>
-                                    <!-- ./WIDGETS -->
-                                
-                                    <button id="next-btn" class="btn-small-dark"><i class="fa fa-chevron-right"></i></button>
-                                </section>
+                    <section id="map">
+                        <div class="map">
+                            <img src="../assets/img/map_top.jpg" alt="">
+                            <div class="map-actions">
+                                <a href="reserve.html" class="red">Reserve <i class="fas fa-clock"></i></a>
+                                <a id="gps-start" href="gps.html" class="round"><i class="fas fa-location-arrow"></i></a>
                             </div>
                         </div>
                     </section>
@@ -176,7 +145,7 @@
     <script src="../assets/js/weather.js"></script>
     <script src="../assets/js/health.js"></script>
     <script src="../assets/js/notifications.js"></script>
-    <script type="module" src="../assets/js/find/view.js"></script>
+    <script type="module" src="../assets/js/find/map.js"></script>
     <script src="../assets/js/app.js"></script>
 </body>
 </html>

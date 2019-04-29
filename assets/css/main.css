@@ -14540,12 +14540,13 @@ main#find section#details .card .card-action {
   position: relative;
 }
 
-main#find section#details .card .card-action button {
+main#find section#details .card .card-action a {
   position: absolute;
   top: -65%;
   right: 10px;
   -webkit-transform: translateY(-65%);
           transform: translateY(-65%);
+  text-decoration: none;
   z-index: 3;
   background: #7bc950;
   color: white;
@@ -14556,12 +14557,12 @@ main#find section#details .card .card-action button {
           box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.15);
 }
 
-main#find section#details .card .card-action button i {
+main#find section#details .card .card-action a i {
   margin-left: 5px;
 }
 
 main#find section#details .card .card-body section#widgets .row {
-  height: 75px;
+  height: 85px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14734,5 +14735,106 @@ main#find section#sort-menu .sort ul li.active, main#find section#sort-menu .ord
 main#find section#sort-menu .sort ul li a, main#find section#sort-menu .order ul li a {
   text-decoration: none;
   color: white;
+}
+
+main#find section#map .map {
+  position: relative;
+  text-align: center;
+  width: 176px;
+  height: 176px;
+}
+
+main#find section#map .map img {
+  border-radius: 3px;
+  -webkit-box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  height: 100%;
+}
+
+main#find section#map .map .map-actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+main#find section#map .map .map-actions a {
+  text-decoration: none;
+  color: white;
+  padding: 8px 12px;
+  display: block;
+  font-size: 12px;
+  -webkit-box-shadow: 0 2px 7px 3px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 2px 7px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  background: #287cc2;
+  text-align: center;
+  position: absolute;
+}
+
+main#find section#map .map .map-actions a.round {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  right: 10px;
+  bottom: 10px;
+  padding: 0;
+}
+
+main#find section#map .map .map-actions a.round i {
+  line-height: 40px;
+}
+
+main#find section#map .map .map-actions a.red {
+  left: 10px;
+  top: 10px;
+}
+
+main#find section#map .map .map-actions a.red i {
+  margin-left: 5px;
+}
+
+main#find section#gps .map {
+  position: relative;
+  text-align: center;
+  width: 176px;
+  height: 176px;
+}
+
+main#find section#gps .map img {
+  border-radius: 3px;
+  -webkit-box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  height: 100%;
+}
+
+main#find section#gps .map .gps-directions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+main#find section#gps .map .gps-directions p {
+  margin: 0;
+  padding: 12px;
+  font-size: 12px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.4);
+  display: inline-block;
+  float: left;
+}
+
+main#find section#gps .map .gps-directions p span {
+  color: white;
+}
+
+main#find section#gps .map .gps-directions p i {
+  color: white;
+  margin-left: 10px;
 }
 /*# sourceMappingURL=main.css.map */
