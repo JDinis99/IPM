@@ -13221,8 +13221,8 @@ button.disabled, button:disabled, a.btn.disabled, a.btn:disabled {
 .btn-red button, .btn-red .btn {
   color: white;
   background: #dc493a;
-  -webkit-box-shadow: 0 0 0 5px rgba(220, 73, 58, 0.25);
-          box-shadow: 0 0 0 5px rgba(220, 73, 58, 0.25);
+  -webkit-box-shadow: 0 0 0 5px rgba(220, 73, 58, 0.3);
+          box-shadow: 0 0 0 5px rgba(220, 73, 58, 0.3);
 }
 
 .btn-red p {
@@ -13232,8 +13232,8 @@ button.disabled, button:disabled, a.btn.disabled, a.btn:disabled {
 .btn-blue button, .btn-blue .btn {
   color: white;
   background: #287cc2;
-  -webkit-box-shadow: 0 0 0 5px rgba(40, 124, 194, 0.25);
-          box-shadow: 0 0 0 5px rgba(40, 124, 194, 0.25);
+  -webkit-box-shadow: 0 0 0 5px rgba(40, 124, 194, 0.3);
+          box-shadow: 0 0 0 5px rgba(40, 124, 194, 0.3);
 }
 
 .btn-blue p {
@@ -13243,8 +13243,8 @@ button.disabled, button:disabled, a.btn.disabled, a.btn:disabled {
 .btn-green button, .btn-green .btn {
   color: white;
   background: #4AC852;
-  -webkit-box-shadow: 0 0 0 5px rgba(74, 200, 82, 0.25);
-          box-shadow: 0 0 0 5px rgba(74, 200, 82, 0.25);
+  -webkit-box-shadow: 0 0 0 5px rgba(74, 200, 82, 0.3);
+          box-shadow: 0 0 0 5px rgba(74, 200, 82, 0.3);
 }
 
 .btn-green p {
@@ -13254,8 +13254,8 @@ button.disabled, button:disabled, a.btn.disabled, a.btn:disabled {
 .btn-blue-alt button, .btn-blue-alt .btn {
   color: white;
   background: #43b1f1;
-  -webkit-box-shadow: 0 0 0 5px rgba(67, 177, 241, 0.25);
-          box-shadow: 0 0 0 5px rgba(67, 177, 241, 0.25);
+  -webkit-box-shadow: 0 0 0 5px rgba(67, 177, 241, 0.6);
+          box-shadow: 0 0 0 5px rgba(67, 177, 241, 0.6);
 }
 
 .btn-blue-alt p {
@@ -13265,8 +13265,8 @@ button.disabled, button:disabled, a.btn.disabled, a.btn:disabled {
 .btn-grey-alt button, .btn-grey-alt .btn {
   color: white;
   background: #95a5a6;
-  -webkit-box-shadow: 0 0 0 5px rgba(149, 165, 166, 0.25);
-          box-shadow: 0 0 0 5px rgba(149, 165, 166, 0.25);
+  -webkit-box-shadow: 0 0 0 5px rgba(149, 165, 166, 0.6);
+          box-shadow: 0 0 0 5px rgba(149, 165, 166, 0.6);
 }
 
 .btn-grey-alt p {
@@ -13276,8 +13276,8 @@ button.disabled, button:disabled, a.btn.disabled, a.btn:disabled {
 .btn-green-alt button, .btn-green-alt .btn {
   color: white;
   background: #3bce79;
-  -webkit-box-shadow: 0 0 0 5px rgba(59, 206, 121, 0.25);
-          box-shadow: 0 0 0 5px rgba(59, 206, 121, 0.25);
+  -webkit-box-shadow: 0 0 0 5px rgba(59, 206, 121, 0.6);
+          box-shadow: 0 0 0 5px rgba(59, 206, 121, 0.6);
 }
 
 .btn-green-alt p {
@@ -13287,8 +13287,8 @@ button.disabled, button:disabled, a.btn.disabled, a.btn:disabled {
 .btn-red-alt button, .btn-red-alt .btn {
   color: white;
   background: #e86948;
-  -webkit-box-shadow: 0 0 0 5px rgba(232, 105, 72, 0.25);
-          box-shadow: 0 0 0 5px rgba(232, 105, 72, 0.25);
+  -webkit-box-shadow: 0 0 0 5px rgba(232, 105, 72, 0.6);
+          box-shadow: 0 0 0 5px rgba(232, 105, 72, 0.6);
 }
 
 .btn-red-alt p {
@@ -13298,8 +13298,8 @@ button.disabled, button:disabled, a.btn.disabled, a.btn:disabled {
 .btn-purple-alt button, .btn-purple-alt .btn {
   color: white;
   background: #b665d6;
-  -webkit-box-shadow: 0 0 0 5px rgba(182, 101, 214, 0.25);
-          box-shadow: 0 0 0 5px rgba(182, 101, 214, 0.25);
+  -webkit-box-shadow: 0 0 0 5px rgba(182, 101, 214, 0.6);
+          box-shadow: 0 0 0 5px rgba(182, 101, 214, 0.6);
 }
 
 .btn-purple-alt p {
@@ -13309,8 +13309,8 @@ button.disabled, button:disabled, a.btn.disabled, a.btn:disabled {
 .btn-yellow-alt button, .btn-yellow-alt .btn {
   color: white;
   background: #f1c40f;
-  -webkit-box-shadow: 0 0 0 5px rgba(241, 196, 15, 0.25);
-          box-shadow: 0 0 0 5px rgba(241, 196, 15, 0.25);
+  -webkit-box-shadow: 0 0 0 5px rgba(241, 196, 15, 0.6);
+          box-shadow: 0 0 0 5px rgba(241, 196, 15, 0.6);
 }
 
 .btn-yellow-alt p {
@@ -14294,6 +14294,10 @@ main#find section#widgets h3.no-padding {
 main#find section#widgets canvas {
   display: block;
   margin: 0 auto;
+}
+
+main#find section#actions .btn-group p {
+  color: white;
 }
 
 main#find section#controls {

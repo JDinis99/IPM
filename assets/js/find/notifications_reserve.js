@@ -1,4 +1,4 @@
-import data from './find/data.js'
+import data from './data.js'
 
 let reserves = data.reserves
 
@@ -14,8 +14,6 @@ function checkReserves() {
     let m = today.getMinutes()
 
     reserves.forEach((r) => {
-        console.log(r.hour + " " + r.minutes)
-        console.log(h + " " + m)
         if(r.hour < h && r.minutes < m)
             removeReserveNotificaton(r)
     })

@@ -129,7 +129,7 @@ const places = [
     },
     {
         id: 5,
-        name: 'Cantina social do IST',
+        name: 'Cantina do IST',
         description: 'O mais barato possivél.',
         type: 1,
         rating: 2.5,
@@ -153,7 +153,7 @@ const places = [
     },
     {
         id: 6,
-        name: 'Estação de metro de Odivelas',
+        name: 'Metro Odivelas',
         description: 'Fim da linha amarela.',
         type: 2,
         rating: 2.5,
@@ -171,7 +171,7 @@ const places = [
     },
     {
         id: 7,
-        name: 'Estação de metro do saldanha',
+        name: 'Metro Saldanha',
         description: 'Convergência da linha amarela e vermelha.',
         type: 2,
         rating: 3.5,
@@ -189,7 +189,7 @@ const places = [
     },
     {
         id: 8,
-        name: 'Aeroporto de Lisboa',
+        name: 'Aeroporto',
         description: 'Aeroporto da capital de Portugal.',
         type: 2,
         rating: 3.5,
@@ -207,7 +207,7 @@ const places = [
     },
     {
         id: 9,
-        name: 'Igreja de São Roque',
+        name: 'Igreja S. Roque',
         description: 'Igreja do sec XV.',
         type: 3,
         rating: 3,
@@ -249,7 +249,7 @@ const places = [
     },
     {
         id: 11,
-        name: 'Panteão Nacional',
+        name: 'Panteão',
         description: 'Somos um restaurante familiar dedicado à comida mediterrânea.',
         type: 3,
         rating: 4.5,
@@ -297,7 +297,7 @@ const places = [
     },
     {
         id: 13,
-        name: 'Mercado de Campo de Ourique',
+        name: 'Mercado Ourique',
         description: 'Mercado tradicional de Campo de Ourique',
         type: 4,
         rating: 2.5,
@@ -321,7 +321,7 @@ const places = [
     },
     {
         id: 14,
-        name: 'Mercado da Ribeira',
+        name: 'Mercado Ribeira',
         description: 'Mercado tradicional da Ribeira.',
         type: 4,
         rating: 4,
@@ -363,7 +363,7 @@ const places = [
     },
     {
         id: 16,
-        name: 'O Mundo Fantástico da Sardinha Portuguesa',
+        name: 'O Peixe Luso',
         description: 'O Mundo Fantástico da Sardinha Portuguesa.',
         type: 0,
         rating: 3,
@@ -387,7 +387,7 @@ const places = [
     },
     {
         id: 17,
-        name: 'Cerâmicas na Linha',
+        name: 'Cerâmicas Luso',
         description: 'Lógica tradicional de cerâmica.',
         type: 0,
         rating: 3,
