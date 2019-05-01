@@ -13828,11 +13828,56 @@ main {
   transition: all .3s ease-in-out;
 }
 
-main.blurred {
+.blurred {
   -webkit-filter: blur(10px);
           filter: blur(10px);
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
+}
+
+section#personal {
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  background: rgba(230, 230, 230, 0.6);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 16px;
+  opacity: 0;
+  text-align: center;
+}
+
+section#personal #splash {
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+section#personal #splash h1 {
+  font-size: 16px;
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  margin: 0;
+}
+
+section#personal #splash .btn-small-dark {
+  position: absolute;
+  top: 16px;
+  right: 14px;
+  font-size: 18px;
 }
 
 section#settings {

@@ -14,7 +14,7 @@ function checkReserves() {
     let m = today.getMinutes()
 
     reserves.forEach((r) => {
-        if(r.hour < h && r.minutes < m)
+        if(r.hour <= h && r.minutes <= m)
             removeReserveNotificaton(r)
     })
     if(reserves.length > 0)

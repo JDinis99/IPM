@@ -135,9 +135,9 @@ function refresh_state() {
 function showSettings() {
     createSliders()
     updateSettingsView()
-    let main = document.getElementsByTagName('main')[0]
-    main.classList.add('blurred')
 
+    let splash = document.getElementById('splash')
+    splash.classList.add('blurred')
     let settings = document.getElementById('settings')
     settings.style.top = '0%'
     settings.style.opacity = '1'
@@ -201,8 +201,8 @@ function toggleSettingsType(btn) {
 }
 
 function hideSettings() {
-    let main = document.getElementsByTagName('main')[0]
-    main.classList.remove('blurred')
+    let splash = document.getElementById('splash')
+    splash.classList.remove('blurred')
 
     let settings = document.getElementById('settings')
     settings.style.top = '100%'
