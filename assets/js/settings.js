@@ -209,6 +209,7 @@ function hideSettings() {
     settings.style.opacity = '0'
     destroySliders()
     temp_settings = JSON.parse(localStorage.getItem('settings'))
+    hidePersonal()
 }
 
 function destroySliders() {
