@@ -1,4 +1,4 @@
-const CURRENT_VERSION = "1.1.2"
+const CURRENT_VERSION = "1.1.3"
 
 if(localStorage.getItem('version') != CURRENT_VERSION) {
     localStorage.setItem('version', CURRENT_VERSION)
