@@ -38,10 +38,9 @@ function createReserveNotificationHTML(reserve, htmlClass) {
     if(htmlClass == 'reserve') {
         time = 'Dia ' + reserve.day + ', ' + time
     }
-    if(window.location.pathname.split('/').filter((s) => s != "").length == 2) {
+    if(window.location.pathname.split('/').filter((s) => s != "").length > 2) {
         url = '../' + url
     }
-    console.log(window.location.pathname)
     return `<div class="${htmlClass}" id="reserve-${id}">
                 <div class="main-info">
                     <i id="reserve-${id}-icon" class="fas reserve-icon ${icon} ${color}"></i>
