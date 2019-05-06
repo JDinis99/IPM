@@ -5,7 +5,7 @@ let id = findGetParameter('id')
 if (id == null)
     window.history.back()
 
-let reserves = data.reserves
+let reserves = data.getReserves()
 let place = data.getPlace(id)
 let reserve = data.getReserve(id, reserves)
 

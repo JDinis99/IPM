@@ -491,16 +491,6 @@ function updateReserves(reserves) {
     localStorage.setItem('reserves', JSON.stringify(reserves))
 }
 
-function getReserves() {
-    let reserves = localStorage.getItem('reserves') != undefined ? JSON.parse(localStorage.getItem('reserves')) : createReserves()
-
-    reserves.sort((a, b) => {
-        return (a.day - b.day) * 100 + (a.hour - b.hour) * 10 + (a.minutes - b.minutes)
-    })
-
-    return reserves
-}
-
 export default {
     getPlace(id) {
         if(id < places.length && id >= 0)
@@ -510,7 +500,15 @@ export default {
 
     gps: localStorage.getItem('gps') != undefined ? JSON.parse(localStorage.getItem('gps')) : createGPS(),
 
-    reserves: getReserves(),
+    getReserves() {
+        let reserves = localStorage.getItem('reserves') != undefined ? JSON.parse(localStorage.getItem('reserves')) : createReserves()
+    
+        reserves.sort((a, b) => {
+            return (a.day - b.day) * 100 + (a.hour - b.hour) * 10 + (a.minutes - b.minutes)
+        })
+    
+        return reserves
+    },
 
     getTodayReserves() {
         return this.reserves.filter((r) => r.day == DATE.getDate())
@@ -624,7 +622,7 @@ export default {
     },
 
     saveReserves() {
-        updateReserves(this.reserves)
+        updateReserves(this.getReserves())
     },
 
     hasGPSArrived(gps) {

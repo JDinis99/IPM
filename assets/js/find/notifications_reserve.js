@@ -1,7 +1,7 @@
 import data from './data.js'
 
 let today_reserves = data.getTodayReserves()
-let reserves = data.reserves
+let reserves = data.getReserves()
 
 today_reserves.forEach((r) => {
     addReserveNotification(r)
@@ -76,6 +76,7 @@ function addReserveNotification(reserve) {
 function addReserveItemToMenu(reserve) {
     $('#reserves-empty').css('display', 'none')
     $('#reserves-container').append(createReserveNotificationHTML(reserve, 'reserve'))
+    console.
 }
 
 function removeReserveItemToMenu(reserve) {
