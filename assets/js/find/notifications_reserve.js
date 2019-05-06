@@ -38,7 +38,7 @@ function createReserveNotificationHTML(reserve, htmlClass) {
     if(htmlClass == 'reserve') {
         time = 'Dia ' + reserve.day + ', ' + time
     }
-    if(window.location.pathname != `/ist189475/${APP_NAME}/`) {
+    if(window.location.pathname.split('/').filter((s) => s != "").length == 2) {
         url = '../' + url
     }
     console.log(window.location.pathname)

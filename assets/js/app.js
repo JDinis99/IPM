@@ -1,5 +1,4 @@
 const CURRENT_VERSION = "1.2.3"
-const APP_NAME = 'prototipo2-release'
 
 if(localStorage.getItem('version') != CURRENT_VERSION) {
     localStorage.setItem('version', CURRENT_VERSION)
