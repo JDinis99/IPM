@@ -1,7 +1,4 @@
-import data from './data.js'
-
-let today_reserves = data.getTodayReserves()
-let reserves = data.getReserves()
+let today_reserves = getTodayReserves()
 
 today_reserves.forEach((r) => {
     addReserveNotification(r)
@@ -29,14 +26,14 @@ function checkReserves() {
 
 function createReserveNotificationHTML(reserve, htmlClass) {
     let id     = reserve.id
-    let place  = data.getPlace(id)
-    let type   = data.getType(place)
+    let place  = getPlace(id)
+    let type   = getType(place)
 
     let icon   = type.icon
     let color  = type.color
     let name   = place.name
     let people = reserve.people
-    let time   = data.getReserveHour(reserve) + ':' + data.getReserveMinutes(reserve)
+    let time   = getReserveHour(reserve) + ':' + getReserveMinutes(reserve)
     if(htmlClass == 'reserve')
         time = 'Dia ' + reserve.day + ', ' + time
     return `<div class="${htmlClass}" id="reserve-${id}">
@@ -63,6 +60,7 @@ function addReserveNotification(reserve) {
     let notification_empty = document.getElementById('notifications-empty')
     let notification_btn = document.getElementById('notification-btn')
 
+    console.log(today_reserves)
     if(val.notifications > 0 || today_reserves.length > 0) {
         notification_empty.style.display = 'none'
         notification_btn.classList.add('notification-bounce')
@@ -76,7 +74,6 @@ function addReserveNotification(reserve) {
 function addReserveItemToMenu(reserve) {
     $('#reserves-empty').css('display', 'none')
     $('#reserves-container').append(createReserveNotificationHTML(reserve, 'reserve'))
-    console.
 }
 
 function removeReserveItemToMenu(reserve) {
@@ -93,7 +90,7 @@ function removeReserveNotificaton(reserve) {
     
     reserves = reserves.filter((r) => r.id != id)
     today_reserves = today_reserves.filter((r) => r.id != id)
-    data.saveNewReserves(reserves)
+    saveNewReserves(reserves)
     
     let val = JSON.parse(localStorage.getItem('current-state'))
     let notification_empty = document.getElementById('notifications-empty')

@@ -1,16 +1,14 @@
-import data from './data.js'
-
 let id = findGetParameter('id')
 
 if (id == null)
     window.history.back()
 
-let place = data.getPlace(id)
-let type = data.getType(place)
+let place = getPlace(id)
+let type = getType(place)
 
-let distance = data.getDistance(place)
+let distance = getDistance(place)
 
-let reviews = data.getReviews(place)
+let reviews = getReviews(place)
 
 $('#place-name').text(place.name)
 
@@ -26,7 +24,7 @@ $('#place-friends').text(place.friends)
 $('#place-distance').text(distance)
 
 reviews.forEach((review) => {
-    $('#widget-strip').append(data.createReviewHtml(review))
+    $('#widget-strip').append(createReviewHtml(review))
 })
 
 $('#map-btn').click(() => {

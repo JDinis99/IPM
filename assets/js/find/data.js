@@ -2,13 +2,13 @@ const TYPE_NAMES  = ['Shop', 'Restaurant', 'Transport', 'Place', 'Util']
 const RESERVES    = [false, true, true, false, false]
 const TYPE_COLORS = ['green-alt', 'yellow-alt', 'blue-alt', 'purple-alt', 'red-alt']
 const TYPE_ICONS  = ['fa-store', 'fa-utensils', 'fa-bus', 'fa-tree', 'fa-university']
-const CATEGORIES  = ['shops', 'food', 'transports', 'places', 'utils', 'nearby']
+const CATEGORIES  = ['shops', 'food', 'transports', 'PLACES', 'utils', 'nearby']
 
 const GPS_IMAGES = ['gps_1', 'gps_2', 'gps_3', 'gps_4', 'gps_5', 'gps_6', 'gps_7', 'gps_8']
 
 const DATE = new Date()
 
-const places = [
+const PLACES = [
     {
         id: 0,
         name: 'O Cantinho do Zé',
@@ -448,8 +448,6 @@ function createGPS() {
     return gps
 }
 
-
-
 function getDistanceText(distance) {
     if (distance < 10000)
         return Math.floor(distance) + 'm'
@@ -487,221 +485,215 @@ function createReserves() {
     return reserves
 }
 
-function updateReserves(reserves) {
+function updateReserves() {
     localStorage.setItem('reserves', JSON.stringify(reserves))
 }
 
-export default {
-    getPlace(id) {
-        if(id < places.length && id >= 0)
-            return places[id]
-        return null
-    },
+function getPlace(id) {
+    if(id < PLACES.length && id >= 0)
+        return PLACES[id]
+    return null
+}
 
-    gps: localStorage.getItem('gps') != undefined ? JSON.parse(localStorage.getItem('gps')) : createGPS(),
+let gps = localStorage.getItem('gps') != undefined ? JSON.parse(localStorage.getItem('gps')) : createGPS()
 
-    getReserves() {
-        let reserves = localStorage.getItem('reserves') != undefined ? JSON.parse(localStorage.getItem('reserves')) : createReserves()
-    
-        reserves.sort((a, b) => {
-            return (a.day - b.day) * 100 + (a.hour - b.hour) * 10 + (a.minutes - b.minutes)
-        })
-    
-        return reserves
-    },
+let reserves = localStorage.getItem('reserves') != undefined ? JSON.parse(localStorage.getItem('reserves')) : createReserves()
 
-    getTodayReserves() {
-        return this.reserves.filter((r) => r.day == DATE.getDate())
-    },
+function getReserves() {
+    reserves = reserves.sort((a, b) => {
+        return (a.day - b.day) * 100 + (a.hour - b.hour) * 10 + (a.minutes - b.minutes)
+    })
 
-    getGPSImage(gps) {
-        return GPS_IMAGES[gps.image]
-    },
-    
-    getReserve(id, reserves) {
-        return createReserve(id, reserves)
-    },
+    return reserves
+}
 
-    resetGPS() {
-        return createGPS()
-    },
+function getTodayReserves() {
+    return getReserves().filter((r) => r.day == DATE.getDate())
+}
 
-    hasReserve(place) {
-        return RESERVES[place.type]
-    },
+function getGPSImage(gps) {
+    return GPS_IMAGES[gps.image]
+}
 
-    addPeopleReserve(reserve) {
-        reserve.people++
-    },
+function getReserve(id, reserves) {
+    return createReserve(id, reserves)
+}
 
-    subPeopleReserve(reserve) {
-        reserve.people--
-    },
+function resetGPS() {
+    return createGPS()
+}
 
-    addHourReserve(reserve) {
-        reserve.hour++
-        reserve.hour = reserve.hour % 24
-        if(reserve.day == DATE.getDate() && reserve.hour < DATE.getHours())
-            reserve.hour = DATE.getHours()
-    },
+function hasReserve(place) {
+    return RESERVES[place.type]
+}
 
-    subHourReserve(reserve) {
-        reserve.hour--
-        if(reserve.hour < 0)
-            reserve.hour = 23
-        reserve.hour = reserve.hour % 24
-        if(reserve.day == DATE.getDate() && reserve.hour < DATE.getHours())
-            reserve.hour = DATE.getHours()
-    },
+function addPeopleReserve(reserve) {
+    reserve.people++
+}
 
-    addMinutesReserve(reserve) {
-        reserve.minutes++
-        reserve.minutes = reserve.minutes % 60
-        if(reserve.day == DATE.getDate() && reserve.hour == DATE.getHours() && reserve.minutes < DATE.getMinutes())
-            reserve.minutes = DATE.getMinutes()
-    },
+function subPeopleReserve(reserve) {
+    reserve.people--
+}
 
-    subMinutesReserve(reserve) {
-        reserve.minutes--
-        if(reserve.minutes < 0)
-            reserve.minutes = 59
-        reserve.minutes = reserve.minutes % 60
-        if(reserve.day == DATE.getDate() && reserve.hour == DATE.getHours() && reserve.minutes < DATE.getMinutes())
-            reserve.minutes = DATE.getMinutes()
-    },
+function addHourReserve(reserve) {
+    reserve.hour++
+    reserve.hour = reserve.hour % 24
+    if(reserve.day == DATE.getDate() && reserve.hour < DATE.getHours())
+        reserve.hour = DATE.getHours()
+}
 
-    addDayReserve(reserve) {
-        reserve.day++
+function subHourReserve(reserve) {
+    reserve.hour--
+    if(reserve.hour < 0)
+        reserve.hour = 23
+    reserve.hour = reserve.hour % 24
+    if(reserve.day == DATE.getDate() && reserve.hour < DATE.getHours())
+        reserve.hour = DATE.getHours()
+}
+
+function addMinutesReserve(reserve) {
+    reserve.minutes++
+    reserve.minutes = reserve.minutes % 60
+    if(reserve.day == DATE.getDate() && reserve.hour == DATE.getHours() && reserve.minutes < DATE.getMinutes())
+        reserve.minutes = DATE.getMinutes()
+}
+
+function subMinutesReserve(reserve) {
+    reserve.minutes--
+    if(reserve.minutes < 0)
+        reserve.minutes = 59
+    reserve.minutes = reserve.minutes % 60
+    if(reserve.day == DATE.getDate() && reserve.hour == DATE.getHours() && reserve.minutes < DATE.getMinutes())
+        reserve.minutes = DATE.getMinutes()
+}
+
+function addDayReserve(reserve) {
+    reserve.day++
+    reserve.day = reserve.day % 31
+    if(reserve.day < DATE.getDate()) reserve.day = DATE.getDate()
+}
+
+function subDayReserve(reserve) {
+    if(reserve.day == DATE.getDate()) return
+    reserve.day--
+    if(reserve.day < 0)
+        reserve.day = 31
         reserve.day = reserve.day % 31
-        if(reserve.day < DATE.getDate()) reserve.day = DATE.getDate()
-    },
+}
 
-    subDayReserve(reserve) {
-        if(reserve.day == DATE.getDate()) return
-        reserve.day--
-        if(reserve.day < 0)
-            reserve.day = 31
-            reserve.day = reserve.day % 31
-    },
+function getReserveMinutes(reserve) {
+    let m = reserve.minutes
+    return m < 10 ? "0" + m : m
+}
 
-    getReserveMinutes(reserve) {
-        let m = reserve.minutes
-        return m < 10 ? "0" + m : m
-    },
+function getReservePeople(reserve) {
+    let p = reserve.people
+    return p < 10 ? "0" + p : p
+}
 
-    getReservePeople(reserve) {
-        let p = reserve.people
-        return p < 10 ? "0" + p : p
-    },
+function getReserveDay(reserve) {
+    let d = reserve.day
+    return d < 10 ? "0" + d : d
+}
 
-    getReserveDay(reserve) {
-        let d = reserve.day
-        return d < 10 ? "0" + d : d
-    },
+function getReserveHour(reserve) {
+    let h = reserve.hour
+    return h < 10 ? "0" + h : h
+}
 
-    getReserveHour(reserve) {
-        let h = reserve.hour
-        return h < 10 ? "0" + h : h
-    },
+function getGPSDistance(gps) {
+    let text = getDistanceText(gps.distance)
+    return gps.distance == 0 ? 'Arrived' : text
+}
 
-    getGPSDistance(gps) {
-        let text = getDistanceText(gps.distance)
-        return gps.distance == 0 ? 'Arrived' : text
-    },
+function subGPSDistance(gps) {
+    gps.distance -= gps.sub
+    gps.distance = gps.distance < 0 ? 0 : gps.distance
+    if (gps.image < 7)
+        gps.image++
+    localStorage.setItem('gps', JSON.stringify(gps))
+}
 
-    subGPSDistance(gps) {
-        gps.distance -= gps.sub
-        gps.distance = gps.distance < 0 ? 0 : gps.distance
-        if (gps.image < 7)
-            gps.image++
-        localStorage.setItem('gps', JSON.stringify(gps))
-    },
+function saveReserves() {
+    updateReserves()
+}
 
-    saveNewReserves(reserves) {
-        updateReserves(reserves)
-    },
+function hasGPSArrived(gps) {
+    return gps.image == 7 && gps.distance == 0
+}
 
-    saveReserves() {
-        updateReserves(this.getReserves())
-    },
+function getTotalPages(PLACES) {
+    let len = PLACES.length
+    return Math.floor(len / 3) + (len % 3 != 0 ? 1 : 0)
+}
 
-    hasGPSArrived(gps) {
-        return gps.image == 7 && gps.distance == 0
-    },
+function getPlacesByCategory(category) {
+    if (category == 'nearby')
+        return PLACES
+    
+    let type = getCategoryId(category)
+    return PLACES.filter((p) => p.type == type)
+}
 
-    getTotalPages(places) {
-        let len = places.length
-        return Math.floor(len / 3) + (len % 3 != 0 ? 1 : 0)
-    },
+function getType(place) {
+    let id = place.type
+    if (id < TYPE_COLORS.length && id >= 0)
+        return {
+            name: TYPE_NAMES[id],
+            color: TYPE_COLORS[id],
+            icon: TYPE_ICONS[id]
+        }
+    return null
+}
 
-    getPlacesByCategory(category) {
-        if (category == 'nearby')
-            return places
-        
-        let type = getCategoryId(category)
-        return places.filter((p) => p.type == type)
-    },
+function createListPlaceHtml(place) {
+    let id = place.id
+    let name = place.name
+    let type = getType(place)
+    let friends = place.friends
+    let distance = getDistance(place)
+    let rating = place.rating
+    let rating_html = createRatingHtml(rating)
 
-    getType(place) {
-        let id = place.type
-        if (id < TYPE_COLORS.length && id >= 0)
-            return {
-                name: TYPE_NAMES[id],
-                color: TYPE_COLORS[id],
-                icon: TYPE_ICONS[id]
-            }
-        return null
-    },
-
-    createListPlaceHtml(place) {
-        let id = place.id
-        let name = place.name
-        let type = this.getType(place)
-        let friends = place.friends
-        let distance = this.getDistance(place)
-        let rating = place.rating
-        let rating_html = createRatingHtml(rating)
-
-        return `<a href="view.html?id=${id}">
-                    <li class="list-item">
-                        <div class="row">
-                            <h1><i class="fas ${type.icon} ${type.color}"></i>${name}</h1>
-                            <h2><i class="fas fa-walking"></i>${distance}</h2>
-                        </div>
-                        <div class="row">
-                            <h2>${friends}<i class="fas fa-user-friends"></i></h2>
-                            <ul class="stars yellow-alt">${rating_html}</ul>
-                        </div>
-                    </li>
-                </a>`
-    },
-
-    getDistance(place) {
-        return getDistanceText(place.distance)
-    },
-
-    getReviews(place) {
-        return place.reviews
-    },
-
-    createReviewHtml(review) {
-        let name   = review.name
-        let quote  = review.quote
-        let rating = review.rating
-        let avatar = review.avatar
-        let rating_html = createRatingHtml(rating)
-
-        return `<div class="c-slider__slide widget">
+    return `<a href="view.html?id=${id}">
+                <li class="list-item">
                     <div class="row">
-                        <div class="left">
-                            <img src="../assets/img/${avatar}" alt="" class="avatar">
-                        </div>
-                        <div class="right">
-                            <h2 class="name">${name}</h2>
-                            <p class="quote">${quote}</p>
-                            <ul class="stars yellow-alt">${rating_html}</ul>
-                        </div>
+                        <h1><i class="fas ${type.icon} ${type.color}"></i>${name}</h1>
+                        <h2><i class="fas fa-walking"></i>${distance}</h2>
                     </div>
-                </div>`
-    }
+                    <div class="row">
+                        <h2>${friends}<i class="fas fa-user-friends"></i></h2>
+                        <ul class="stars yellow-alt">${rating_html}</ul>
+                    </div>
+                </li>
+            </a>`
+}
+
+function getDistance(place) {
+    return getDistanceText(place.distance)
+}
+
+function getReviews(place) {
+    return place.reviews
+}
+
+function createReviewHtml(review) {
+    let name   = review.name
+    let quote  = review.quote
+    let rating = review.rating
+    let avatar = review.avatar
+    let rating_html = createRatingHtml(rating)
+
+    return `<div class="c-slider__slide widget">
+                <div class="row">
+                    <div class="left">
+                        <img src="../assets/img/${avatar}" alt="" class="avatar">
+                    </div>
+                    <div class="right">
+                        <h2 class="name">${name}</h2>
+                        <p class="quote">${quote}</p>
+                        <ul class="stars yellow-alt">${rating_html}</ul>
+                    </div>
+                </div>
+            </div>`
 }

@@ -1,15 +1,11 @@
-import data from './data.js'
-
-let gps = data.gps
-
-$('#gps-map').attr('src', `../assets/img/gps/${data.getGPSImage(gps)}.png`)
-$('#gps-distance').text(data.getGPSDistance(gps))
+$('#gps-map').attr('src', `../assets/img/gps/${getGPSImage(gps)}.png`)
+$('#gps-distance').text(getGPSDistance(gps))
 
 function gpsMove() {
-    data.subGPSDistance(gps)
-    $('#gps-map').attr('src', `../assets/img/gps/${data.getGPSImage(gps)}.png`)
-    $('#gps-distance').text(data.getGPSDistance(gps))
-    if(!data.hasGPSArrived(gps))
+    subGPSDistance(gps)
+    $('#gps-map').attr('src', `../assets/img/gps/${getGPSImage(gps)}.png`)
+    $('#gps-distance').text(getGPSDistance(gps))
+    if(!hasGPSArrived(gps))
         setTimeout(gpsMove, 2000)
     else
         swal(
@@ -21,7 +17,7 @@ function gpsMove() {
         })
 }
 
-if (!data.hasGPSArrived(gps))
+if (!hasGPSArrived(gps))
     setTimeout(gpsMove, 2000)
 else
     swal(

@@ -1,15 +1,13 @@
-import data from './data.js'
-
 let id = findGetParameter('id')
 
 if (id == null)
     window.history.back()
 
-let place = data.getPlace(id)
+let place = getPlace(id)
 
-$('#gps-start').click(data.resetGPS)
+$('#gps-start').click(resetGPS)
 
-if(data.hasReserve(place)) {
+if(hasReserve(place)) {
     $('#reserve-btn').css('display', 'block').click(() => {
         window.location = `reserve.html?id=${id}`
     })

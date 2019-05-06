@@ -1,14 +1,12 @@
-import data from './data.js'
-
 let category = findGetParameter('category')
 
 if (category == null)
     window.history.back()
 
-let places = data.getPlacesByCategory(category)
+let places = getPlacesByCategory(category)
 let places_list = $('#places-list')
 
-let total_pages  = data.getTotalPages(places)
+let total_pages  = getTotalPages(places)
 let current_page = total_pages > 0 ? 1 : 0
 let cur_page = $('#current-page').text(current_page)
 $('#total-pages').text(total_pages)
@@ -62,11 +60,10 @@ function updateList() {
         sort.order = null
     }
 
-
     places_list.empty()
 
     places.forEach((place) => {
-        places_list.append(data.createListPlaceHtml(place))
+        places_list.append(createListPlaceHtml(place))
     })
 
     if (places.length == 0)

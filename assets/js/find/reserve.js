@@ -1,58 +1,55 @@
-import data from './data.js'
-
 let id = findGetParameter('id')
 
 if (id == null)
     window.history.back()
 
-let reserves = data.getReserves()
-let place = data.getPlace(id)
-let reserve = data.getReserve(id, reserves)
+let place = getPlace(id)
+let reserve = getReserve(id, reserves)
 
 $('#reserve-name').text(place.name)
-$('#reserve-people').text(data.getReservePeople(reserve))
-$('#reserve-days').text(data.getReserveDay(reserve))
-$('#reserve-hour').text(data.getReserveHour(reserve))
-$('#reserve-minutes').text(data.getReserveMinutes(reserve))
+$('#reserve-people').text(getReservePeople(reserve))
+$('#reserve-days').text(getReserveDay(reserve))
+$('#reserve-hour').text(getReserveHour(reserve))
+$('#reserve-minutes').text(getReserveMinutes(reserve))
 
 $('#reserve-people-add').click(() => {
-    data.addPeopleReserve(reserve)
-    $('#reserve-people').text(data.getReservePeople(reserve))
+    addPeopleReserve(reserve)
+    $('#reserve-people').text(getReservePeople(reserve))
 })
 
 $('#reserve-people-sub').click(() => {
-    data.subPeopleReserve(reserve)
-    $('#reserve-people').text(data.getReservePeople(reserve))
+    subPeopleReserve(reserve)
+    $('#reserve-people').text(getReservePeople(reserve))
 })
 
 $('#reserve-hour-add').click(() => {
-    data.addHourReserve(reserve)
-    $('#reserve-hour').text(data.getReserveHour(reserve))
+    addHourReserve(reserve)
+    $('#reserve-hour').text(getReserveHour(reserve))
 })
 
 $('#reserve-hour-sub').click(() => {
-    data.subHourReserve(reserve)
-    $('#reserve-hour').text(data.getReserveHour(reserve))
+    subHourReserve(reserve)
+    $('#reserve-hour').text(getReserveHour(reserve))
 })
 
 $('#reserve-minutes-add').click(() => {
-    data.addMinutesReserve(reserve)
-    $('#reserve-minutes').text(data.getReserveMinutes(reserve))
+    addMinutesReserve(reserve)
+    $('#reserve-minutes').text(getReserveMinutes(reserve))
 })
 
 $('#reserve-minutes-sub').click(() => {
-    data.subMinutesReserve(reserve)
-    $('#reserve-minutes').text(data.getReserveMinutes(reserve))
+    subMinutesReserve(reserve)
+    $('#reserve-minutes').text(getReserveMinutes(reserve))
 })
 
 $('#reserve-day-add').click(() => {
-    data.addDayReserve(reserve)
-    $('#reserve-days').text(data.getReserveDay(reserve))
+    addDayReserve(reserve)
+    $('#reserve-days').text(getReserveDay(reserve))
 })
 
 $('#reserve-day-sub').click(() => {
-    data.subDayReserve(reserve)
-    $('#reserve-days').text(data.getReserveDay(reserve))
+    subDayReserve(reserve)
+    $('#reserve-days').text(getReserveDay(reserve))
 })
 
 $('#reserve-save').click(() => {
@@ -72,7 +69,7 @@ $('#reserve-save').click(() => {
             'success'
         ).then(() => {
             if(result)
-                data.saveReserves()
+                saveReserves()
             window.location = '../find'
         })
     }).catch(() => {
