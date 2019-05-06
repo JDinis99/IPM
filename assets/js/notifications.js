@@ -1,4 +1,11 @@
-let notifications_count = JSON.parse(localStorage.getItem('current-state')).notifications
+let notifications_count = 0
+
+{
+    let val = JSON.parse(localStorage.getItem('current-state'))
+    if(val != undefined)
+        notifications_count = val.notifications
+}
+
 
 function showNotifications() {
     let main = document.getElementsByTagName('main')[0]
