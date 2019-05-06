@@ -154,8 +154,8 @@ function saveSettings(should_exit) {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Save',
-            cancelButtonText: 'Discard'
+            confirmButtonText: '<i class="fas fa-check"></i>',
+            cancelButtonText: '<i class="fas fa-trash"></i>'
         }).then((result) => {
             swal(
                 'Saved!',
@@ -358,4 +358,18 @@ function calcAlcohol(gender) {
     let nalcohol = 0.2
     nalcohol += (temp_settings.weight * 10 / temp_settings.age) * 2.3
     return parseFloat((!gender ? nalcohol : nalcohol * 0.9).toFixed(2)) // male : female
+}
+
+function hideReserves() {
+    $('#splash').removeClass('blurred')
+
+    $('#reserves').css('top', '100%')
+    $('#reserves').css('opacity', '0')
+}
+
+function showReserves() {
+    $('#splash').addClass('blurred')
+
+    $('#reserves').css('top', '0')
+    $('#reserves').css('opacity', '1')
 }

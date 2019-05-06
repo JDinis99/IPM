@@ -34,10 +34,10 @@ function cancelSOS() {
         text: "You won't be able to revert this!",
         type: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#d33',
-        cancelButtonColor: '#3085d6',
-        confirmButtonText: 'Yes',
-        cancelButtonText: 'No'
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '<i class="fas fa-check"></i>',
+        cancelButtonText: '<i class="fas fa-trash"></i>'
     }).then((result) => {
             if (result) {
             swal(

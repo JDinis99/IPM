@@ -63,8 +63,8 @@ $('#reserve-save').click(() => {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Confirm',
-        cancelButtonText: 'Discard'
+        confirmButtonText: '<i class="fas fa-check"></i>',
+        cancelButtonText: '<i class="fas fa-trash"></i>'
     }).then((result) => {
         swal(
             'Success!',
