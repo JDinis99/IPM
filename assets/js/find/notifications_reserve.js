@@ -34,8 +34,12 @@ function createReserveNotificationHTML(reserve, htmlClass) {
     let name   = place.name
     let people = reserve.people
     let time   = getReserveHour(reserve) + ':' + getReserveMinutes(reserve)
-    if(htmlClass == 'reserve')
+    let url    = `find/reserve.html?id=${id}`
+    if(htmlClass == 'reserve') {
         time = 'Dia ' + reserve.day + ', ' + time
+    } else {
+        url = '../' + url
+    }
     return `<div class="${htmlClass}" id="reserve-${id}">
                 <div class="main-info">
                     <i id="reserve-${id}-icon" class="fas reserve-icon ${icon} ${color}"></i>
@@ -48,7 +52,7 @@ function createReserveNotificationHTML(reserve, htmlClass) {
                     </div>
                 </div>
                 <div class="icons">
-                    <button onclick="window.location = '../find/reserve.html?id=${id}'" class="btn-small-dark"><i class="fa fa-pencil"></i></button>
+                    <button onclick="window.location = '${url}'" class="btn-small-dark"><i class="fa fa-pencil"></i></button>
                 </div>
             </div>`
 }
