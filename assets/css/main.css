@@ -14911,8 +14911,24 @@ main#find section#reserve hr {
   opacity: 0.2;
 }
 
+main#find section#reserve .columns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main#find section#reserve .columns .col h2 {
+  margin-bottom: 5px;
+}
+
 main#find section#reserve .row {
-  margin: 2px 0;
+  margin: 15px 0;
   padding: 0;
 }
 
@@ -14934,53 +14950,16 @@ main#find section#reserve .row h1, main#find section#reserve .row h3, main#find 
 }
 
 main#find section#reserve .row h1 {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 main#find section#reserve .row h1 i {
   color: white;
   opacity: 0.7;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 main#find section#reserve .row h1 i:hover {
-  opacity: 1;
-}
-
-main#find section#reserve .row .cols {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-main#find section#reserve .row .cols h3 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  margin: 0;
-  padding: 0;
-  font-size: 14px;
-  color: white;
-}
-
-main#find section#reserve .row .cols h3 i {
-  color: white;
-  opacity: 0.7;
-  font-size: 12px;
-  margin: 5px;
-}
-
-main#find section#reserve .row .cols h3 i:hover {
   opacity: 1;
 }
 

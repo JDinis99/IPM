@@ -10,18 +10,19 @@ let place = data.getPlace(id)
 let reserve = data.getReserve(id, reserves)
 
 $('#reserve-name').text(place.name)
-$('#reserve-people').text(reserve.people)
+$('#reserve-people').text(data.getReservePeople(reserve))
+$('#reserve-days').text(data.getReserveDay(reserve))
 $('#reserve-hour').text(data.getReserveHour(reserve))
 $('#reserve-minutes').text(data.getReserveMinutes(reserve))
 
 $('#reserve-people-add').click(() => {
     data.addPeopleReserve(reserve)
-    $('#reserve-people').text(reserve.people)
+    $('#reserve-people').text(data.getReservePeople(reserve))
 })
 
 $('#reserve-people-sub').click(() => {
     data.subPeopleReserve(reserve)
-    $('#reserve-people').text(reserve.people)
+    $('#reserve-people').text(data.getReservePeople(reserve))
 })
 
 $('#reserve-hour-add').click(() => {
@@ -42,6 +43,16 @@ $('#reserve-minutes-add').click(() => {
 $('#reserve-minutes-sub').click(() => {
     data.subMinutesReserve(reserve)
     $('#reserve-minutes').text(data.getReserveMinutes(reserve))
+})
+
+$('#reserve-day-add').click(() => {
+    data.addDayReserve(reserve)
+    $('#reserve-days').text(data.getReserveDay(reserve))
+})
+
+$('#reserve-day-sub').click(() => {
+    data.subDayReserve(reserve)
+    $('#reserve-days').text(data.getReserveDay(reserve))
 })
 
 $('#reserve-save').click(() => {

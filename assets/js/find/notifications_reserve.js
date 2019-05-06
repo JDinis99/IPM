@@ -1,6 +1,6 @@
 import data from './data.js'
 
-let reserves = data.reserves
+let reserves = data.getTodayReserves()
 
 reserves.forEach((r) => {
     addReserveNotification(r)
@@ -11,10 +11,11 @@ setTimeout(checkReserves, 1000)
 function checkReserves() {
     let today = new Date()
     let h = today.getHours()
+    let d = today.getDate()
     let m = today.getMinutes()
 
     reserves.forEach((r) => {
-        if(r.hour <= h && r.minutes <= m)
+        if(r.day < d || r.hour < h && r.day == d || r.day == d && r.hour == h && r.minutes <= m)
             removeReserveNotificaton(r)
     })
     if(reserves.length > 0)

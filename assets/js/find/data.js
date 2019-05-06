@@ -6,6 +6,8 @@ const CATEGORIES  = ['shops', 'food', 'transports', 'places', 'utils', 'nearby']
 
 const GPS_IMAGES = ['gps_1', 'gps_2', 'gps_3', 'gps_4', 'gps_5', 'gps_6', 'gps_7', 'gps_8']
 
+const DATE = new Date()
+
 const places = [
     {
         id: 0,
@@ -457,19 +459,18 @@ function getDistanceText(distance) {
 
 function createReserve(id, reserves) {
     let reserve = findReserve(id, reserves)
-    console.log(reserve)
     if(reserve == undefined) {
-        let today = new Date()
-        let h = today.getHours()
-        let m = today.getMinutes()
+        let d = DATE.getDate()
+        let h = DATE.getHours()
+        let m = DATE.getMinutes()
         reserve = {
             id: id,
             people: 1,
             hour: h,
-            minutes: m
+            minutes: m,
+            day: d
         }
         reserves.push(reserve)
-        localStorage.setItem('reserves', JSON.stringify(reserves))
     }
 
     return reserve
@@ -501,6 +502,10 @@ export default {
 
     reserves: localStorage.getItem('reserves') != undefined ? JSON.parse(localStorage.getItem('reserves')) : createReserves(),
 
+    getTodayReserves() {
+        return this.reserves.filter((r) => r.day == DATE.getDate())
+    },
+
     getGPSImage(gps) {
         return GPS_IMAGES[gps.image]
     },
@@ -528,6 +533,8 @@ export default {
     addHourReserve(reserve) {
         reserve.hour++
         reserve.hour = reserve.hour % 24
+        if(reserve.day == DATE.getDate() && reserve.hour < DATE.getHours())
+            reserve.hour = DATE.getHours()
     },
 
     subHourReserve(reserve) {
@@ -535,11 +542,15 @@ export default {
         if(reserve.hour < 0)
             reserve.hour = 23
         reserve.hour = reserve.hour % 24
+        if(reserve.day == DATE.getDate() && reserve.hour < DATE.getHours())
+            reserve.hour = DATE.getHours()
     },
 
     addMinutesReserve(reserve) {
         reserve.minutes++
         reserve.minutes = reserve.minutes % 60
+        if(reserve.day == DATE.getDate() && reserve.hour == DATE.getHours() && reserve.minutes < DATE.getMinutes())
+            reserve.minutes = DATE.getMinutes()
     },
 
     subMinutesReserve(reserve) {
@@ -547,11 +558,37 @@ export default {
         if(reserve.minutes < 0)
             reserve.minutes = 59
         reserve.minutes = reserve.minutes % 60
+        if(reserve.day == DATE.getDate() && reserve.hour == DATE.getHours() && reserve.minutes < DATE.getMinutes())
+            reserve.minutes = DATE.getMinutes()
+    },
+
+    addDayReserve(reserve) {
+        reserve.day++
+        reserve.day = reserve.day % 31
+        if(reserve.day < DATE.getDate()) reserve.day = DATE.getDate()
+    },
+
+    subDayReserve(reserve) {
+        if(reserve.day == DATE.getDate()) return
+        reserve.day--
+        if(reserve.day < 0)
+            reserve.day = 31
+            reserve.day = reserve.day % 31
     },
 
     getReserveMinutes(reserve) {
         let m = reserve.minutes
         return m < 10 ? "0" + m : m
+    },
+
+    getReservePeople(reserve) {
+        let p = reserve.people
+        return p < 10 ? "0" + p : p
+    },
+
+    getReserveDay(reserve) {
+        let d = reserve.day
+        return d < 10 ? "0" + d : d
     },
 
     getReserveHour(reserve) {

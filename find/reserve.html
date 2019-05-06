@@ -34,30 +34,43 @@
                     <section id="reserve">
                         <h2 id="reserve-name"></h2>
                         <hr>
-                        <div class="row">
-                            <h2><i class="fas fa-users"></i> People:</h2>
-                            <h1>
-                                <button id="reserve-people-sub"><i class="fas fa-minus"></i></button>
-                                <span id="reserve-people">1</span>
-                                <button id="reserve-people-add"><i class="fas fa-plus"></i></button>
-                            </h1>
-                        </div>
-                        <div class="row">
-                            <h2><i class="fas fa-clock"></i> Time:</h2>
-                            <div class="cols">
-                                <h3>
-                                    <button id="reserve-hour-add"><i class="fas fa-plus"></i></button>
-                                    <span><span id="reserve-hour">1</span>h</span>
-                                    <button id="reserve-hour-sub"><i class="fas fa-minus"></i></button>
-                                </h3>
-                                <h3>:</h3>
-                                <h3>
-                                    <button id="reserve-minutes-add"><i class="fas fa-plus"></i></button>
-                                    <span><span id="reserve-minutes">1</span>m</span>
-                                    <button id="reserve-minutes-sub"><i class="fas fa-minus"></i></button>
-                                </h3>
+                        <div class="row columns">
+                            <div class="col">
+                                <h2><i class="fas fa-users"></i> People:</h2>
+                                <h1>
+                                    <button id="reserve-people-sub"><i class="fas fa-minus"></i></button>
+                                    <span id="reserve-people">01</span>
+                                    <button id="reserve-people-add"><i class="fas fa-plus"></i></button>
+                                </h1>
+                            </div>
+                            <div class="col">
+                                <h2><i class="fas fa-calendar"></i> Day:</h2>
+                                <h1>
+                                    <button id="reserve-day-sub"><i class="fas fa-minus"></i></button>
+                                    <span id="reserve-days">01</span>
+                                    <button id="reserve-day-add"><i class="fas fa-plus"></i></button>
+                                </h1>
                             </div>
                         </div>
+                        
+                        <div class="row columns">
+                                <div class="col">
+                                    <h2><i class="fas fa-clock"></i> Hour:</h2>
+                                    <h1>
+                                        <button id="reserve-hour-sub"><i class="fas fa-minus"></i></button>
+                                        <span id="reserve-hour">01</span>
+                                        <button id="reserve-hour-add"><i class="fas fa-plus"></i></button>
+                                    </h1>
+                                </div>
+                                <div class="col">
+                                    <h2><i class="fas fa-clock"></i> Minutes:</h2>
+                                    <h1>
+                                        <button id="reserve-minutes-sub"><i class="fas fa-minus"></i></button>
+                                        <span id="reserve-minutes">01</span>
+                                        <button id="reserve-minutes-add"><i class="fas fa-plus"></i></button>
+                                    </h1>
+                                </div>
+                            </div>
 
                         <button id="reserve-save" class="confirm">Confirm</button>
 
