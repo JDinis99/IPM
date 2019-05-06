@@ -69,7 +69,7 @@ $('#reserve-save').click(() => {
             'success'
         ).then(() => {
             if(result)
-                saveReserves()
+                saveReserve(reserve)
             window.location = '../find'
         })
     }).catch(() => {

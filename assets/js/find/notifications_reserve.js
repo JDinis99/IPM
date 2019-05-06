@@ -55,20 +55,8 @@ function createReserveNotificationHTML(reserve, htmlClass) {
 
 function addReserveNotification(reserve) {
     $('#notifications').append(createReserveNotificationHTML(reserve, 'notification'))
-
-    let val = JSON.parse(localStorage.getItem('current-state'))
-    let notification_empty = document.getElementById('notifications-empty')
-    let notification_btn = document.getElementById('notification-btn')
-
-    console.log(today_reserves)
-    if(val.notifications > 0 || today_reserves.length > 0) {
-        notification_empty.style.display = 'none'
-        notification_btn.classList.add('notification-bounce')
-    }
-    else {
-        notification_empty.style.display = 'block'
-        notification_btn.classList.remove('notification-bounce')
-    }
+    notifications_count++
+    updateNotifications()
 }
 
 function addReserveItemToMenu(reserve) {
@@ -90,19 +78,12 @@ function removeReserveNotificaton(reserve) {
     
     reserves = reserves.filter((r) => r.id != id)
     today_reserves = today_reserves.filter((r) => r.id != id)
-    saveNewReserves(reserves)
+    updateReserves()
     
-    let val = JSON.parse(localStorage.getItem('current-state'))
-    let notification_empty = document.getElementById('notifications-empty')
-    let notification_btn = document.getElementById('notification-btn')
-    
-    if(val.notifications > 0 || today_reserves.length > 0) {
-        notification_empty.style.display = 'none'
-        notification_btn.classList.add('notification-bounce')
-    }
-    else {
-        notification_empty.style.display = 'block'
-        notification_btn.classList.remove('notification-bounce')
-    }
+    notifications_count--
+    notifications_count = notifications_count < 0 ? 0 : notifications_count
+
+    updateNotifications()
+
     removeReserveItemToMenu(reserve)
 }

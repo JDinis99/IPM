@@ -1,3 +1,4 @@
+let notifications_count = JSON.parse(localStorage.getItem('current-state')).notifications
 
 function showNotifications() {
     let main = document.getElementsByTagName('main')[0]
@@ -18,17 +19,12 @@ function hideNotifications() {
 }
 
 function updateNotifications() {
-    let val = JSON.parse(localStorage.getItem('current-state'))
-    let notification_empty = document.getElementById('notifications-empty')
-    let notification_btn = document.getElementById('notification-btn')
-
-    if(val.notifications > 0) {
-        notification_empty.style.display = 'none'
-        notification_btn.classList.add('notification-bounce')
-    }
-    else {
-        notification_empty.style.display = 'block'
-        notification_btn.classList.remove('notification-bounce')
+    if(notifications_count > 0) {
+        $('#notifications-empty').css('display', 'none')
+        $('#notification-btn').addClass('notification-bounce')
+    } else {
+        $('#notifications-empty').css('display', 'block')
+        $('#notification-btn').removeClass('notification-bounce')
     }
 }
 

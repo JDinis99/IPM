@@ -456,7 +456,7 @@ function getDistanceText(distance) {
 }
 
 function createReserve(id, reserves) {
-    let reserve = findReserve(id, reserves)
+    let reserve = findReserve(id)
     if(reserve == undefined) {
         let d = DATE.getDate()
         let h = DATE.getHours()
@@ -468,13 +468,16 @@ function createReserve(id, reserves) {
             minutes: m,
             day: d
         }
-        reserves.push(reserve)
     }
 
     return reserve
 }
 
-function findReserve(id, reserves) {
+function existsReserve(reserve) {
+    return findReserve(reserve.id) != undefined
+}
+
+function findReserve(id) {
     return reserves.find((r) => r.id == id)
 }
 
@@ -614,7 +617,9 @@ function subGPSDistance(gps) {
     localStorage.setItem('gps', JSON.stringify(gps))
 }
 
-function saveReserves() {
+function saveReserve(reserve) {
+    if(!existsReserve(reserve))
+        reserves.push(reserve)
     updateReserves()
 }
 
