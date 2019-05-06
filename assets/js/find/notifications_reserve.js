@@ -41,6 +41,7 @@ function createReserveNotificationHTML(reserve, htmlClass) {
     if(window.location.pathname != '/') {
         url = '../' + url
     }
+    console.log(window.location.pathname)
     return `<div class="${htmlClass}" id="reserve-${id}">
                 <div class="main-info">
                     <i id="reserve-${id}-icon" class="fas reserve-icon ${icon} ${color}"></i>
