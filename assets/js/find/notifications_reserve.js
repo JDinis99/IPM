@@ -37,7 +37,8 @@ function createReserveNotificationHTML(reserve, htmlClass) {
     let url    = `find/reserve.html?id=${id}`
     if(htmlClass == 'reserve') {
         time = 'Dia ' + reserve.day + ', ' + time
-    } else {
+    }
+    if(window.location.pathname != '/') {
         url = '../' + url
     }
     return `<div class="${htmlClass}" id="reserve-${id}">
