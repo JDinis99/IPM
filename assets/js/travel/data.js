@@ -222,7 +222,7 @@ function discardTravel(id) {
 }
 
 function pauseTravel(btn) {
-    let text = travel_data.state == STATE_PAUSE ? 'Resume' : 'Pause'
+    let text = travel_data.state != STATE_PAUSE ? 'Resume' : 'Pause'
     travel_data.state = travel_data.state == STATE_PAUSE ? STATE_STARTED : STATE_PAUSE
     $(btn).find('p').text(text)
     $(btn).toggleClass('paused')
