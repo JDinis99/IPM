@@ -1,0 +1,157 @@
+main#travel
+    background: linear-gradient(#83d689, #49ce72)
+    width: 100%
+    height: 100%
+    padding: 12px 12px
+
+    .all-action
+        font-size: 12px
+        background: #4894e2
+        box-shadow: 0 0 0 3px rgba(72, 148, 226, 0.3)
+        color: white
+        padding: 4px 8px
+        margin-bottom: 8px
+        text-align: center
+        width: 100%
+
+    section#controls
+        display: flex
+        justify-content: space-between
+        align-items: center
+        margin: 5px 0
+        h3
+            cursor: pointer
+            transition: all .3s ease-in-out
+            &:hover
+                color: white
+        h3, p, span
+            color: rgba(255, 255, 255, 0.5)
+            margin: 0
+            padding: 0
+            font-size: 12px
+            font-weight: bold
+            i
+                cursor: pointer
+                &#left-btn
+                    transition: all .3s ease-in-out
+                    margin-right: 5px
+                    &:hover
+                        color: white
+                &#right-btn
+                    transition: all .3s ease-in-out
+                    margin-left: 5px
+                    &:hover
+                        color: white
+
+    .buttons
+        width: 100%
+        display: flex
+        justify-content: space-between
+        .all-action
+            width: 45%
+            &.danger
+                background: #e86948
+                box-shadow: 0 0 0 3px rgba(232, 105, 72, 0.3)
+
+
+    section#actions
+        padding: 12px 10px
+        .row
+            display: flex
+            justify-content: center
+            position: relative
+            &.wide
+                top: -7px
+                justify-content: space-between
+            &:last-child
+                top: -14px
+            
+            .btn-group
+                position: relative
+                margin: 0
+                &.paused
+                    right: -4px
+                .btn-circle
+                    height: 36px
+                    width: 36px
+                    font-size: 16px
+                    line-height: 36px
+                p
+                    margin-bottom: 0
+                    color: white
+
+    section#travel-map
+        #travel-map-img
+            text-align: center
+            position: relative
+            width: 176px
+            height: 176px
+            width: 100%
+            height: 100%
+            border-radius: 3px
+            box-shadow: 0 3px 5px 2px rgba(0, 0, 0, .15)
+
+    section.friends-list
+        .list-group
+            list-style: none
+            padding: 0
+            margin: 0
+            height: 180px
+            display: flex
+            flex-direction: column
+            flex-wrap: wrap
+            align-items: center
+            left: -20px
+            position: relative
+            transition: all .3s ease-in-out
+            .list-item
+                text-decoration: none
+                flex: 1 0 33%
+                width: 100%
+                margin: 3px 20px
+                background: white
+                max-height: 33px
+                padding: 3px
+                box-shadow: 0px 6px 2px -3px rgba(0, 0, 0, 0.15)
+                border-radius: 2px
+                &:nth-child(5n), &:first-child
+                    margin-top: 0
+                &:nth-child(4n)
+                    margin-bottom: 0
+                .row
+                    display: flex
+                    justify-content: space-between
+                    align-items: center
+                    .left
+                        display: flex
+                        justify-content: space-between
+                        align-items: center
+                        img
+                            height: 22px
+                            width: 22px
+                            border-radius: 50px
+                        h1
+                            margin-left: 5px
+                            font-size: 12px
+                            font-weight: normal
+                            max-width: 107px
+                    button, a
+                        font-size: 11px
+                        line-height: 20px
+                        height: 20px
+                        width: 20px
+                        color: white
+                        margin-right: 3px
+                        text-align: center
+                        i
+                            margin: 0
+                            padding: 0
+                        &.danger
+                            background: #e86948
+                            box-shadow: 0 0 0 3px rgba(232, 105, 72, 0.3)
+                        &.info
+                            background: #48a6e8
+                            box-shadow: 0 0 0 3px rgba(72, 166, 232, 0.3)
+                        &.success
+                            background: #4aad7f
+                            box-shadow: 0 0 0 3px rgba(74, 173, 127, 0.3)

@@ -21,7 +21,7 @@
             <div id="content">
                 <!-- PAGES -->
 
-                <main id="find">
+                <main id="travel">
                     <section id="header" class="header-light">
                         <a href="#" onclick="window.history.back()" class="btn btn-circle"><i class="fas fa-arrow-left"></i></a>
                         <i class="fa fa-search"></i>
@@ -31,14 +31,17 @@
                         </div>
                     </section>
 
-                    <section id="map">
-                        <div class="map">
-                            <img id="find-map" alt="">
-                            <div class="map-actions">
-                                <a id="reserve-btn" href="#" style="display: none" class="red">Reserve <i class="fas fa-clock"></i></a>
-                                <a id="gps-start" href="gps.html" class="round"><i class="fas fa-location-arrow"></i></a>
-                            </div>
-                        </div>
+                    <section id="controls">
+                        <h3 class="sort-btn"><i class="fas fa-sort-amount-down"></i> Sort</h3>
+                        <p>
+                            <i style="display: none;" id="left-btn" class="fa fa-chevron-left"></i>
+                            <span id="current-page">0</span> / <span id="total-pages">0</span>
+                            <i style="display: none;" id="right-btn" class="fa fa-chevron-right"></i>
+                        </p>
+                    </section>
+
+                    <section class="friends-list" id="list">
+                        <ul id="travels-history" class="list-group"></ul>
                     </section>
 
                     <div id="btn-notifications-open">
@@ -147,7 +150,10 @@
     <script src="../assets/js/notifications.js"></script>
     <script src="../assets/js/find/data.js"></script>
     <script src="../assets/js/find/notifications_reserve.js"></script>
-    <script src="../assets/js/find/map.js"></script>
+    <script src="../assets/js/moment.min.js"></script>
+    <script src="../assets/js/travel/data.js"></script>
+    <script src="../assets/js/travel/history.js"></script>
+    <script src="../assets/js/travel/travel.js"></script>
     <script src="../assets/js/app.js"></script>
 </body>
 </html>

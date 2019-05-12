@@ -13317,6 +13317,61 @@ button.disabled, button:disabled, a.btn.disabled, a.btn:disabled {
   color: #f1c40f;
 }
 
+.btn-blue-alt-2 button, .btn-blue-alt-2 .btn {
+  color: white;
+  background: #488ce2;
+  -webkit-box-shadow: 0 0 0 5px rgba(67, 161, 241, 0.6);
+          box-shadow: 0 0 0 5px rgba(67, 161, 241, 0.6);
+}
+
+.btn-blue-alt-2 p {
+  color: #488ce2;
+}
+
+.btn-grey-alt-2 button, .btn-grey-alt-2 .btn {
+  color: white;
+  background: #65939a;
+  -webkit-box-shadow: 0 0 0 5px rgba(101, 147, 154, 0.6);
+          box-shadow: 0 0 0 5px rgba(101, 147, 154, 0.6);
+}
+
+.btn-grey-alt-2 p {
+  color: #65939a;
+}
+
+.btn-green-alt-2 button, .btn-green-alt-2 .btn {
+  color: white;
+  background: #3f9c60;
+  -webkit-box-shadow: 0 0 0 5px rgba(59, 169, 108, 0.6);
+          box-shadow: 0 0 0 5px rgba(59, 169, 108, 0.6);
+}
+
+.btn-green-alt-2 p {
+  color: #3f9c60;
+}
+
+.btn-yellow-alt-2 button, .btn-yellow-alt-2 .btn {
+  color: white;
+  background: #f7ab3b;
+  -webkit-box-shadow: 0 0 0 5px rgba(247, 177, 73, 0.6);
+          box-shadow: 0 0 0 5px rgba(247, 177, 73, 0.6);
+}
+
+.btn-yellow-alt-2 p {
+  color: #f7ab3b;
+}
+
+.btn-pink-alt-2 button, .btn-pink-alt-2 .btn {
+  color: white;
+  background: #d075d6;
+  -webkit-box-shadow: 0 0 0 5px rgba(208, 117, 214, 0.6);
+          box-shadow: 0 0 0 5px rgba(208, 117, 214, 0.6);
+}
+
+.btn-pink-alt-2 p {
+  color: #d075d6;
+}
+
 video {
   position: fixed;
   right: 0;
@@ -15114,5 +15169,274 @@ main#find section#reserve button.confirm {
   border-radius: 3px;
   -webkit-box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.15);
           box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.15);
+}
+
+main#travel {
+  background: -webkit-gradient(linear, left top, left bottom, from(#83d689), to(#49ce72));
+  background: linear-gradient(#83d689, #49ce72);
+  width: 100%;
+  height: 100%;
+  padding: 12px 12px;
+}
+
+main#travel .all-action {
+  font-size: 12px;
+  background: #4894e2;
+  -webkit-box-shadow: 0 0 0 3px rgba(72, 148, 226, 0.3);
+          box-shadow: 0 0 0 3px rgba(72, 148, 226, 0.3);
+  color: white;
+  padding: 4px 8px;
+  margin-bottom: 8px;
+  text-align: center;
+  width: 100%;
+}
+
+main#travel section#controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 5px 0;
+}
+
+main#travel section#controls h3 {
+  cursor: pointer;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+main#travel section#controls h3:hover {
+  color: white;
+}
+
+main#travel section#controls h3, main#travel section#controls p, main#travel section#controls span {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+main#travel section#controls h3 i, main#travel section#controls p i, main#travel section#controls span i {
+  cursor: pointer;
+}
+
+main#travel section#controls h3 i#left-btn, main#travel section#controls p i#left-btn, main#travel section#controls span i#left-btn {
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  margin-right: 5px;
+}
+
+main#travel section#controls h3 i#left-btn:hover, main#travel section#controls p i#left-btn:hover, main#travel section#controls span i#left-btn:hover {
+  color: white;
+}
+
+main#travel section#controls h3 i#right-btn, main#travel section#controls p i#right-btn, main#travel section#controls span i#right-btn {
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  margin-left: 5px;
+}
+
+main#travel section#controls h3 i#right-btn:hover, main#travel section#controls p i#right-btn:hover, main#travel section#controls span i#right-btn:hover {
+  color: white;
+}
+
+main#travel .buttons {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main#travel .buttons .all-action {
+  width: 45%;
+}
+
+main#travel .buttons .all-action.danger {
+  background: #e86948;
+  -webkit-box-shadow: 0 0 0 3px rgba(232, 105, 72, 0.3);
+          box-shadow: 0 0 0 3px rgba(232, 105, 72, 0.3);
+}
+
+main#travel section#actions {
+  padding: 12px 10px;
+}
+
+main#travel section#actions .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+main#travel section#actions .row.wide {
+  top: -7px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main#travel section#actions .row:last-child {
+  top: -14px;
+}
+
+main#travel section#actions .row .btn-group {
+  position: relative;
+  margin: 0;
+}
+
+main#travel section#actions .row .btn-group.paused {
+  right: -4px;
+}
+
+main#travel section#actions .row .btn-group .btn-circle {
+  height: 36px;
+  width: 36px;
+  font-size: 16px;
+  line-height: 36px;
+}
+
+main#travel section#actions .row .btn-group p {
+  margin-bottom: 0;
+  color: white;
+}
+
+main#travel section#travel-map #travel-map-img {
+  text-align: center;
+  position: relative;
+  width: 176px;
+  height: 176px;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.15);
+}
+
+main#travel section.friends-list .list-group {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 180px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  left: -20px;
+  position: relative;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+main#travel section.friends-list .list-group .list-item {
+  text-decoration: none;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 33%;
+          flex: 1 0 33%;
+  width: 100%;
+  margin: 3px 20px;
+  background: white;
+  max-height: 33px;
+  padding: 3px;
+  -webkit-box-shadow: 0px 6px 2px -3px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 6px 2px -3px rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+}
+
+main#travel section.friends-list .list-group .list-item:nth-child(5n), main#travel section.friends-list .list-group .list-item:first-child {
+  margin-top: 0;
+}
+
+main#travel section.friends-list .list-group .list-item:nth-child(4n) {
+  margin-bottom: 0;
+}
+
+main#travel section.friends-list .list-group .list-item .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main#travel section.friends-list .list-group .list-item .row .left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main#travel section.friends-list .list-group .list-item .row .left img {
+  height: 22px;
+  width: 22px;
+  border-radius: 50px;
+}
+
+main#travel section.friends-list .list-group .list-item .row .left h1 {
+  margin-left: 5px;
+  font-size: 12px;
+  font-weight: normal;
+  max-width: 107px;
+}
+
+main#travel section.friends-list .list-group .list-item .row button, main#travel section.friends-list .list-group .list-item .row a {
+  font-size: 11px;
+  line-height: 20px;
+  height: 20px;
+  width: 20px;
+  color: white;
+  margin-right: 3px;
+  text-align: center;
+}
+
+main#travel section.friends-list .list-group .list-item .row button i, main#travel section.friends-list .list-group .list-item .row a i {
+  margin: 0;
+  padding: 0;
+}
+
+main#travel section.friends-list .list-group .list-item .row button.danger, main#travel section.friends-list .list-group .list-item .row a.danger {
+  background: #e86948;
+  -webkit-box-shadow: 0 0 0 3px rgba(232, 105, 72, 0.3);
+          box-shadow: 0 0 0 3px rgba(232, 105, 72, 0.3);
+}
+
+main#travel section.friends-list .list-group .list-item .row button.info, main#travel section.friends-list .list-group .list-item .row a.info {
+  background: #48a6e8;
+  -webkit-box-shadow: 0 0 0 3px rgba(72, 166, 232, 0.3);
+          box-shadow: 0 0 0 3px rgba(72, 166, 232, 0.3);
+}
+
+main#travel section.friends-list .list-group .list-item .row button.success, main#travel section.friends-list .list-group .list-item .row a.success {
+  background: #4aad7f;
+  -webkit-box-shadow: 0 0 0 3px rgba(74, 173, 127, 0.3);
+          box-shadow: 0 0 0 3px rgba(74, 173, 127, 0.3);
 }
 /*# sourceMappingURL=main.css.map */

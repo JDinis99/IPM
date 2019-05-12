@@ -21,24 +21,19 @@
             <div id="content">
                 <!-- PAGES -->
 
-                <main id="find">
+                <main id="travel">
                     <section id="header" class="header-light">
                         <a href="#" onclick="window.history.back()" class="btn btn-circle"><i class="fas fa-arrow-left"></i></a>
-                        <i class="fa fa-search"></i>
+                        <i class="far fa-route"></i>
                         <div class="clock">
                             <h2 id="clock-time"></h2>
                             <p id="clock-date"></p>
                         </div>
                     </section>
 
-                    <section id="map">
-                        <div class="map">
-                            <img id="find-map" alt="">
-                            <div class="map-actions">
-                                <a id="reserve-btn" href="#" style="display: none" class="red">Reserve <i class="fas fa-clock"></i></a>
-                                <a id="gps-start" href="gps.html" class="round"><i class="fas fa-location-arrow"></i></a>
-                            </div>
-                        </div>
+
+                    <section id="travel-map">
+                        <img id="travel-map-img">
                     </section>
 
                     <div id="btn-notifications-open">
@@ -147,7 +142,9 @@
     <script src="../assets/js/notifications.js"></script>
     <script src="../assets/js/find/data.js"></script>
     <script src="../assets/js/find/notifications_reserve.js"></script>
-    <script src="../assets/js/find/map.js"></script>
+    <script src="../assets/js/moment.min.js"></script>
+    <script src="../assets/js/travel/data.js"></script>
+    <script src="../assets/js/travel/travel.js"></script>
     <script src="../assets/js/app.js"></script>
 </body>
 </html>

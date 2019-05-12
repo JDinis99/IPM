@@ -21,25 +21,40 @@
             <div id="content">
                 <!-- PAGES -->
 
-                <main id="find">
+                <main id="travel">
                     <section id="header" class="header-light">
                         <a href="#" onclick="window.history.back()" class="btn btn-circle"><i class="fas fa-arrow-left"></i></a>
-                        <i class="fa fa-search"></i>
+                        <i class="far fa-route"></i>
                         <div class="clock">
                             <h2 id="clock-time"></h2>
                             <p id="clock-date"></p>
                         </div>
                     </section>
 
-                    <section id="map">
-                        <div class="map">
-                            <img id="find-map" alt="">
-                            <div class="map-actions">
-                                <a id="reserve-btn" href="#" style="display: none" class="red">Reserve <i class="fas fa-clock"></i></a>
-                                <a id="gps-start" href="gps.html" class="round"><i class="fas fa-location-arrow"></i></a>
+                    <section id="actions">
+                        <div class="row">
+                            <div class="btn-group btn-purple-alt">
+                                <a href="group.html" class="btn btn-circle"><i class="fas fa-user-friends"></i></a>
+                                <p>Group</p>
                             </div>
                         </div>
-                    </section>
+                        <div class="row wide">
+                            <div class="btn-group btn-blue-alt-2">
+                                <a href="map.html" class="btn btn-circle"><i class="fas fa-map"></i></a>
+                                <p>Map</p>
+                            </div>
+                            <div class="btn-group btn-green-alt-2">
+                                <a href="start.html" class="btn btn-circle"><i class="fas fa-hiking"></i></a>
+                                <p>Start</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="btn-group btn-grey-alt-2">
+                                <a href="history.html" class="btn btn-circle"><i class="fas fa-history"></i></a>
+                                <p>History</p>
+                            </div>
+                        </div>
+                        </section>
 
                     <div id="btn-notifications-open">
                         <button id="notification-btn" onclick="showNotifications()" class="btn-small-light"><i class="fa fa-chevron-up"></i></button>
@@ -147,7 +162,9 @@
     <script src="../assets/js/notifications.js"></script>
     <script src="../assets/js/find/data.js"></script>
     <script src="../assets/js/find/notifications_reserve.js"></script>
-    <script src="../assets/js/find/map.js"></script>
+    <script src="../assets/js/moment.min.js"></script>
+    <script src="../assets/js/travel/data.js"></script>
+    <script src="../assets/js/travel/travel.js"></script>
     <script src="../assets/js/app.js"></script>
 </body>
 </html>
