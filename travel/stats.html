@@ -31,6 +31,8 @@
                         </div>
                     </section>
 
+                    <h1><i class="fas fa-calendar"></i> Date: <span id="travel-date"></span></h1>
+
                     <section id="time">
                         <i class="fas fa-clock"></i>
                         <div class="right">
@@ -39,53 +41,55 @@
                         </div>
                     </section>
 
+                    <hr>
+
                     <section id="widgets" class="widgets-light">
-                            <button id="prev-btn" class="btn-small-light"><i class="fa fa-chevron-left"></i></button>
-                        
-                            <!-- WIDGETS -->
-                            <div class="c-slider widget-box" id="hammer-slider">
-                                <div class="c-slider__container" id="widget-strip">
-                                    <div class="c-slider__slide widget">
-                                        <h1><i class="fas fa-shoe-prints"></i></h1>
-                                        <div class="right">
-                                            <h3 id="travel-steps">88</h3>
-                                            <p>steps</p>
-                                        </div>
+                        <button id="prev-btn" class="btn-small-light"><i class="fa fa-chevron-left"></i></button>
+                    
+                        <!-- WIDGETS -->
+                        <div class="c-slider widget-box" id="hammer-slider">
+                            <div class="c-slider__container" id="widget-strip">
+                                <div class="c-slider__slide widget">
+                                    <h1><i class="fas fa-shoe-prints"></i></h1>
+                                    <div class="right">
+                                        <h3 id="travel-steps">88</h3>
+                                        <p>steps</p>
                                     </div>
-                                    <div class="c-slider__slide widget">
-                                        <h1><i class="fas fa-route"></i></h1>
-                                        <div class="right">
-                                            <h3 id="travel-distance">3214</h3>
-                                            <p id="travel-distance-units">meters</p>
-                                        </div>
+                                </div>
+                                <div class="c-slider__slide widget">
+                                    <h1><i class="fas fa-route"></i></h1>
+                                    <div class="right">
+                                        <h3 id="travel-distance">3214</h3>
+                                        <p id="travel-distance-units">meters</p>
                                     </div>
-                                    <div class="c-slider__slide widget">
-                                        <h1><i class="fas fa-stopwatch"></i></h1>
-                                        <div class="right">
-                                            <h3 id="travel-duration">23</h3>
-                                            <p id="travel-duration-units">minutes</p>
-                                        </div>
+                                </div>
+                                <div class="c-slider__slide widget">
+                                    <h1><i class="fas fa-stopwatch"></i></h1>
+                                    <div class="right">
+                                        <h3 id="travel-duration">23</h3>
+                                        <p id="travel-duration-units">minutes</p>
                                     </div>
-                                    <div class="c-slider__slide widget">
-                                        <h1><i class="fas fa-pause"></i></h1>
-                                        <div class="right">
-                                            <h3 id="travel-stops">3</h3>
-                                            <p>stops</p>
-                                        </div>
+                                </div>
+                                <div class="c-slider__slide widget">
+                                    <h1><i class="fas fa-pause"></i></h1>
+                                    <div class="right">
+                                        <h3 id="travel-stops">3</h3>
+                                        <p>stops</p>
                                     </div>
-                                    <div class="c-slider__slide widget">
-                                        <h1><i class="fas fa-tachometer-alt-slow"></i></h1>
-                                        <div class="right">
-                                            <h3 id="travel-velocity">23</h3>
-                                            <p>meters / second</p>
-                                        </div>
+                                </div>
+                                <div class="c-slider__slide widget">
+                                    <h1><i class="fas fa-tachometer-alt-slow"></i></h1>
+                                    <div class="right">
+                                        <h3 id="travel-velocity">23</h3>
+                                        <p>meters / second</p>
                                     </div>
                                 </div>
                             </div>
-                            <!-- ./WIDGETS -->
-    
-                            <button id="next-btn" class="btn-small-light"><i class="fa fa-chevron-right"></i></button>
-                        </section>
+                        </div>
+                        <!-- ./WIDGETS -->
+
+                        <button id="next-btn" class="btn-small-light"><i class="fa fa-chevron-right"></i></button>
+                    </section>
 
                     <div id="btn-notifications-open">
                         <button id="notification-btn" onclick="showNotifications()" class="btn-small-light"><i class="fa fa-chevron-up"></i></button>
@@ -158,6 +162,18 @@
                         </div>
                         <div class="icons">
                             <button onclick="window.location = '../health/sos.html'" class="btn-small-dark"><i class="fa fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="notification" id="travel-notification" style="display: none">
+                        <div class="main-info">
+                            <i class="fas fa-route"></i>
+                            <div class="sub-info">
+                                <h3 id="travel-notification-date"></h3>
+                                <p><span id="travel-notification-duration"></span><i class="fas fa-clock"></i></p>
+                            </div>
+                        </div>
+                        <div class="icons">
+                            <a href="start.html" class="btn-small-dark"><i class="fa fa-chevron-right"></i></a>
                         </div>
                     </div>
 

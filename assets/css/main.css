@@ -15191,6 +15191,32 @@ main#travel .all-action {
   width: 100%;
 }
 
+main#travel > h1 {
+  color: white;
+  font-size: 14px;
+  margin: 15px 0;
+  text-align: center;
+  line-height: 22px;
+  font-weight: normal;
+}
+
+main#travel > h1 i {
+  font-size: 22px;
+  margin-right: 3px;
+}
+
+main#travel > h1 #travel-date {
+  font-weight: bold;
+  color: white;
+}
+
+main#travel hr {
+  margin: 15px 0;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  height: 1px;
+}
+
 main#travel section#controls {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -15277,12 +15303,12 @@ main#travel section#time {
       -ms-flex-align: center;
           align-items: center;
   padding: 0 10px;
-  margin: 25px 0;
+  margin: 5px 0;
   color: white;
 }
 
 main#travel section#time i {
-  font-size: 42px;
+  font-size: 34px;
 }
 
 main#travel section#time .right p {
@@ -15298,7 +15324,7 @@ main#travel section#time .right p span {
 }
 
 main#travel section#widgets {
-  margin: 40px 0;
+  margin: 20px 0;
 }
 
 main#travel section#widgets .widget {

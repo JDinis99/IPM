@@ -356,6 +356,8 @@ function updateTravelUI() {
         $('#travel-distance-units').text(getTravelDistanceUnits(travel))
         $('#travel-stops').text(travel.stats.stops)
         $('#travel-velocity').text(getTravelVelocity(travel))
+
+        $('#travel-date').text(moment(travel.startdate).format('Do MMM YYYY'))
     }
 }
 
@@ -410,4 +412,30 @@ function getTotalTravelPages() {
 
 function pageNeedsTravelId() {
     return $('#travel-stats-page').length || $('#travel-details-page').length; 
+}
+
+$('#travel-notification-date').text("h")
+
+if(travel_data.state != STATE_EMPTY) {
+    notifications_count++
+    updateTravelNotification()
+}
+
+function updateTravelNotification() {
+    $('#travel-notification').css('display', 'flex')
+    $('#travel-notification-date').text(moment(travel_data.current.startdate).format('Do, MMM YYYY'))
+    $('#travel-notification-duration').text(getCurrentDuration())
+    setTimeout(updateTravelNotification, 1000)
+    updateNotifications()
+}
+
+function getCurrentDuration() {
+    let seconds = moment().diff(travel_data.current.startdate, 'seconds')
+    let minutes = Math.round(seconds / 60)
+    let hours = Math.round(minutes / 60)
+    seconds = seconds % 60
+    seconds = seconds < 10 ? '0' + seconds : seconds + ''
+    minutes = minutes < 10 ? '0' + minutes : minutes + ''
+    hours = hours < 10 ? '0' + hours : hours + ''
+    return `${hours}:${minutes}:${seconds}`
 }
