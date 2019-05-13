@@ -127,6 +127,8 @@ function update_state(current_bpm, current_oxygen, current_alcohol) {
     refresh_state()
 }
 
+function fmtMSS(s){return(s-(s%=60))/60+(9<s?':':':0')+s}
+
 function refresh_state() {
     current_state.style = get_health_style()
     localStorage.setItem('current-state', JSON.stringify(current_state))

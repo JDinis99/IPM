@@ -1,4 +1,4 @@
-const CURRENT_VERSION = "1.2.3"
+const CURRENT_VERSION = "1.2.4"
 
 if(localStorage.getItem('version') != CURRENT_VERSION) {
     localStorage.setItem('version', CURRENT_VERSION)
@@ -46,8 +46,6 @@ if(current_state == undefined) {
 }
 updateHealthInfo()
 updateSOS()
-
-function fmtMSS(s){return(s-(s%=60))/60+(9<s?':':':0')+s}
 
 function resetLocalStorage() {
     let current_bpm = Math.floor((Math.random() * 4/5 + 1) * settings.average_bpm) // random between average_bpm and average_bpm + 2/3 * average_bpm

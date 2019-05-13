@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
 </head>
-<body onload="startClock()">
+<body onload="startClock()" id="travel-index-page">
     <video autoplay muted loop>
         <source src="../assets/img/movie.mp4" type="video/mp4">
         Your browser does not support the video tag.
@@ -43,8 +43,8 @@
                                 <a href="map.html" class="btn btn-circle"><i class="fas fa-map"></i></a>
                                 <p>Map</p>
                             </div>
-                            <div class="btn-group btn-green-alt-2">
-                                <a href="start.html" class="btn btn-circle"><i class="fas fa-hiking"></i></a>
+                            <div onclick="startTravel()" class="btn-group btn-green-alt-2">
+                                <button class="btn btn-circle"><i class="fas fa-hiking"></i></button>
                                 <p>Start</p>
                             </div>
                         </div>

@@ -3,8 +3,6 @@ let current_page = total_pages > 0 ? 1 : 0
 let cur_page = $('#current-page').text(current_page)
 $('#total-pages').text(total_pages)
 
-let travels = travel_data.history
-
 let left_btn = $('#left-btn')
 let right_btn = $('#right-btn')
 
@@ -36,31 +34,22 @@ function movePage(dir) {
     cur_page.text(current_page)
 }
 
-let sort_order = null
-
 function updateList() {
-    travels.sort((a, b) => {
-        return a.startdate.valueOf() - b.startdate.valueOf()
-    })
-
-    if(sort_order != null) {
-        travels.reverse()
-        sort_order = null
-    }
+    travel_data.history.reverse()
+    saveTravelData()
 
     $('#travels-history').empty()
 
-    travels.forEach((travel) => {
+    travel_data.history.forEach((travel) => {
         $('#travels-history').append(createListTravelHtml(travel))
     })
 
-    if (travels.length == 0)
+    if (travel_data.history.length == 0)
         $('#travels-history').append('<p style="color:white">No travels here</p>')
 }
 
 $('.sort-btn').click(() => {
     $('.sort-btn i').toggleClass('fa-sort-amount-down fa-sort-amount-up')
-    sort_order = 'sort'
     updateList()
 })
 

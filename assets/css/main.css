@@ -15266,6 +15266,56 @@ main#travel .buttons .all-action.danger {
           box-shadow: 0 0 0 3px rgba(232, 105, 72, 0.3);
 }
 
+main#travel section#time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 10px;
+  margin: 25px 0;
+  color: white;
+}
+
+main#travel section#time i {
+  font-size: 42px;
+}
+
+main#travel section#time .right p {
+  color: white;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+main#travel section#time .right p span {
+  color: white;
+  font-weight: bold;
+}
+
+main#travel section#widgets {
+  margin: 40px 0;
+}
+
+main#travel section#widgets .widget {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main#travel section#widgets .widget h1 {
+  margin: 0 !important;
+}
+
 main#travel section#actions {
   padding: 12px 10px;
 }
@@ -15415,6 +15465,7 @@ main#travel section.friends-list .list-group .list-item .row button, main#travel
   color: white;
   margin-right: 3px;
   text-align: center;
+  padding: 0;
 }
 
 main#travel section.friends-list .list-group .list-item .row button i, main#travel section.friends-list .list-group .list-item .row a i {
