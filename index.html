@@ -63,7 +63,7 @@
                             <p>Health</p>
                         </div>
                         <div class="btn-group btn-green">
-                            <a href="travel/" class="btn btn-circle"><i class="fas fa-route"></i></a>
+                            <button onclick="if(travel_data.state == STATE_STARTED) window.location.href = 'travel/start.html'; else window.location.href = 'travel/'" class="btn btn-circle"><i class="fas fa-route"></i></button>
                             <p>Travel</p>
                         </div>
                         <div class="btn-group btn-blue">
@@ -204,6 +204,7 @@
     <script src="assets/js/notifications.js"></script>
     <script src="assets/js/find/data.js"></script>
     <script src="assets/js/find/notifications_reserve.js"></script>
+    <script src="assets/js/travel/data.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
 </html>
