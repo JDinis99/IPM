@@ -1,10 +1,11 @@
-const CURRENT_VERSION = "1.2.4"
+const CURRENT_VERSION = "1.3.2"
 
 if(localStorage.getItem('version') != CURRENT_VERSION) {
     localStorage.setItem('version', CURRENT_VERSION)
     initSettings()
     localStorage.setItem('reserves', JSON.stringify([]))
     resetLocalStorage()
+    resetTravelData()
     console.log('Updating to version ' + CURRENT_VERSION)
 }
 

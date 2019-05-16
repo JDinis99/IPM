@@ -47,7 +47,7 @@ let travel_data
 
 initializeTravelData()
 
-function initializeTravelData() {
+function resetTravelData() {
     let travel_data_default = {
         history: [],
         state: STATE_EMPTY,
@@ -60,12 +60,16 @@ function initializeTravelData() {
                 steps: 0,
                 stops: 0
             },
-            shared_with: []
+            shared_with: [],
+            marks: []
         }
     }
-    if(localStorage.getItem('travels') == undefined) {
-        localStorage.setItem('travels', JSON.stringify(travel_data_default))
-    }
+    localStorage.setItem('travels', JSON.stringify(travel_data_default))
+}
+
+function initializeTravelData() {
+    if(localStorage.getItem('travels') == undefined)
+        resetTravelData()
     loadTravelData()
 }
 
@@ -317,7 +321,8 @@ function finishTravel() {
             steps: 0,
             stops: 0
         },
-        shared_with: []
+        shared_with: [],
+        marks: []
     }
     travel_data.state = STATE_EMPTY
 
