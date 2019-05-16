@@ -79,7 +79,7 @@ function createListGroupHtml(person, button_type) {
 
     let travel = travel_data.history.find((t) => t.id == findGetParameter('id'))
 
-    if(travel.shared_with.find((f) => f == person.id))
+    if(travel && travel.shared_with.find((f) => f == person.id))
         shared = true
 
     return `<li class="list-item">
@@ -457,4 +457,14 @@ function getCurrentDuration() {
     minutes = minutes < 10 ? '0' + minutes : minutes + ''
     hours = hours < 10 ? '0' + hours : hours + ''
     return `${hours}:${minutes}:${seconds}`
+}
+
+function markPlace() {
+    let marked = {
+        id: 1,
+        timestamp: moment().format(),
+        description: ''
+    }
+
+    travel_data.current.marks.push(marked)
 }
