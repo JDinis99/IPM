@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
 </head>
-<body onload="startClock()">
+<body onload="startClock()" id="travel-share-page">
     <video autoplay muted loop>
         <source src="../assets/img/movie.mp4" type="video/mp4">
         Your browser does not support the video tag.
@@ -43,8 +43,8 @@
                                 <a href="#" class="btn btn-circle"><i class="fa fa-twitter"></i></a>
                                 <p>Twitter</p>
                             </div>
-                            <div class="btn-group btn-yellow-alt-2">
-                                <a href="friends.html" class="btn btn-circle"><i class="fas fa-user-friends"></i></a>
+                            <div onclick="window.location.href=`friends.html?id=${findGetParameter('id')}`" class="btn-group btn-yellow-alt-2">
+                                <button class="btn btn-circle"><i class="fas fa-user-friends"></i></button>
                                 <p>Friends</p>
                             </div>
                         </div>

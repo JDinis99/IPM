@@ -59,7 +59,8 @@ function initializeTravelData() {
             stats: {
                 steps: 0,
                 stops: 0
-            }
+            },
+            shared_with: []
         }
     }
     if(localStorage.getItem('travels') == undefined) {
@@ -74,13 +75,20 @@ function isFriendInGroup(person) {
 
 function createListGroupHtml(person, button_type) {
     let button = BUTTONS[button_type]
+    let shared = false
+
+    let travel = travel_data.history.find((t) => t.id == findGetParameter('id'))
+
+    if(travel.shared_with.find((f) => f == person.id))
+        shared = true
+
     return `<li class="list-item">
-                <div class="row">
+                <div ${shared ? 'style="text-decoration: underline; opacity: 0.75"' : ''} class="row">
                     <div class="left">
                         <img src="../assets/img/${person.img}" alt="avatar">
                         <h1>${person.name}</h1>
                     </div>
-                    <button id="kick-person-${person.id}" onclick="${button.action}('${person.name}')"class="${button.class}"><i class="fas fa-${button.icon}"></i></button>
+                    <button onclick="${button.action}('${person.name}', ${person.id})"class="${button.class}"><i class="fas fa-${button.icon}"></i></button>
                 </div>
             </li>`
 }
@@ -96,12 +104,13 @@ function createListTravelHtml(travel) {
             </li>`
 }
 
-function shareTravel(platform) {
+function shareTravel(platform, person_id) {
     let verb
     if(platform.includes(' ')) // sharing with person
         verb = 'with'
     else
         verb = 'on'
+
     swal({
         title: 'Share?',
         text: `Are you sure you want to share ${verb} ${platform}?`,
@@ -117,7 +126,16 @@ function shareTravel(platform) {
             `Shared ${verb} ${platform}!`,
             'success'
         ).then(() => {
+            let travel = travel_data.history.find((t) => t.id == findGetParameter('id'))
+            if(person_id && !travel.shared_with.find((f) => f == person_id))
+                travel.shared_with.push(person_id)
+            else if(verb == 'with') {
+                travel.shared_with = []
+                FRIENDS.forEach((f) => travel.shared_with.push(f.id))
+            }
 
+            saveTravelData()
+            updateTravelUI()
         })
     }).catch(() => {
 
@@ -298,7 +316,8 @@ function finishTravel() {
         stats: {
             steps: 0,
             stops: 0
-        }
+        },
+        shared_with: []
     }
     travel_data.state = STATE_EMPTY
 
@@ -411,7 +430,7 @@ function getTotalTravelPages() {
 }
 
 function pageNeedsTravelId() {
-    return $('#travel-stats-page').length || $('#travel-details-page').length; 
+    return $('#travel-stats-page').length || $('#travel-details-page').length ||  $('#travel-share-page').length; 
 }
 
 $('#travel-notification-date').text("h")
