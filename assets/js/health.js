@@ -123,6 +123,7 @@ function updateSOS() {
 
         notification.style.display = 'none'
         val.sos.eta = 0
+        val.sos.pressed = false
         val.notifications--
         localStorage.setItem('current-state', JSON.stringify(val))
         if(document.getElementById('sos-cancel-btn'))

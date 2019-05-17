@@ -13851,7 +13851,7 @@ section#notifications .notification .icons {
   font-size: 10px;
 }
 
-section#notifications .notification .icons button {
+section#notifications .notification .icons button, section#notifications .notification .icons a {
   font-size: 10px;
   color: #0c5695;
   opacity: 0.7;
@@ -13859,7 +13859,7 @@ section#notifications .notification .icons button {
   border-radius: 50%;
 }
 
-section#notifications .notification .icons button:hover {
+section#notifications .notification .icons button:hover, section#notifications .notification .icons a:hover {
   opacity: 1;
 }
 
