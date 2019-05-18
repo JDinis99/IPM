@@ -501,3 +501,11 @@ function changeMarkDescription(event) {
 function showMarkError() {
     $('.form').toggleClass('error')
 }
+
+function toggleDetailsButton() {
+    if($('.toggle-btn').hasClass('rotate') || $('.toggle-btn').hasClass('derotate'))
+        $('.toggle-btn').toggleClass('derotate')
+    $('.toggle-btn').toggleClass('rotate')
+
+    $('#actions > div').toggleClass('hidden')
+}

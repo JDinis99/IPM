@@ -32,29 +32,59 @@
                     </section>
 
                     <section id="actions">
-                        <div class="row">
-                            <div onclick="window.location.href=`share.html?id=${findGetParameter('id')}`" class="btn-group btn-pink-alt-2">
-                                <button class="btn btn-circle"><i class="fas fa-share"></i></button>
-                                <p>Share</p>
+                        <div id="action-1">
+                            <div class="row">
+                                <div onclick="window.location.href=`share.html?id=${findGetParameter('id')}`" class="btn-group btn-pink-alt-2">
+                                    <button class="btn btn-circle"><i class="fas fa-share"></i></button>
+                                    <p>Share</p>
+                                </div>
+                            </div>
+                            <div class="row wide">
+                                <div onclick="window.location.href=`map.html?id=${findGetParameter('id')}`" class="btn-group btn-blue-alt-2">
+                                    <button class="btn btn-circle"><i class="fas fa-map"></i></button>
+                                    <p>Map</p>
+                                </div>
+                                <div onclick="window.location.href=`stats.html?id=${findGetParameter('id')}`" class="btn-group btn-green-alt-2">
+                                    <button class="btn btn-circle"><i class="far fa-chart-bar"></i></button>
+                                    <p>Stats</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="btn-group btn-red">
+                                    <button onclick="discardTravel(findGetParameter('id'))" class="btn btn-circle"><i class="fas fa-trash"></i></button>
+                                    <p>Discard</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="row wide">
-                            <div onclick="window.location.href=`map.html?id=${findGetParameter('id')}`" class="btn-group btn-blue-alt-2">
-                                <button class="btn btn-circle"><i class="fas fa-map"></i></button>
-                                <p>Map</p>
+                        <div id="action-2" class="hidden">
+                            <div class="row">
+                                <div onclick="window.location.href=`users.html?id=${findGetParameter('id')}`" class="btn-group btn-purple-alt">
+                                    <button class="btn btn-circle"><i class="fas fa-user-friends"></i></button>
+                                    <p>Group</p>
+                                </div>
                             </div>
-                            <div onclick="window.location.href=`stats.html?id=${findGetParameter('id')}`" class="btn-group btn-green-alt-2">
-                                <button class="btn btn-circle"><i class="far fa-chart-bar"></i></button>
-                                <p>Stats</p>
+                            <div class="row wide">
+                                <div onclick="window.location.href=`logs.html?id=${findGetParameter('id')}`" class="btn-group btn-yellow-alt-2">
+                                    <button class="btn btn-circle"><i class="fas fa-clipboard-list"></i></button>
+                                    <p>Logs</p>
+                                </div>
+                                <div onclick="window.location.href=`marks.html?id=${findGetParameter('id')}`" class="btn-group btn-grey-alt-2">
+                                    <button class="btn btn-circle"><i class="fas fa-map-marker-plus"></i></button>
+                                    <p>Marks</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="btn-group btn-red">
+                                    <button onclick="discardTravel(findGetParameter('id'))" class="btn btn-circle"><i class="fas fa-trash"></i></button>
+                                    <p>Discard</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="btn-group btn-red">
-                                <button onclick="discardTravel(findGetParameter('id'))" class="btn btn-circle"><i class="fas fa-trash"></i></button>
-                                <p>Discard</p>
-                            </div>
-                        </div>
-                        </section>
+                    </section>
+                    
+                    <div class="toggle-btn">
+                        <button onclick="toggleDetailsButton()"><i class="fas fa-sync-alt"></i></button>
+                    </div>
 
                     <div id="btn-notifications-open">
                         <button id="notification-btn" onclick="showNotifications()" class="btn-small-light"><i class="fa fa-chevron-up"></i></button>

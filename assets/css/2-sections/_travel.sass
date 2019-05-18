@@ -102,8 +102,39 @@ main#travel
             h1
                 margin: 0 !important
 
+    .toggle-btn
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, 50%)
+        button
+            color: white
+            opacity: 0.8
+            &:hover
+                opacity: 1
+        &.derotate
+            button
+                animation: derotate .3s ease-in-out
+        &.rotate
+            button
+                animation: rotate .3s ease-in-out
+    
     section#actions
         padding: 12px 10px
+        position: relative
+        & > div
+            transition: all .3s ease-in-out
+
+        .hidden
+            opacity: 0
+            pointer-events: none
+            transform: translateY(-5px) scale(0.8)
+        #action-2
+            position: absolute
+            left: 10px
+            right: 10px
+            top: 12px
+            bottom: 12px
         .row
             display: flex
             justify-content: center
