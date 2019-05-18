@@ -386,7 +386,7 @@ function updateTravelUI() {
 }
 
 function getTravelVelocity(travel) {
-    return (Math.round(travel.stats.steps * 0.3) / moment(travel.enddate).diff(moment(travel.startdate), 'seconds')).toFixed(2)
+    return (Math.round(travel.stats.steps * 0.7) / moment(travel.enddate).diff(moment(travel.startdate), 'seconds')).toFixed(2)
 }
 
 function getTravelDuration(travel) {
@@ -467,17 +467,19 @@ function getCurrentDuration() {
 let currentMark = {
     id: travel_data.current.marks.length,
     timestamp: moment().format(),
-    description: $('#mark-description').val().trim()
+    description: ''
 }
 
 function markPlace(event) {
     event.preventDefault()
 
     if(!canSubmitMark())
-        return showMarkError()
-
-    travel_data.current.marks.push(currentMark)
-    saveTravelData()
+        showMarkError()
+    else {
+        travel_data.current.marks.push(currentMark)
+        saveTravelData()
+        window.history.back()
+    }
 }
 
 function canSubmitMark() {
@@ -498,9 +500,4 @@ function changeMarkDescription(event) {
 
 function showMarkError() {
     $('.form').toggleClass('error')
-    return true
-}
-
-function updateMarkUI() {
-    console.log(currentMark.description)
 }
