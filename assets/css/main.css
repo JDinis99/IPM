@@ -5,6 +5,19 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
+input {
+  border-style: none;
+  background: transparent;
+  outline: none;
+}
+
+button {
+  padding: 0;
+  background: none;
+  border: none;
+  outline: none;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -13649,6 +13662,24 @@ video {
   }
 }
 
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
 section#header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13738,6 +13769,28 @@ section#widgets.widgets-light h1, section#widgets.widgets-light h3, section#widg
 
 .el-switch > input[type="checkbox"]:checked + .el-switch-style {
   background-color: #fd92a5;
+}
+
+.keyboard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.keyboard img {
+  -webkit-box-shadow: 0 -3px 3px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 -3px 3px 0 rgba(0, 0, 0, 0.3);
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  border: solid 13px #1c1f28;
+  border-left-width: 7px;
+  border-right-width: 7px;
+  border-top-width: 10px;
 }
 
 main {
@@ -15519,5 +15572,90 @@ main#travel section.friends-list .list-group .list-item .row button.success, mai
   background: #4aad7f;
   -webkit-box-shadow: 0 0 0 3px rgba(74, 173, 127, 0.3);
           box-shadow: 0 0 0 3px rgba(74, 173, 127, 0.3);
+}
+
+main#travel section#mark label {
+  color: white;
+  margin: 0px 1px 5px;
+  display: block;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: bold;
+}
+
+main#travel section#mark p {
+  margin: 7px 1px 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: right;
+}
+
+main#travel section#mark p span, main#travel section#mark p b {
+  color: white;
+  font-weight: bold;
+}
+
+main#travel section#mark form {
+  width: 100%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 0 auto;
+  border-radius: 2px;
+  padding: 5px 10px 7px;
+  background: white;
+}
+
+main#travel section#mark form:after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 1;
+  height: 2px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  background-position: 0% 0%;
+  background: -webkit-gradient(linear, left top, right top, from(#B294FF), color-stop(#57E6E6), color-stop(#FEFFB8), color-stop(#57E6E6), color-stop(#B294FF), to(#57E6E6));
+  background: linear-gradient(to right, #B294FF, #57E6E6, #FEFFB8, #57E6E6, #B294FF, #57E6E6);
+  background-size: 500% auto;
+  -webkit-animation: gradient 3s linear infinite;
+          animation: gradient 3s linear infinite;
+}
+
+main#travel section#mark form input {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  color: #271f30;
+  font-size: 14px;
+  line-height: 14px;
+  width: 100%;
+  vertical-align: middle;
+  font-family: 'Roboto';
+  padding-right: 10px;
+}
+
+main#travel section#mark form input::-webkit-input-placeholder {
+  color: #7881A1;
+}
+
+main#travel section#mark form button {
+  color: #7881A1;
+  font-size: 20px;
+  line-height: 20px;
+  vertical-align: middle;
+  -webkit-transition: color .25s;
+  transition: color .25s;
+}
+
+main#travel section#mark form button:hover {
+  color: rgba(57, 63, 84, 0.8);
 }
 /*# sourceMappingURL=main.css.map */

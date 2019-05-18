@@ -101,7 +101,7 @@ function createListTravelHtml(travel) {
     return `<li class="list-item">
                 <div class="row">
                     <div class="left">
-                        <h1>${moment(travel.startdate).format("D/MM/YY - hh:mm")}</h1>
+                        <h1>${moment(travel.startdate).format("D/MM/YY - HH:mm")}</h1>
                     </div>
                     <a href="details.html?id=${travel.id}" class="info"><i class="fas fa-info"></i></a>
                 </div>
@@ -370,8 +370,8 @@ function updateTravelUI() {
     if($('#travel-stats-page').length) {
         let travel = travel_data.history.find((t) => t.id == findGetParameter('id'))
 
-        $('#time-start').text(moment(travel.startdate).format('hh:mm'))
-        $('#time-stop').text(moment(travel.enddate).format('hh:mm'))
+        $('#time-start').text(moment(travel.startdate).format('HH:mm'))
+        $('#time-stop').text(moment(travel.enddate).format('HH:mm'))
 
         $('#travel-steps').text(travel.stats.steps)
         $('#travel-duration').text(getTravelDuration(travel))
@@ -464,12 +464,41 @@ function getCurrentDuration() {
     return `${hours}:${minutes}:${seconds}`
 }
 
-function markPlace() {
-    let marked = {
-        id: 1,
-        timestamp: moment().format(),
-        description: ''
-    }
+let currentMark = {
+    id: travel_data.current.marks.length,
+    timestamp: moment().format(),
+    description: $('#mark-description').val().trim()
+}
 
-    travel_data.current.marks.push(marked)
+function markPlace(event) {
+    event.preventDefault()
+
+    if(!canSubmitMark())
+        return showMarkError()
+
+    travel_data.current.marks.push(currentMark)
+    saveTravelData()
+}
+
+function canSubmitMark() {
+    return currentMark.description.length > 0 && currentMark.description.length <= 25 // max is 25 characters
+}
+
+function changeMarkDescription(event) {
+    if($(event.srcElement).val().trim().length > 25) // max is 25 characters
+        $(event.srcElement).val(currentMark.description)
+    else
+        currentMark.description = $(event.srcElement).val().trim()
+    
+    $('#mark-description-character-count').text(currentMark.description.length)
+}
+
+
+function showMarkError() {
+    console.log("Error")
+    return true
+}
+
+function updateMarkUI() {
+    console.log(currentMark.description)
 }

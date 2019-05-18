@@ -8,6 +8,8 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
+ input { border-style: none; background: transparent; outline: none; }
+ button { padding: 0; background: none; border: none; outline: none; }
  * {
     box-sizing: border-box;
  }

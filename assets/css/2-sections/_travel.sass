@@ -206,3 +206,64 @@ main#travel
                         &.success
                             background: #4aad7f
                             box-shadow: 0 0 0 3px rgba(74, 173, 127, 0.3)
+
+    section#mark
+        label
+            color: white
+            margin: 0px 1px 5px
+            display: block
+            font-family: 'Roboto'
+            font-size: 14px
+            font-weight: bold
+        p
+            margin: 7px 1px 0
+            font-size: 13px
+            color: rgba(255, 255, 255, 0.85)
+            text-align: right
+            span, b
+                color: white
+                font-weight: bold
+        form
+            width: 100%
+            position: relative
+            display: flex
+            flex-direction: row
+            margin: 0 auto
+            border-radius: 2px
+            padding: 5px 10px 7px
+            background: white
+            &:after
+                content: ""
+                position: absolute
+                left: 0px
+                right: 0px
+                bottom: 0px
+                z-index: 1
+                height: 2px
+                border-bottom-left-radius: 2px
+                border-bottom-right-radius: 2px
+                background-position: 0% 0%
+                background: linear-gradient(to right, #B294FF, #57E6E6, #FEFFB8, #57E6E6, #B294FF, #57E6E6)
+                background-size: 500% auto
+                animation: gradient 3s linear infinite
+            
+            input
+                flex-grow: 1
+                color: #271f30
+                font-size: 14px
+                line-height: 14px
+                width: 100%
+                vertical-align: middle
+                font-family: 'Roboto'
+                padding-right: 10px
+                &::-webkit-input-placeholder
+                    color: #7881A1
+
+            button
+                color: #7881A1
+                font-size: 20px
+                line-height: 20px
+                vertical-align: middle
+                transition: color .25s
+                &:hover
+                    color: rgba(57, 63, 84, 0.8)
