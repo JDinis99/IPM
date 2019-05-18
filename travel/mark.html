@@ -33,10 +33,13 @@
 
                     <section id="mark">
                         <label for="mark-description">Description</label>
-                        <form onsubmit="markPlace(event)" autocomplete="off">
-                            <input placeholder="Start typing here..." oninput="changeMarkDescription(event)" type="text" name="mark-description" id="mark-description">
-                            <button type="submit"><i class="fas fa-map-marker-plus"></i></button>
-                        </form>
+                        <div class="form">
+                            <div class="form-error"></div>
+                            <form id="form-mark" onsubmit="markPlace(event)" autocomplete="off">
+                                <input placeholder="Start typing here..." oninput="changeMarkDescription(event)" type="text" name="mark-description" id="mark-description">
+                                <button type="submit"><i class="fas fa-map-marker-plus"></i></button>
+                            </form>
+                        </div>
                         <p><span id="mark-description-character-count">0</span> out of <b>25</b> characters</p>
                     </section>
                     <div class="keyboard">

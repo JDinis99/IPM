@@ -491,11 +491,13 @@ function changeMarkDescription(event) {
         currentMark.description = $(event.srcElement).val().trim()
     
     $('#mark-description-character-count').text(currentMark.description.length)
+    
+    $('.form').removeClass('error')
 }
 
 
 function showMarkError() {
-    console.log("Error")
+    $('.form').toggleClass('error')
     return true
 }
 

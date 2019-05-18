@@ -223,47 +223,57 @@ main#travel
             span, b
                 color: white
                 font-weight: bold
-        form
-            width: 100%
+        .form
             position: relative
-            display: flex
-            flex-direction: row
-            margin: 0 auto
-            border-radius: 2px
-            padding: 5px 10px 7px
-            background: white
-            &:after
-                content: ""
+            &.error
+                .form-error
+                    top: -4px
+                    left: -4px
+                    right: -4px
+                    bottom: -4px
+                form input
+                    color: #d66f67
+                    &::-webkit-input-placeholder
+                        color: #d66f67
+            .form-error
                 position: absolute
+                background: linear-gradient(to right, #ea4f35, #d66f67, #efb1b1, #d66f67, #ea4f35, #d66f67)
+                top: 0px
                 left: 0px
                 right: 0px
                 bottom: 0px
-                z-index: 1
-                height: 2px
-                border-bottom-left-radius: 2px
-                border-bottom-right-radius: 2px
-                background-position: 0% 0%
-                background: linear-gradient(to right, #B294FF, #57E6E6, #FEFFB8, #57E6E6, #B294FF, #57E6E6)
                 background-size: 500% auto
                 animation: gradient 3s linear infinite
-            
-            input
-                flex-grow: 1
-                color: #271f30
-                font-size: 14px
-                line-height: 14px
+                background-position: 0% 0%
+                transition: all .3s ease-in-out
+                border-radius: 4px
+            form
                 width: 100%
-                vertical-align: middle
-                font-family: 'Roboto'
-                padding-right: 10px
-                &::-webkit-input-placeholder
-                    color: #7881A1
+                position: relative
+                display: flex
+                flex-direction: row
+                margin: 0 auto
+                border-radius: 2px
+                padding: 5px 10px
+                background: white
+                    
+                input
+                    flex-grow: 1
+                    color: #271f30
+                    font-size: 14px
+                    line-height: 14px
+                    width: 100%
+                    vertical-align: middle
+                    font-family: 'Roboto'
+                    padding-right: 10px
+                    &::-webkit-input-placeholder
+                        color: #7881A1
 
-            button
-                color: #7881A1
-                font-size: 20px
-                line-height: 20px
-                vertical-align: middle
-                transition: color .25s
-                &:hover
-                    color: rgba(57, 63, 84, 0.8)
+                button
+                    color: #7881A1
+                    font-size: 20px
+                    line-height: 20px
+                    vertical-align: middle
+                    transition: color .25s
+                    &:hover
+                        color: rgba(57, 63, 84, 0.8)

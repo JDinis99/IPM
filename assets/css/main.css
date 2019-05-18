@@ -15595,7 +15595,43 @@ main#travel section#mark p span, main#travel section#mark p b {
   font-weight: bold;
 }
 
-main#travel section#mark form {
+main#travel section#mark .form {
+  position: relative;
+}
+
+main#travel section#mark .form.error .form-error {
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+}
+
+main#travel section#mark .form.error form input {
+  color: #d66f67;
+}
+
+main#travel section#mark .form.error form input::-webkit-input-placeholder {
+  color: #d66f67;
+}
+
+main#travel section#mark .form .form-error {
+  position: absolute;
+  background: -webkit-gradient(linear, left top, right top, from(#ea4f35), color-stop(#d66f67), color-stop(#efb1b1), color-stop(#d66f67), color-stop(#ea4f35), to(#d66f67));
+  background: linear-gradient(to right, #ea4f35, #d66f67, #efb1b1, #d66f67, #ea4f35, #d66f67);
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-size: 500% auto;
+  -webkit-animation: gradient 3s linear infinite;
+          animation: gradient 3s linear infinite;
+  background-position: 0% 0%;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  border-radius: 4px;
+}
+
+main#travel section#mark .form form {
   width: 100%;
   position: relative;
   display: -webkit-box;
@@ -15607,29 +15643,11 @@ main#travel section#mark form {
           flex-direction: row;
   margin: 0 auto;
   border-radius: 2px;
-  padding: 5px 10px 7px;
+  padding: 5px 10px;
   background: white;
 }
 
-main#travel section#mark form:after {
-  content: "";
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  z-index: 1;
-  height: 2px;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
-  background-position: 0% 0%;
-  background: -webkit-gradient(linear, left top, right top, from(#B294FF), color-stop(#57E6E6), color-stop(#FEFFB8), color-stop(#57E6E6), color-stop(#B294FF), to(#57E6E6));
-  background: linear-gradient(to right, #B294FF, #57E6E6, #FEFFB8, #57E6E6, #B294FF, #57E6E6);
-  background-size: 500% auto;
-  -webkit-animation: gradient 3s linear infinite;
-          animation: gradient 3s linear infinite;
-}
-
-main#travel section#mark form input {
+main#travel section#mark .form form input {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -15642,11 +15660,11 @@ main#travel section#mark form input {
   padding-right: 10px;
 }
 
-main#travel section#mark form input::-webkit-input-placeholder {
+main#travel section#mark .form form input::-webkit-input-placeholder {
   color: #7881A1;
 }
 
-main#travel section#mark form button {
+main#travel section#mark .form form button {
   color: #7881A1;
   font-size: 20px;
   line-height: 20px;
@@ -15655,7 +15673,7 @@ main#travel section#mark form button {
   transition: color .25s;
 }
 
-main#travel section#mark form button:hover {
+main#travel section#mark .form form button:hover {
   color: rgba(57, 63, 84, 0.8);
 }
 /*# sourceMappingURL=main.css.map */
