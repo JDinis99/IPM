@@ -35,9 +35,6 @@ function movePage(dir) {
 }
 
 function updateList() {
-    travel_data.history.reverse()
-    saveTravelData()
-
     $('#travels-history').empty()
 
     travel_data.history.forEach((travel) => {
@@ -50,6 +47,7 @@ function updateList() {
 
 $('.sort-btn').click(() => {
     $('.sort-btn i').toggleClass('fa-sort-amount-down fa-sort-amount-up')
+    travel_data.history.reverse()
     updateList()
 })
 

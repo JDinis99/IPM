@@ -40,6 +40,8 @@ main#travel
         justify-content: space-between
         align-items: center
         margin: 5px 0
+        &.right
+            justify-content: flex-end
         h3
             cursor: pointer
             transition: all .3s ease-in-out
@@ -216,6 +218,8 @@ main#travel
                             font-size: 12px
                             font-weight: normal
                             max-width: 107px
+
+
                     button, a
                         font-size: 11px
                         line-height: 20px
@@ -237,6 +241,29 @@ main#travel
                         &.success
                             background: #4aad7f
                             box-shadow: 0 0 0 3px rgba(74, 173, 127, 0.3)
+            
+
+                &.timestamp
+                    max-height: 45px
+                    padding: 3px 7px
+                    margin: 4px 20px
+                    &:nth-child(3n+1), &:first-child
+                        margin-top: 3px
+                    &:nth-child(3n)
+                        margin-bottom: 3px
+                    .row
+                        display: flex
+                        height: 100%
+                        .left
+                            display: block
+                            h1, p
+                                max-width: 100%
+                                display: block
+                                margin: 5px 0
+                                font-size: 12px
+                                font-weight: normal
+                            h1
+                                font-weight: bold
 
     section#mark
         label

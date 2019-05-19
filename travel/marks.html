@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iGo Simulator</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
+</head>
+<body onload="startClock()" id="travel-marks-page">
+    <video autoplay muted loop>
+        <source src="../assets/img/movie.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1 class="title">iGo Simulator</h1>
+
+        <div id="wrapper">
+            <div id="content">
+                <!-- PAGES -->
+
+                <main id="travel">
+                    <section id="header" class="header-light">
+                        <a href="#" onclick="window.history.back()" class="btn btn-circle"><i class="fas fa-arrow-left"></i></a>
+                        <i class="fa fa-route"></i>
+                        <div class="clock">
+                            <h2 id="clock-time"></h2>
+                            <p id="clock-date"></p>
+                        </div>
+                    </section>
+
+                    <section id="controls">
+                        <h3 class="sort-btn"><i class="fas fa-sort-amount-down"></i> Sort</h3>
+                        <p>
+                            <i style="display: none;" id="left-btn" class="fa fa-chevron-left"></i>
+                            <span id="current-page">0</span> / <span id="total-pages">0</span>
+                            <i style="display: none;" id="right-btn" class="fa fa-chevron-right"></i>
+                        </p>
+                    </section>
+
+                    <section class="friends-list" id="list">
+                        <ul id="travels-marks" class="list-group"></ul>
+                    </section>
+
+                    <div id="btn-notifications-open">
+                        <button id="notification-btn" onclick="showNotifications()" class="btn-small-light"><i class="fa fa-chevron-up"></i></button>
+                    </div>
+                </main>
+
+                <section id="settings">
+                    <div id="btn-settings-close">
+                        <button onclick="saveSettings()" class="btn-small-dark"><i class="fa fa-close"></i></button>
+                    </div>
+                    <h2>Settings - <span id="settings-type">Advanced</span></h2>
+                    <div id="settings-strip">
+                        <div class="settings-viewbox" id="settings-basic">
+                            <p id="settings-weight" class="sel sel--weight">
+                                <select id="settings-weight-value">
+                                    <option disabled selected>Weight</option>
+                                    <option value="1">&lt; 30kg</option>
+                                    <option value="2">30kg - 45kg</option>
+                                    <option value="3">45kg - 60kg</option>
+                                    <option value="4">60kg - 75kg</option>
+                                    <option value="5">75kg - 90kg</option>
+                                    <option value="6">90kg - 115kg</option>
+                                    <option value="7">&gt; 115kg</option>
+                                </select>
+                            </p>
+                            <p id="settings-age" class="slider">
+                                <span>Age:</span>
+                                <input type="range" id="settings-age-slider" class="rangeSlider" data-rangeSlider>
+                                <span id="settings-age-value">20</span>
+                            </p>
+                            <p id="settings-gender">
+                                <i class="fas fa-male"></i>
+                                <label class="el-switch">
+                                    <input type="checkbox" name="switch" id="settings-gender-value">
+                                    <span class="el-switch-style"></span>
+                                </label>
+                                <i class="fas fa-female"></i>
+                            </p>
+                        </div>
+                        <div class="settings-viewbox" id="settings-advanced">
+                            <div class="slider">
+                                <input type="range" id="settings-bpm-slider" data-rangeSlider class="rangeSlider rangeSlider-advanced">
+                                <h3><span id="settings-bpm-value">20</span>Average BPM</h3>
+                            </div>
+                            <div class="slider">
+                                <input type="range" id="settings-oxygen-slider" data-rangeSlider class="rangeSlider rangeSlider-advanced">
+                                <h3><span id="settings-oxygen-value">20</span>Average Oxygen</h3>
+                            </div>
+                            <div class="slider">
+                                <input type="range" id="settings-alcohol-slider" data-rangeSlider class="rangeSlider rangeSlider-advanced">
+                                <h3><span id="settings-alcohol-value">20</span>Maximum Alcohol</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="toggleSettingsType(this)" class="btn" id="settings-type-btn">Show Advanced</button>
+                </section>
+
+                <section id="notifications">
+                    <div id="btn-notifications-close">
+                        <button onclick="hideNotifications()" class="btn-small-dark"><i class="fa fa-chevron-down"></i></button>
+                    </div>
+                    <h2>Notifications</h2>
+                    <div class="notification" id="sos-notification" style="display: none">
+                        <div class="main-info">
+                            <i class="fas fa-ambulance"></i>
+                            <div class="sub-info">
+                                <h3>SOS</h3>
+                                <p>Arriving in <span class="sos-notification-eta"></span></p>
+                            </div>
+                        </div>
+                        <div class="icons">
+                            <button onclick="window.location = '../health/sos.html'" class="btn-small-dark"><i class="fa fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="notification" id="travel-notification" style="display: none">
+                        <div class="main-info">
+                            <i class="fas fa-route"></i>
+                            <div class="sub-info">
+                                <h3 id="travel-notification-date"></h3>
+                                <p><span id="travel-notification-duration"></span><i class="fas fa-clock"></i></p>
+                            </div>
+                        </div>
+                        <div class="icons">
+                            <a href="start.html" class="btn-small-dark"><i class="fa fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+
+                    <p id="notifications-empty">This is a bit empty mate</p>
+                </section>
+
+                <!-- ./PAGES -->
+            </div>
+            <div id="device">
+                <img id="device-frame" src="../assets/img/frame.png" width="230" alt="frame">
+            </div>
+        </div>
+        <div id="button-strip">
+            <button onclick="window.location = '../'" class="btn btn-circle" id="btn-home">
+                <i class="fas fa-home"></i>
+            </button>
+            <button onclick="resetLocalStorage()" class="btn btn-circle" id="btn-reset">
+                <i class="fas fa-redo"></i>
+            </button>
+        </div>
+    </div>
+    
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/hammerslider.min.js"></script>
+    <script src="../assets/js/skyicons.min.js"></script>
+    <script src="../assets/js/range-slider.min.js"></script>
+    <script src="../assets/js/sweetalert2.min.js"></script>
+    <script src="../assets/js/select.js"></script>
+
+    <script src="../assets/js/settings.js"></script>
+    <script src="../assets/js/weather.js"></script>
+    <script src="../assets/js/health.js"></script>
+    <script src="../assets/js/notifications.js"></script>
+    <script src="../assets/js/find/data.js"></script>
+    <script src="../assets/js/find/notifications_reserve.js"></script>
+    <script src="../assets/js/moment.min.js"></script>
+    <script src="../assets/js/travel/data.js"></script>
+    <script src="../assets/js/travel/marks.js"></script>
+    <script src="../assets/js/travel/travel.js"></script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>

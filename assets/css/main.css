@@ -15331,6 +15331,12 @@ main#travel section#controls {
   margin: 5px 0;
 }
 
+main#travel section#controls.right {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
 main#travel section#controls h3 {
   cursor: pointer;
   -webkit-transition: all .3s ease-in-out;
@@ -15664,6 +15670,43 @@ main#travel section.friends-list .list-group .list-item .row button.success, mai
   background: #4aad7f;
   -webkit-box-shadow: 0 0 0 3px rgba(74, 173, 127, 0.3);
           box-shadow: 0 0 0 3px rgba(74, 173, 127, 0.3);
+}
+
+main#travel section.friends-list .list-group .list-item.timestamp {
+  max-height: 45px;
+  padding: 3px 7px;
+  margin: 4px 20px;
+}
+
+main#travel section.friends-list .list-group .list-item.timestamp:nth-child(3n+1), main#travel section.friends-list .list-group .list-item.timestamp:first-child {
+  margin-top: 3px;
+}
+
+main#travel section.friends-list .list-group .list-item.timestamp:nth-child(3n) {
+  margin-bottom: 3px;
+}
+
+main#travel section.friends-list .list-group .list-item.timestamp .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+
+main#travel section.friends-list .list-group .list-item.timestamp .row .left {
+  display: block;
+}
+
+main#travel section.friends-list .list-group .list-item.timestamp .row .left h1, main#travel section.friends-list .list-group .list-item.timestamp .row .left p {
+  max-width: 100%;
+  display: block;
+  margin: 5px 0;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+main#travel section.friends-list .list-group .list-item.timestamp .row .left h1 {
+  font-weight: bold;
 }
 
 main#travel section#mark label {

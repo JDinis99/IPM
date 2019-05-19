@@ -532,3 +532,18 @@ function toggleDetailsButton() {
     $('#actions > div').toggleClass('hidden')
 }
 
+function getTotalMarksTravelPages(travel) {
+    let len = travel.marks.length
+    return Math.floor(len / 3) + (len % 3 != 0 ? 1 : 0)
+}
+
+function createListMarkHtml(mark) {
+    return `<li class="list-item timestamp">
+                <div class="row">
+                    <div class="left timestamp">
+                        <h1>${mark.description}</h1>
+                        <p>${moment(mark.timestamp).format("D/MM/YY - HH:mm")}</p>
+                    </div>
+                </div>
+            </li>`
+}
