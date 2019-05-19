@@ -38,7 +38,7 @@ function createReserveNotificationHTML(reserve, htmlClass) {
     if(htmlClass == 'reserve') {
         time = 'Dia ' + reserve.day + ', ' + time
     }
-    if(window.location.pathname.split('/').filter((s) => s != "").length > 0) {
+    if($('#homepage').length == 0) {
         url = '../' + url
     }
     return `<div class="${htmlClass}" id="reserve-${id}">
