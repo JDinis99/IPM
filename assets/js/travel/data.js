@@ -408,7 +408,7 @@ function updateTravelUI() {
         $('#travel-duration-units').text(getTravelDurationUnits(travel))
         $('#travel-distance').text(getTravelDistance(travel))
         $('#travel-distance-units').text(getTravelDistanceUnits(travel))
-        $('#travel-stops').text(travel.stats.stops)
+        $('#travel-marks').text(travel.marks.length)
         $('#travel-velocity').text(getTravelVelocity(travel))
 
         $('#travel-date').text(moment(travel.startdate).format('Do MMM YYYY'))
