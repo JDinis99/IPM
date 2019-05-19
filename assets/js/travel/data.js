@@ -61,7 +61,8 @@ function resetTravelData() {
                 stops: 0
             },
             shared_with: [],
-            marks: []
+            marks: [],
+            logs: []
         }
     }
     localStorage.setItem('travels', JSON.stringify(travel_data_default))
@@ -160,6 +161,7 @@ function shareTravel(platform, person_id) {
 function startTravel() {
     travel_data.current.startdate = moment().format()
     travel_data.state = STATE_STARTED
+    createTravelLog('Started travel.')
     saveTravelData()
     window.location.href = "start.html"
 }
@@ -198,6 +200,8 @@ function pauseTravel(btn) {
     $(btn).find('p').text(text)
     $(btn).toggleClass('paused')
     $(btn).find('i').toggleClass('fa-pause fa-hiking')
+
+    createTravelLog('Paused travel.')
 
     saveTravelData()
 }
@@ -250,8 +254,10 @@ function addFriend(name) {
 }
 
 function inviteFriend(friend) {
-    if(!travel_data.current.people.includes(friend.id))
+    if(!travel_data.current.people.includes(friend.id)) {
         travel_data.current.people.push(friend.id)
+        createTravelLog(`Added ${friend.name} to travel.`)
+    }
     saveTravelData()
     updateTravelUI()
 }
@@ -304,8 +310,10 @@ function removeFriend(name) {
 }
 
 function kickFriend(friend) {
-    if(travel_data.current.people.includes(friend.id))
+    if(travel_data.current.people.includes(friend.id)) {
         travel_data.current.people = travel_data.current.people.filter((i) => i != friend.id)
+        createTravelLog(`Removed ${friend.name} from travel.`)
+    }
     saveTravelData()
     updateTravelUI()
 }
@@ -317,6 +325,7 @@ function genSteps(travel) {
 }
 
 function finishTravel() {
+    createTravelLog('Finished travel.')
     travel_data.current.enddate = moment().format()
     travel_data.current.stats.steps = genSteps(travel_data.current)
 
@@ -333,7 +342,8 @@ function finishTravel() {
             stops: 0
         },
         shared_with: [],
-        marks: []
+        marks: [],
+        logs: []
     }
     travel_data.state = STATE_EMPTY
 
@@ -499,6 +509,7 @@ function markPlace(event) {
         showMarkError()
     else {
         travel_data.current.marks.push(currentMark)
+        createTravelLog('Marked current location.')
         saveTravelData()
         window.history.back()
     }
@@ -546,4 +557,30 @@ function createListMarkHtml(mark) {
                     </div>
                 </div>
             </li>`
+}
+
+function getTotalLogsTravelPages(travel) {
+    let len = travel.logs.length
+    return Math.floor(len / 3) + (len % 3 != 0 ? 1 : 0)
+}
+
+function createListLogHtml(log) {
+    return `<li class="list-item timestamp">
+                <div class="row">
+                    <div class="left timestamp">
+                        <h1>${log.description}</h1>
+                        <p>${moment(log.timestamp).format("D/MM/YY - HH:mm:ss")}</p>
+                    </div>
+                </div>
+            </li>`
+}
+
+function createTravelLog(message) {
+    let log = {
+        description: message,
+        timestamp: moment().format()
+    }
+    
+    travel_data.current.logs.push(log)
+    saveTravelData()
 }

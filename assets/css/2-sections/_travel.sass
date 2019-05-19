@@ -252,14 +252,18 @@ main#travel
                     &:nth-child(3n)
                         margin-bottom: 3px
                     .row
-                        display: flex
+                        display: block
                         height: 100%
                         .left
-                            display: block
+                            display: flex
+                            height: 100%
+                            flex-direction: column
+                            justify-content: space-around
+                            align-items: flex-start
                             h1, p
                                 max-width: 100%
                                 display: block
-                                margin: 5px 0
+                                margin: 0
                                 font-size: 12px
                                 font-weight: normal
                             h1

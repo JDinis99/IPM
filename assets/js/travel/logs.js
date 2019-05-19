@@ -1,7 +1,7 @@
 {
     let travel = travel_data.history.find((t) => t.id == findGetParameter('id'))
 
-    let total_pages  = getTotalMarksTravelPages(travel)
+    let total_pages  = getTotalLogsTravelPages(travel)
     let current_page = total_pages > 0 ? 1 : 0
     let cur_page = $('#current-page').text(current_page)
     $('#total-pages').text(total_pages)
@@ -33,24 +33,24 @@
         else
             left_btn.css('display', 'inline')
 
-        $('#travels-marks').css('left', `${left}px`)
+        $('#travels-logs').css('left', `${left}px`)
         cur_page.text(current_page)
     }
 
     function updateList() {
-        $('#travels-marks').empty()
+        $('#travels-logs').empty()
 
-        travel.marks.forEach((mark) => {
-            $('#travels-marks').append(createListMarkHtml(mark))
+        travel.logs.forEach((log) => {
+            $('#travels-logs').append(createListLogHtml(log))
         })
 
-        if (travel.marks.length == 0)
-            $('#travels-marks').append('<p style="color:white">No marks here</p>')
+        if (travel.logs.length == 0)
+            $('#travels-logs').append('<p style="color:white">No logs here</p>')
     }
 
     $('.sort-btn').click(() => {
         $('.sort-btn i').toggleClass('fa-sort-amount-down fa-sort-amount-up')
-        travel.marks.reverse()
+        travel.logs.reverse()
         updateList()
     })
 }
