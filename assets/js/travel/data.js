@@ -410,6 +410,7 @@ function updateTravelUI() {
         $('#travel-distance-units').text(getTravelDistanceUnits(travel))
         $('#travel-marks').text(travel.marks.length)
         $('#travel-velocity').text(getTravelVelocity(travel))
+        $('#travel-friends').text(travel.people.length)
 
         $('#travel-date').text(moment(travel.startdate).format('Do MMM YYYY'))
     }
