@@ -77,6 +77,17 @@ function isFriendInGroup(person) {
     return travel_data.current.people.includes(person.id)
 }
 
+function createListUsersHtml(person) {
+    return `<li class="list-item">
+                <div class="row">
+                    <div class="left">
+                        <img src="../assets/img/${person.img}" alt="avatar">
+                        <h1>${person.name}</h1>
+                    </div>
+                </div>
+            </li>`
+}
+
 function createListGroupHtml(person, button_type) {
     let button = BUTTONS[button_type]
     let shared = false
@@ -367,6 +378,15 @@ function updateTravelUI() {
         })
     }
 
+    if($('#travel-users-list').length) {
+        let travel = travel_data.history.find((t) => t.id == findGetParameter('id'))
+        if(travel.people.length == 0)
+            $('#group-list').append('<li><p style="color:white">No friends here</p></li>')
+        travel.people.forEach((i) => {
+            $('#group-list').append(createListUsersHtml(FRIENDS[i-1], 0))
+        })
+    }
+
     if($('#travel-stats-page').length) {
         let travel = travel_data.history.find((t) => t.id == findGetParameter('id'))
 
@@ -435,7 +455,9 @@ function getTotalTravelPages() {
 }
 
 function pageNeedsTravelId() {
-    return $('#travel-stats-page').length || $('#travel-details-page').length ||  $('#travel-share-page').length; 
+    return $('#travel-stats-page').length || $('#travel-details-page').length
+        || $('#travel-share-page').length || $('#travel-users-page').length
+        || $('#travel-marks-page').length || $('#travel-logs-page').length; 
 }
 
 $('#travel-notification-date').text("h")
@@ -455,8 +477,8 @@ function updateTravelNotification() {
 
 function getCurrentDuration() {
     let seconds = moment().diff(travel_data.current.startdate, 'seconds')
-    let minutes = Math.round(seconds / 60)
-    let hours = Math.round(minutes / 60)
+    let minutes = Math.floor(seconds / 60) % 60
+    let hours = Math.floor(seconds / 3600)
     seconds = seconds % 60
     seconds = seconds < 10 ? '0' + seconds : seconds + ''
     minutes = minutes < 10 ? '0' + minutes : minutes + ''
@@ -509,3 +531,4 @@ function toggleDetailsButton() {
 
     $('#actions > div').toggleClass('hidden')
 }
+
