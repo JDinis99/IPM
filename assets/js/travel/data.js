@@ -146,7 +146,7 @@ function shareTravel(platform, person_id) {
             
             if(person_id && !travel.shared_with.find((f) => f == person_id))
                 travel.shared_with.push(person_id)
-            else if(!!person_id && verb == 'with') {
+            else if(!person_id && verb == 'with') {
                 travel.shared_with = []
                 FRIENDS.forEach((f) => travel.shared_with.push(f.id))
             }
